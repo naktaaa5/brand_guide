@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -355,8 +355,8 @@ a:focus:not(:focus-visible) { outline: none; }
 /* L2 — Major section (default) */
 .sec-hd {
   padding: var(--sp-2xl) 0 var(--sp-md);
-  border-top: 1px solid var(--border);
-}
+  }
+
 .sec-hd.compact { padding: var(--sp-xl) 0 var(--sp-md); border-top: none; }
 .sec-hd.no-rule { border-top: none; }
 .sec-num {
@@ -573,6 +573,8 @@ table.tbl { width:100%; border-collapse:collapse; }
   letter-spacing:-0.2px; margin-bottom:8px;
 }
 .flow-desc { font-size:14px; color:var(--text-mid); line-height:1.9; }
+.flow-step[onclick]:hover .flow-title { color:var(--accent); }
+.flow-step[onclick]:hover .flow-num { color:var(--accent); }
 
 /* ════════ TOOL ROW ════════ */
 .tool-row {
@@ -900,7 +902,6 @@ table.tbl { width:100%; border-collapse:collapse; }
   margin: 0 auto;
   padding: 40px 32px 80px;
   text-align: center;
-  border-top: 1px solid var(--border);
 }
 .page-footer-brand {
   font-size: 12px;
@@ -1006,7 +1007,7 @@ table.tbl { width:100%; border-collapse:collapse; }
     <p>마사지 팁은 40만 조회수를 만듭니다. 그런데 그 사람들이 좋아요를 누른 건 투머치쇼 전체매진 소식이었습니다. 1,200개. 사람을 데려오는 콘텐츠와 사람의 마음을 움직이는 콘텐츠가 완전히 달랐습니다.</p>
   </div>
 
-  <div class="rv" style="margin:32px 0;"><img src="https://pub-e470c27e348244dab3f75fe3725a94a6.r2.dev/%EC%A1%B0%ED%9A%8C%EC%88%98%EB%A5%BC%20%EC%83%81%EC%9C%84%EB%A1%9C%20%EC%A0%95%EB%A0%AC.png" alt="조회수를 상위로 정렬한 피드" style="width:100%;border:1px solid var(--border);"></div>
+  <div class="rv" style="margin:32px 0;"><img src="https://pub-e470c27e348244dab3f75fe3725a94a6.r2.dev/%EC%A1%B0%ED%9A%8C%EC%88%98%EB%A5%BC%20%EC%83%81%EC%9C%84%EB%A1%9C%20%EC%A0%95%EB%A0%AC.png" alt="조회수를 상위로 정렬한 피드" style="width:100%;"></div>
 
   <div class="prose rv">
     <p>피드를 분석했을 때, 세 명의 핑크원더 페르소나가 보였습니다. 피부를 읽는 상담사, 감각적으로 사는 사람, 글로벌 브랜드를 만든 CEO. 이 셋이 피드에서 따로 움직이고 있었습니다. 그런데 셋이 한 장면에 합쳐진 게시물에서 반응이 가장 높았습니다. 역할이 겹칠수록 수치가 올라갔습니다.</p>
@@ -1123,42 +1124,42 @@ table.tbl { width:100%; border-collapse:collapse; }
   </div>
 
   <div class="flow rv">
-    <div class="flow-step">
+    <div class="flow-step" onclick="showSection('part1')" style="cursor:pointer;">
       <div class="flow-num">01</div>
       <div class="flow-body">
         <div class="flow-title">핑크원더의 페르소나</div>
         <div class="flow-desc">3-Layer 페르소나 진단. 외부의 눈, 데이터의 눈, 대표의 눈으로 분석하고, 하나의 기준으로 꿰었습니다.</div>
       </div>
     </div>
-    <div class="flow-step">
+    <div class="flow-step" onclick="showSection('part2')" style="cursor:pointer;">
       <div class="flow-num">02</div>
       <div class="flow-body">
         <div class="flow-title">콘텐츠 설계</div>
         <div class="flow-desc">채널 역할 분리, 피드 순환 사이클. 뭘 올릴지와 어떻게 올릴지를 설계했습니다.</div>
       </div>
     </div>
-    <div class="flow-step">
+    <div class="flow-step" onclick="showSection('part3')" style="cursor:pointer;">
       <div class="flow-num">03</div>
       <div class="flow-body">
         <div class="flow-title">콘텐츠 아카이브</div>
         <div class="flow-desc">O.S.I.T 프레임, 소재 카드 22장. 설계를 채울 실물 도구를 전달합니다.</div>
       </div>
     </div>
-    <div class="flow-step">
+    <div class="flow-step" onclick="showSection('appendix-report')" style="cursor:pointer;">
       <div class="flow-num">A</div>
       <div class="flow-body">
         <div class="flow-title">분석 리포트</div>
         <div class="flow-desc">90일간 수집 데이터 66건 기반. 콘텐츠 유형, 참여율, 캡션 톤, 오디언스 분석.</div>
       </div>
     </div>
-    <div class="flow-step">
+    <div class="flow-step" onclick="showSection('appendix-cards')" style="cursor:pointer;">
       <div class="flow-num">B</div>
       <div class="flow-body">
         <div class="flow-title">소재 카드 22장</div>
         <div class="flow-desc">블로그 198편에서 발굴한 헤리티지 자산. O.S.I.T 분류별 전체 카드.</div>
       </div>
     </div>
-    <div class="flow-step">
+    <div class="flow-step" onclick="showSection('appendix-archive')" style="cursor:pointer;">
       <div class="flow-num">C</div>
       <div class="flow-body">
         <div class="flow-title">블로그 소재 발췌</div>
@@ -1184,7 +1185,6 @@ table.tbl { width:100%; border-collapse:collapse; }
 <div class="ct">
   <div class="cover-part rv">Part One — Diagnosis</div>
   <h1 class="rv">피드에서 읽히는<br>핑크원더의 페르소나</h1>
-  <div class="cover-line rv"></div>
   <p class="cover-desc rv">
     대표님의 인스타그램(@pinkwonder_choi)을 다섯 가지 방법으로 분석했습니다. 미팅에서 직접 만나 확인한 것, 피드를 스크롤하며 조회수 패턴을 관찰한 것, 피드 전체를 영역별로 체계적으로 진단한 것, 참여율과 좋아요·댓글을 전수 분석한 것, 그리고 90일간 캡션 톤까지 분류한 것입니다.
   </p>
@@ -1740,7 +1740,6 @@ table.tbl { width:100%; border-collapse:collapse; }
 <div class="ct">
   <div class="cover-part rv">Part Two — Content Design</div>
   <h1 class="rv">콘텐츠 설계</h1>
-  <div class="cover-line rv"></div>
   <p class="cover-desc rv">
     열정에만 의존하지 않는 구조를 만듭니다. 뭘 올릴지 매번 고민하지 않아도 순서가 정해져 있고, 빈 화면 앞에서 시작하지 않아도 소재가 준비돼 있는 구조. 열정이 넘치는 날에는 그 에너지를 구조 안에서 폭발시키고, 바쁘거나 지치는 날에는 구조가 최소한의 리듬을 유지해줍니다.
   </p>
@@ -2437,7 +2436,6 @@ table.tbl { width:100%; border-collapse:collapse; }
 <div class="ct">
   <div class="cover-part rv">Part Three — Content Archive</div>
   <h1 class="rv rv-delay-1">콘텐츠 아카이브</h1>
-  <div class="cover-line rv rv-delay-2"></div>
   <p class="cover-desc rv rv-delay-2">Part 2에서 설계한 구조를 채울 실물 도구를 전달합니다. 블로그 198편에서 발굴한 헤리티지 자산, 분류 프레임, 그리고 소재 카드.</p>
   <dl class="cover-meta rv rv-delay-3">
     <div><dt>Client</dt><dd>핑크원더 · 최금실</dd></div>
