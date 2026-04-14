@@ -160,6 +160,7 @@ a:focus:not(:focus-visible) { outline: none; }
 .ct {
   max-width: 720px;
   padding: 0 32px;
+  margin-left: 72px;
 }
 
 /* ════════ REVEAL ANIMATION ════════ */
@@ -285,6 +286,7 @@ a:focus:not(:focus-visible) { outline: none; }
   flex-direction: column;
   justify-content: center;
   max-width: 720px;
+  margin-left: 72px;
   padding: var(--sp-2xl) 32px var(--sp-xl);
 }
 .cover::before {
@@ -343,9 +345,6 @@ a:focus:not(:focus-visible) { outline: none; }
 }
 
 /* ── Cover — unified, prominent ── */
-#part00 .cover {
-  padding: 80px 32px 48px;
-}
 #appendix-cards .cover::before { background: var(--bg); }
 #part00 .sec-hd.compact { padding: 48px 0 20px; }
 #part00 .div-line { margin: 28px 0; }
@@ -824,9 +823,10 @@ table.tbl { width:100%; border-collapse:collapse; }
   .overlay.open { display:block; }
   .main { margin-left:0; padding-top:56px; }
 
-  .cover { padding:60px 20px 40px !important; }
+  .cover { padding:60px 20px 40px !important; margin-left:auto !important; margin-right:auto !important; }
   .cover-meta { flex-direction:column; gap:16px; }
-  .ct { padding:0 20px; }
+  .ct { padding:0 20px; margin-left:auto; margin-right:auto; }
+  .page-footer { margin-left:auto; margin-right:auto; }
 
   .gem { grid-template-columns:1fr; gap:4px; }
   .micro-a-row { grid-template-columns:1fr; gap:4px; }
@@ -901,6 +901,7 @@ table.tbl { width:100%; border-collapse:collapse; }
 /* ════════ PAGE FOOTER ════════ */
 .page-footer {
   max-width: 720px;
+  margin-left: 72px;
   padding: 40px 32px 80px;
   text-align: center;
   border-top: 1px solid var(--border);
@@ -917,7 +918,7 @@ table.tbl { width:100%; border-collapse:collapse; }
   color: var(--text-light);
   line-height: 1.6;
 }
-.rpt .page-footer { max-width: 1040px; }
+.rpt .page-footer { max-width: 1040px; margin: 0 auto; }
 
 </style>
 </head>
@@ -985,7 +986,7 @@ table.tbl { width:100%; border-collapse:collapse; }
 <!-- ═══════════════════════════════════════════ -->
 <div class="tab-section active" id="part00">
 <section class="cover">
-  <div class="cover-part rv">인스타그램 콘텐츠 전략서</div>
+  <div class="cover-part rv">Intro</div>
   <h1 class="rv">기준은 이미 있었다</h1>
   <div class="cover-line rv"></div>
   <p class="cover-desc rv">
