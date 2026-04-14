@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -159,8 +159,8 @@ a:focus:not(:focus-visible) { outline: none; }
 /* ════════ CONTENT CONTAINER ════════ */
 .ct {
   max-width: 720px;
+  margin: 0 auto;
   padding: 0 32px;
-  margin-left: 72px;
 }
 
 /* ════════ REVEAL ANIMATION ════════ */
@@ -282,20 +282,17 @@ a:focus:not(:focus-visible) { outline: none; }
    ════════════════════════════════════════════════ */
 .cover {
   position: relative;
+  padding: var(--sp-2xl) 0 var(--sp-xl);
+}
+.cover .ct {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 720px;
-  margin-left: 72px;
-  padding: var(--sp-2xl) 32px var(--sp-xl);
 }
 .cover::before {
   content: '';
   position: absolute;
-  top: 0; bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
+  inset: 0;
   background: var(--bg-card);
   z-index: -1;
 }
@@ -740,7 +737,7 @@ table.tbl { width:100%; border-collapse:collapse; }
    REPORT SCOPED (.rpt)
    ════════════════════════════════════════════════ */
 .rpt .ct { max-width:1040px; margin:0 auto; padding:0 40px; }
-.rpt .cover { max-width:1040px; margin:0 auto; padding:56px 40px 36px; }
+.rpt .cover { padding:56px 0 36px; }
 .rpt .cover::before { background:var(--bg); }
 .rpt .cover-part { font-size:12px; font-weight:600; letter-spacing:5px; text-transform:uppercase; color:var(--text-light); margin-bottom:20px; }
 .rpt .cover h1 { font-size:clamp(28px,4vw,44px); line-height:1.4; margin-bottom:16px; }
@@ -823,10 +820,9 @@ table.tbl { width:100%; border-collapse:collapse; }
   .overlay.open { display:block; }
   .main { margin-left:0; padding-top:56px; }
 
-  .cover { padding:60px 20px 40px !important; margin-left:auto !important; margin-right:auto !important; }
+  .cover { padding:60px 0 40px !important; }
   .cover-meta { flex-direction:column; gap:16px; }
-  .ct { padding:0 20px; margin-left:auto; margin-right:auto; }
-  .page-footer { margin-left:auto; margin-right:auto; }
+  .ct { padding:0 20px; }
 
   .gem { grid-template-columns:1fr; gap:4px; }
   .micro-a-row { grid-template-columns:1fr; gap:4px; }
@@ -857,7 +853,7 @@ table.tbl { width:100%; border-collapse:collapse; }
 
   /* Report mobile */
   .rpt .ct { padding:0 16px; }
-  .rpt .cover { padding:40px 16px 24px !important; }
+  .rpt .cover { padding:40px 0 24px !important; }
   .rpt .cover h1 { font-size:28px; }
   .rpt .cover-desc { font-size:13px; }
   .rpt .pull-stat-row { grid-template-columns:repeat(2,1fr); gap:0; }
@@ -901,7 +897,7 @@ table.tbl { width:100%; border-collapse:collapse; }
 /* ════════ PAGE FOOTER ════════ */
 .page-footer {
   max-width: 720px;
-  margin-left: 72px;
+  margin: 0 auto;
   padding: 40px 32px 80px;
   text-align: center;
   border-top: 1px solid var(--border);
@@ -918,7 +914,7 @@ table.tbl { width:100%; border-collapse:collapse; }
   color: var(--text-light);
   line-height: 1.6;
 }
-.rpt .page-footer { max-width: 1040px; margin: 0 auto; }
+.rpt .page-footer { max-width: 1040px; }
 
 </style>
 </head>
@@ -986,6 +982,7 @@ table.tbl { width:100%; border-collapse:collapse; }
 <!-- ═══════════════════════════════════════════ -->
 <div class="tab-section active" id="part00">
 <section class="cover">
+<div class="ct">
   <div class="cover-part rv">Intro</div>
   <h1 class="rv">기준은 이미 있었다</h1>
   <div class="cover-line rv"></div>
@@ -998,6 +995,7 @@ table.tbl { width:100%; border-collapse:collapse; }
     <div><dt>By</dt><dd>RE:FEEEL</dd></div>
     <div><dt>Date</dt><dd>2026. 04</dd></div>
   </dl>
+</div>
 </section>
 
 
@@ -1183,6 +1181,7 @@ table.tbl { width:100%; border-collapse:collapse; }
 <div class="tab-section" id="part1">
 <!-- ═══════════════ COVER ═══════════════ -->
 <section class="cover">
+<div class="ct">
   <div class="cover-part rv">Part One — Diagnosis</div>
   <h1 class="rv">피드에서 읽히는<br>핑크원더의 페르소나</h1>
   <div class="cover-line rv"></div>
@@ -1194,6 +1193,7 @@ table.tbl { width:100%; border-collapse:collapse; }
     <div><dt>By</dt><dd>RE:FEEEL</dd></div>
     <div><dt>Date</dt><dd>2026. 04</dd></div>
   </dl>
+</div>
 </section>
 
 
@@ -1737,6 +1737,7 @@ table.tbl { width:100%; border-collapse:collapse; }
 <div class="tab-section" id="part2">
 <!-- ═══════════════ COVER ═══════════════ -->
 <section class="cover">
+<div class="ct">
   <div class="cover-part rv">Part Two — Content Design</div>
   <h1 class="rv">콘텐츠 설계</h1>
   <div class="cover-line rv"></div>
@@ -1748,6 +1749,7 @@ table.tbl { width:100%; border-collapse:collapse; }
     <div><dt>By</dt><dd>RE:FEEEL</dd></div>
     <div><dt>Date</dt><dd>2026. 04</dd></div>
   </dl>
+</div>
 </section>
 
 
@@ -2432,6 +2434,7 @@ table.tbl { width:100%; border-collapse:collapse; }
 <div class="tab-section" id="part3">
 <!-- ═══════════════ COVER ═══════════════ -->
 <section class="cover">
+<div class="ct">
   <div class="cover-part rv">Part Three — Content Archive</div>
   <h1 class="rv rv-delay-1">콘텐츠 아카이브</h1>
   <div class="cover-line rv rv-delay-2"></div>
@@ -2441,6 +2444,7 @@ table.tbl { width:100%; border-collapse:collapse; }
     <div><dt>By</dt><dd>RE:FEEEL</dd></div>
     <div><dt>Date</dt><dd>2026. 04</dd></div>
   </dl>
+</div>
 </section>
 
 <!-- ═══════════════ 도입 ═══════════════ -->
@@ -2869,10 +2873,12 @@ table.tbl { width:100%; border-collapse:collapse; }
 <div class="tab-section" id="appendix-report">
 <div class="rpt">
 <section class="cover">
+<div class="ct">
   <div class="cover-part rv">Instagram Analytics Report</div>
   <h1 class="rv">@pinkwonder_choi<br>90일 분석 리포트</h1>
   <div class="cover-line rv"></div>
   <p class="cover-desc rv">분석 기간 2026.01.07 ~ 2026.04.07, 수집 데이터 66건. 계정 로그인 없이 공개 수집된 데이터 기반 분석으로 실제 대시보드와 차이가 있을 수 있습니다. ER은 (좋아요+댓글) ÷ 210,000 × 100으로 계산하였으며, 좋아요가 숨겨진 게시물은 실제 ER보다 낮게 표시될 수 있습니다. 외부 콘텐츠 ER은 (좋아요+댓글) ÷ 조회수로 산출합니다.</p>
+</div>
 </section>
 
 <nav class="rpt-nav-tabs" role="tablist" aria-label="리포트 탭">
@@ -3248,10 +3254,12 @@ table.tbl { width:100%; border-collapse:collapse; }
 <!-- ═══════════════════════════════════════════ -->
 <div class="tab-section" id="appendix-cards">
 <section class="cover">
+<div class="ct">
   <div class="cover-part rv">Content Cards</div>
   <h1 class="rv">소재 카드 22장</h1>
   <div class="cover-line rv"></div>
   <p class="cover-desc rv">블로그 198편에서 발굴한 헤리티지 자산을 O.S.I.T 프레임으로 분류했습니다. Origin(기원) 6장, Struggle(분투) 5장, Impact(증명) 6장, Texture(질감) 5장.</p>
+</div>
 </section>
 
 <div class="ct">
