@@ -728,8 +728,9 @@ table.tbl { width:100%; border-collapse:collapse; }
 .to-top:hover { color:var(--text); border-color:var(--text-mid); }
 
 /* ════════ CARDS NAV ════════ */
-.cards-nav-tabs { background:var(--bg-card); border-top:1px solid var(--border); border-bottom:1px solid var(--border); display:flex; justify-content:center; padding:0; position:sticky; top:0; z-index:100; }
-.cards-nav-tabs .cards-tab-btn { padding:16px 24px; border:0; border-bottom:2px solid transparent; outline:0; background:transparent; font-family:var(--font-body); font-size:13px; font-weight:600; color:var(--text-light); cursor:pointer; white-space:nowrap; margin-bottom:-1px; transition:color var(--dur-fast); letter-spacing:0.5px; -webkit-appearance:none; appearance:none; }
+.cards-nav-tabs { background:var(--bg); border-top:none; border-bottom:1px solid var(--border); display:flex; justify-content:center; padding:0; position:sticky; top:0; z-index:100; overflow-x:auto; }
+.cards-nav-tabs::-webkit-scrollbar { height:0; }
+.cards-nav-tabs .cards-tab-btn { padding:18px 22px; border:0; border-bottom:2px solid transparent; outline:0; background:transparent; font-family:var(--font-body); font-size:14px; font-weight:700; color:var(--text-light); cursor:pointer; white-space:nowrap; margin-bottom:-1px; transition:all var(--dur-fast); letter-spacing:0.5px; -webkit-appearance:none; appearance:none; }
 .cards-nav-tabs .cards-tab-btn.active { color:var(--accent); border-bottom-color:var(--accent); }
 .cards-nav-tabs .cards-tab-btn:hover { color:var(--text); }
 
@@ -883,7 +884,8 @@ table.tbl { width:100%; border-collapse:collapse; }
   .rpt .cmp-grid { grid-template-columns:1fr; }
   .rpt .cmp-col + .cmp-col { border-left:none; border-top:1px solid var(--border); }
 
-  .cards-nav-tabs .cards-tab-btn { padding:14px 14px; font-size:12px; }
+  .cards-nav-tabs { padding:0 8px; justify-content:flex-start; }
+  .cards-nav-tabs .cards-tab-btn { padding:14px 12px; font-size:12px; }
 }
 
 /* Mobile portrait */
@@ -2877,6 +2879,8 @@ table.tbl { width:100%; border-collapse:collapse; }
   <p class="cover-desc rv">분석 기간 2026.01.07 ~ 2026.04.07, 수집 데이터 66건. 계정 로그인 없이 공개 수집된 데이터 기반 분석으로 실제 대시보드와 차이가 있을 수 있습니다. ER은 (좋아요+댓글) ÷ 210,000 × 100으로 계산하였으며, 좋아요가 숨겨진 게시물은 실제 ER보다 낮게 표시될 수 있습니다. 외부 콘텐츠 ER은 (좋아요+댓글) ÷ 조회수로 산출합니다.</p>
 </div>
 </section>
+
+<div style="height:48px;"></div>
 
 <nav class="rpt-nav-tabs" role="tablist" aria-label="리포트 탭">
   <button class="rpt-tab-btn active" role="tab" aria-selected="true" onclick="rptShowTab('overview')">개요</button>
