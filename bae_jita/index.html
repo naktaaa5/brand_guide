@@ -68,7 +68,7 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
 /* ═══════ SECTIONS ═══════ */
 .sec{padding:56px 0 48px;border-bottom:1px solid var(--gray-200)}
 .sec:last-of-type{border-bottom:none}
-.sec--flush{padding-bottom:0}
+.sec--flush{padding-bottom:0;border-bottom:none}
 
 .eyebrow{font-size:9px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:12px}
 .eyebrow .n{color:var(--black);font-weight:800}
@@ -129,7 +129,7 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
 }
 .lt-grid .gc:nth-child(2n){border-right:none;padding-left:16px;padding-right:0}
 .lt-grid .gc:nth-child(2n+1){padding-left:0}
-.lt-grid .gc:last-child{border-bottom:none;grid-column:1/-1;padding:20px 0 0;border-right:none;border-top:1px solid var(--gray-200)}
+.lt-grid .gc:last-child{border-bottom:none;grid-column:1/-1;padding:20px 0 0;border-right:none}
 .lt-grid .gc .gt{color:var(--black)}
 .lt-grid .gc .gd{color:var(--gray-600)}
 
@@ -380,10 +380,32 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
   .foot-brand{font-size:13px;letter-spacing:5px}
 }
 
+/* ═══════ COVER ENTRANCE ═══════ */
+.cover-top{opacity:0;animation:cvIn .8s var(--ease) .2s forwards}
+.cover-body{opacity:0;transform:translateY(20px);animation:cvIn .8s var(--ease) .6s forwards}
+.cover-meta{opacity:0;animation:cvIn .8s var(--ease) 1s forwards}
+.cover-meta>div{opacity:0;animation:cvIn .5s var(--ease) forwards}
+.cover-meta>div:nth-child(1){animation-delay:1.1s}
+.cover-meta>div:nth-child(2){animation-delay:1.25s}
+.cover-meta>div:nth-child(3){animation-delay:1.4s}
+.cover-meta>div:nth-child(4){animation-delay:1.55s}
+@keyframes cvIn{to{opacity:1;transform:translateY(0)}}
+
+/* ═══════ GRID STAGGER ═══════ */
+.stg .gc,.stg .dc{opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.stg.vis .gc,.stg.vis .dc{opacity:1;transform:translateY(0)}
+.stg.vis .gc:nth-child(1),.stg.vis .dc:nth-child(1){transition-delay:.1s}
+.stg.vis .gc:nth-child(2),.stg.vis .dc:nth-child(2){transition-delay:.22s}
+.stg.vis .gc:nth-child(3),.stg.vis .dc:nth-child(3){transition-delay:.34s}
+.stg.vis .gc:nth-child(4),.stg.vis .dc:nth-child(4){transition-delay:.46s}
+.stg.vis .gc:nth-child(5),.stg.vis .dc:nth-child(5){transition-delay:.58s}
+.stg.vis .gc:nth-child(6),.stg.vis .dc:nth-child(6){transition-delay:.7s}
+
 @media(prefers-reduced-motion:reduce){
-  .rv,.tl-item{transition:none!important;opacity:1!important;transform:none!important}
+  .rv,.tl-item,.stg .gc,.stg .dc{transition:none!important;opacity:1!important;transform:none!important}
   .tl::before{transform:scaleY(1)!important;transition:none!important}
   .tl-item::before{transform:scale(1)!important;transition:none!important}
+  .cover-top,.cover-body,.cover-meta,.cover-meta>div{animation:none!important;opacity:1!important;transform:none!important}
 }
 </style>
 </head>
@@ -396,10 +418,10 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
     <div class="cover-brand">RE:FEEEL</div>
     <div class="cover-type">Brand Strategy Proposal</div>
   </div>
-  <div class="cover-body rv">
+  <div class="cover-body">
     <h1>브랜드 콘텐츠<br>전략 기획 제안서</h1>
   </div>
-  <dl class="cover-meta rv">
+  <dl class="cover-meta">
     <div><dt>For.</dt><dd>배지타</dd></div>
     <div><dt>Prepared by.</dt><dd>RE:FEEEL</dd></div>
     <div><dt>Date.</dt><dd>2026. 04. 17</dd></div>
@@ -422,7 +444,7 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
   </div>
 
   <div class="dk-bar rv">
-    <div class="g3">
+    <div class="g3 stg">
       <div class="gc">
         <div class="gn">10년</div>
         <div class="gl">Instagram</div>
@@ -454,7 +476,7 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
     <p class="rv">10년간 쌓인 팬덤, 챌린지에서 검증된 프로그램, 그리고 이미 시작된 사이트 구축 — 이 세 가지가 하나의 브랜드 구조 안에 정렬되면, 인스타에서 사이트로, 사이트에서 챌린지와 코칭으로 이어지는 수익 퍼널의 출발점이 됩니다.</p>
   </div>
 
-  <div class="lt-grid rv" style="margin-top:32px;">
+  <div class="lt-grid stg rv" style="margin-top:32px;">
     <div class="gc">
       <div class="gt">타겟이 정의되면</div>
       <div class="gd">콘텐츠의 톤, 소재, 포맷이 달라집니다. 누구의 어떤 상황을 해결하는 사람인지가 분명해집니다.</div>
@@ -486,7 +508,7 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
   </div>
 
   <div class="dk-bar dk-bar--flush rv">
-    <div class="g4">
+    <div class="g4 stg">
       <div class="gc">
         <div class="gn">01</div>
         <div class="gl">Diagnose</div>
@@ -522,7 +544,7 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
     <p>아래는 현재 시점에서 예상되는 산출물입니다. 심층 인터뷰 후 각 섹션의 비중과 방향이 조정될 수 있습니다. RE:FEEEL의 전략서는 사업주마다 구조가 다릅니다.</p>
   </div>
 
-  <div class="dtbl rv">
+  <div class="dtbl stg rv">
     <div class="dc">
       <div class="dn">01</div>
       <h4>브랜드 포지셔닝</h4>
@@ -646,11 +668,22 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
 
 <script>
 (function(){
-  var el=document.querySelectorAll('.rv');
-  if(!el.length)return;
-  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){el.forEach(function(e){e.classList.add('vis')});return}
-  var o=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');o.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
-  el.forEach(function(e){o.observe(e)});
+  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var rv=document.querySelectorAll('.rv');
+  var stg=document.querySelectorAll('.stg');
+
+  if(reduce){
+    rv.forEach(function(e){e.classList.add('vis')});
+    stg.forEach(function(e){e.classList.add('vis')});
+    return;
+  }
+
+  var o=new IntersectionObserver(function(en){en.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('vis');o.unobserve(e.target)}
+  })},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+
+  rv.forEach(function(e){o.observe(e)});
+  stg.forEach(function(e){o.observe(e)});
 })();
 </script>
 </body>
