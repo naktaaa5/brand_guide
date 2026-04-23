@@ -225,10 +225,14 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
   .lt-grid .gc:first-child{padding-left:0;padding-top:0}
   .lt-grid .gc:last-child{border-right:none;padding-right:0;grid-column:auto;border-top:none;padding-top:0}
   .dtbl{grid-template-columns:repeat(3,1fr)}
-  .dc:nth-child(2n){border-right:1px solid var(--gray-200);padding-left:32px;padding-right:32px}
-  .dc:nth-child(3n){border-right:none;padding-right:0}
+  /* Reset mobile 2-col rules */
+  .dc:nth-child(2n){border-right:1px solid var(--gray-200);padding-left:0;padding-right:0}
+  .dc:nth-last-child(-n+2){border-bottom:1px solid var(--gray-200)}
+  /* Apply 3-col rules */
+  .dc{padding:36px 32px;border-right:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
   .dc:nth-child(3n+1){padding-left:0}
-  .dc{padding:36px 32px 36px 0}
+  .dc:nth-child(3n){border-right:none;padding-right:0}
+  .dc:nth-child(n+4){border-bottom:none}
   .gc .gn{font-size:32px}
   .dc .dn{font-size:24px}
   .fee-total-v{font-size:40px}
