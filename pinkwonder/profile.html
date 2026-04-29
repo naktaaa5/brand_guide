@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>프로필 문구 제안</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-warm: #faf9f6;
+  --text: #2c2824;
+  --text-mid: #5c5550;
+  --text-light: #766e66;
+  --accent: #e75519;
+  --border: #ddd6ce;
+  --border-light: #eae6e0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'SUIT Variable', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 80px 32px 120px;
+}
+
+/* ── Header ── */
+.hd-brand {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+}
+.hd-title {
+  font-family: 'Pretendard Variable', 'SUIT Variable', sans-serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+}
+.hd-desc {
+  font-size: 14.5px;
+  color: var(--text-mid);
+  line-height: 1.9;
+  margin-bottom: 64px;
+}
+
+/* ── Section ── */
+.sec {
+  margin-bottom: 72px;
+}
+.sec-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.sec-title {
+  font-family: 'Pretendard Variable', 'SUIT Variable', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+.sec-desc {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+  line-height: 1.8;
+}
+
+/* ── Option Cards ── */
+.opt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border-light);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.opt {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  padding: 20px 0;
+  background: var(--bg);
+  align-items: baseline;
+}
+.opt-num {
+  font-family: 'Pretendard Variable', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-light);
+  padding-top: 1px;
+}
+.opt-text {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+.opt-note {
+  font-size: 12.5px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ── Divider ── */
+.div-line {
+  width: 32px;
+  height: 1px;
+  background: var(--border);
+  margin: 72px 0;
+}
+
+/* ── Fixed Line ── */
+.fixed-block {
+  padding: 24px 0;
+  margin-bottom: 72px;
+}
+.fixed-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.fixed-text {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.fixed-note {
+  font-size: 12.5px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-top: 6px;
+}
+
+/* ── Combo Section ── */
+.combo {
+  margin-bottom: 48px;
+  padding: 32px;
+  background: var(--bg-warm);
+  border-radius: 4px;
+}
+.combo-label {
+  font-family: 'Pretendard Variable', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  margin-bottom: 6px;
+}
+.combo-character {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.combo-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.combo-line {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-mid);
+}
+.combo-line.fixed {
+  color: var(--text-light);
+  font-size: 13.5px;
+  margin-top: 4px;
+}
+.combo-line em {
+  font-style: normal;
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── Profile Preview ── */
+.preview-wrap {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+}
+.preview-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+.preview-box {
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 20px 24px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--text-mid);
+}
+.preview-box .name-line {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 14.5px;
+  margin-bottom: 4px;
+}
+.preview-box .category {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+.preview-box .bio-line {
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.preview-box .more {
+  color: var(--text-light);
+  font-size: 12px;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+.footer-brand {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-mid);
+  margin-bottom: 6px;
+}
+.footer-note {
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+@media (max-width: 600px) {
+  .wrap { padding: 48px 20px 80px; }
+  .combo { padding: 24px 20px; }
+  .hd-title { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- Header -->
+<div class="hd-brand">RE:FEEEL</div>
+<h1 class="hd-title"><a href="https://www.instagram.com/pinkwonder_choi/" target="_blank" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--border);">@pinkwonder_choi</a><br>프로필 문구 기획안</h1>
+<p class="hd-desc">줄별로 후보를 정리했습니다. 각 줄에서 하나씩 고르시면 됩니다.<br>마지막 줄은 고정이고, 아래에 조합 예시 4개도 함께 드립니다.</p>
+
+
+<!-- ═══ LINE 1 ═══ -->
+<div class="sec">
+  <div class="sec-label">Line 01</div>
+  <div class="sec-title">이 사람이 뭘 하는 사람인가</div>
+  <div class="sec-desc">프로필의 첫인상. 이 계정에 들어온 사람이 0.5초 안에 읽는 줄입니다.</div>
+
+  <div class="opt-list">
+    <div class="opt">
+      <div class="opt-num">A</div>
+      <div>
+        <div class="opt-text">15년차, 문제성 피부 고민 연구&개발</div>
+        <div class="opt-note">현재 프로필 원본. 팩트 기반, 군더더기 없음. 안정적이지만 공식 계정과 톤이 비슷합니다.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">B</div>
+      <div>
+        <div class="opt-text">문제성 피부 연구 15년. PINKWONDER를 만듭니다.</div>
+        <div class="opt-note">"만듭니다"가 능동적. 연구만 하는 게 아니라 제품을 직접 만드는 사람이라는 인상.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">C</div>
+      <div>
+        <div class="opt-text">아토피에서 시작한 화장품, 15년.</div>
+        <div class="opt-note">기원이 첫 줄에 드러남. "왜 이 사람이 이걸 하는가"가 바로 전달됩니다.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">D</div>
+      <div>
+        <div class="opt-text">내 피부에서 시작한 화장품, 15년.</div>
+        <div class="opt-note">아토피를 직접 쓰지 않으면서 기원을 남깁니다. C보다 부드러운 톤.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">E</div>
+      <div>
+        <div class="opt-text">문제성 피부 15년. 화장품을 직접 만듭니다.</div>
+        <div class="opt-note">"직접 만듭니다"에 힘이 있음. 연구소가 아니라 사람이 보입니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ LINE 2 ═══ -->
+<div class="sec">
+  <div class="sec-label">Line 02</div>
+  <div class="sec-title">어떻게 하는 사람인가</div>
+  <div class="sec-desc">기준이 행동으로 드러나는 줄. 말이 아니라 이 사람이 실제로 하는 것.</div>
+
+  <div class="opt-list">
+    <div class="opt">
+      <div class="opt-num">A</div>
+      <div>
+        <div class="opt-text">원료 산지부터 직접 관리합니다.</div>
+        <div class="opt-note">"산지부터"가 범위를, "직접"이 태도를. 이스라엘 농장을 한 줄로 압축.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">B</div>
+      <div>
+        <div class="opt-text">이스라엘 원료 농장 직접 계약·관리.</div>
+        <div class="opt-note">"이스라엘"이라는 지명이 스케일을 보여줍니다. 가장 구체적인 안.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">C</div>
+      <div>
+        <div class="opt-text">원료는 이스라엘 농장에서 직접 관리합니다.</div>
+        <div class="opt-note">이스라엘의 구체성 + "관리합니다"의 단정함. A와 B의 중간.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">D</div>
+      <div>
+        <div class="opt-text">원료 산지부터 제조까지, 직접.</div>
+        <div class="opt-note">산지 관리뿐 아니라 제조까지 관여한다는 범위. 가장 짧고 단정합니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ LINE 3 ═══ -->
+<div class="sec">
+  <div class="sec-label">Line 03</div>
+  <div class="sec-title">얼마나 깊이 하는 사람인가</div>
+  <div class="sec-desc">숫자가 말하는 줄. 이 사람밖에 쓸 수 없는 팩트.</div>
+
+  <div class="opt-list">
+    <div class="opt">
+      <div class="opt-num">A</div>
+      <div>
+        <div class="opt-text">신제품 개발 평균 3년.</div>
+        <div class="opt-note">가장 깔끔. 숫자 하나로 밀도 전달. 뷰티 업계에서 이례적인 수치입니다.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">B</div>
+      <div>
+        <div class="opt-text">호호바오일 단일 제품으로 9년.</div>
+        <div class="opt-note">라인업을 빠르게 확장하는 게 보통인 업계에서, 하나로 9년은 기준의 극단.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">C</div>
+      <div>
+        <div class="opt-text">호호바오일 하나로 9년, 신제품 개발에 평균 3년.</div>
+        <div class="opt-note">두 숫자를 한 줄에. 밀도가 가장 높지만 길 수 있습니다.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">D</div>
+      <div>
+        <div class="opt-text">하나를 만들어도 평균 3년.</div>
+        <div class="opt-note">"신제품 개발"이라는 업계 용어를 빼고 말하듯 쓴 안.</div>
+      </div>
+    </div>
+    <div class="opt">
+      <div class="opt-num">E</div>
+      <div>
+        <div class="opt-text">유가 시딩 15년간 0건.</div>
+        <div class="opt-note">업계 사람은 경악하는 숫자. 일반인은 궁금해서 피드를 더 보게 됩니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ FIXED LINE ═══ -->
+<div class="fixed-block">
+  <div class="fixed-label">Line 04 — 고정</div>
+  <div class="fixed-text">UNICEF UIC Member No.1 · @pinkwonder_official</div>
+  <div class="fixed-note">인스타그램에서 5번째 줄부터 ...더보기로 접힙니다. 1~3줄이 이 사람의 기준을 깔아준 뒤, 더보기를 누르면 UNICEF가 나타납니다. 제품·입점 정보는 공식 계정(@pinkwonder_official)에서 확인할 수 있도록 안내합니다.</div>
+</div>
+
+
+<div class="div-line"></div>
+
+
+<!-- ═══ COMBOS ═══ -->
+<div class="sec">
+  <div class="sec-label">Combinations</div>
+  <div class="sec-title">조합 예시</div>
+  <div class="sec-desc">줄별 후보를 조합한 4가지 안입니다. 이대로 쓰셔도 되고, 줄별로 바꿔서 조합하셔도 됩니다.</div>
+</div>
+
+<!-- Combo ㄱ -->
+<div class="combo">
+  <div class="combo-label">ㄱ. 가장 안정적인 안</div>
+  <div class="combo-character">현재 프로필의 연장선. 익숙한 톤을 유지하면서 기준과 밀도를 추가.</div>
+  <div class="combo-lines">
+    <div class="combo-line"><em>15년차, 문제성 피부 고민 연구&개발</em></div>
+    <div class="combo-line"><em>원료 산지부터 직접 관리합니다.</em></div>
+    <div class="combo-line"><em>신제품 개발 평균 3년.</em></div>
+    <div class="combo-line fixed">UNICEF UIC Member No.1 · @pinkwonder_official</div>
+  </div>
+  <div class="preview-wrap">
+    <div class="preview-label">PREVIEW</div>
+    <div class="preview-box">
+      <div class="name-line">최금실 | PINKWONDER Founder</div>
+      <div class="category">건강/뷰티</div>
+      <div class="bio-line">📍15년차, 문제성 피부 고민 연구&개발</div>
+      <div class="bio-line">📍원료 산지부터 직접 관리합니다.</div>
+      <div class="bio-line">📍신제품 개발 평균 3년.</div>
+      <div class="bio-line more">...더보기</div>
+    </div>
+  </div>
+</div>
+
+<!-- Combo ㄴ -->
+<div class="combo">
+  <div class="combo-label">ㄴ. 기원이 드러나는 안</div>
+  <div class="combo-character">왜 이 사람이 이 일을 하는가가 첫 줄에서 바로 전달됩니다.</div>
+  <div class="combo-lines">
+    <div class="combo-line"><em>아토피에서 시작한 화장품, 15년.</em></div>
+    <div class="combo-line"><em>이스라엘 원료 농장 직접 계약·관리.</em></div>
+    <div class="combo-line"><em>신제품 개발 평균 3년.</em></div>
+    <div class="combo-line fixed">UNICEF UIC Member No.1 · @pinkwonder_official</div>
+  </div>
+  <div class="preview-wrap">
+    <div class="preview-label">PREVIEW</div>
+    <div class="preview-box">
+      <div class="name-line">최금실 | PINKWONDER Founder</div>
+      <div class="category">건강/뷰티</div>
+      <div class="bio-line">📍아토피에서 시작한 화장품, 15년.</div>
+      <div class="bio-line">📍이스라엘 원료 농장 직접 계약·관리.</div>
+      <div class="bio-line">📍신제품 개발 평균 3년.</div>
+      <div class="bio-line more">...더보기</div>
+    </div>
+  </div>
+</div>
+
+<!-- Combo ㄷ -->
+<div class="combo">
+  <div class="combo-label">ㄷ. 밀도가 가장 높은 안</div>
+  <div class="combo-character">이 사람 아니면 쓸 수 없는 팩트 3개. 핑크원더만의 극단적 숫자들.</div>
+  <div class="combo-lines">
+    <div class="combo-line"><em>문제성 피부 연구 15년. PINKWONDER를 만듭니다.</em></div>
+    <div class="combo-line"><em>원료는 이스라엘 농장에서 직접 관리합니다.</em></div>
+    <div class="combo-line"><em>호호바오일 단일 제품으로 9년.</em></div>
+    <div class="combo-line fixed">UNICEF UIC Member No.1 · @pinkwonder_official</div>
+  </div>
+  <div class="preview-wrap">
+    <div class="preview-label">PREVIEW</div>
+    <div class="preview-box">
+      <div class="name-line">최금실 | PINKWONDER Founder</div>
+      <div class="category">건강/뷰티</div>
+      <div class="bio-line">📍문제성 피부 연구 15년. PINKWONDER를 만듭니다.</div>
+      <div class="bio-line">📍원료는 이스라엘 농장에서 직접 관리합니다.</div>
+      <div class="bio-line">📍호호바오일 단일 제품으로 9년.</div>
+      <div class="bio-line more">...더보기</div>
+    </div>
+  </div>
+</div>
+
+<!-- Combo ㄹ -->
+<div class="combo">
+  <div class="combo-label">ㄹ. 가장 담백한 안</div>
+  <div class="combo-character">대표님이 말하듯 쓴 톤. 아토피를 직접 말하지 않으면서 기원을 남깁니다.</div>
+  <div class="combo-lines">
+    <div class="combo-line"><em>내 피부에서 시작한 화장품, 15년.</em></div>
+    <div class="combo-line"><em>원료 산지부터 직접 관리합니다.</em></div>
+    <div class="combo-line"><em>호호바오일 하나로 9년, 신제품 개발에 평균 3년.</em></div>
+    <div class="combo-line fixed">UNICEF UIC Member No.1 · @pinkwonder_official</div>
+  </div>
+  <div class="preview-wrap">
+    <div class="preview-label">PREVIEW</div>
+    <div class="preview-box">
+      <div class="name-line">최금실 | PINKWONDER Founder</div>
+      <div class="category">건강/뷰티</div>
+      <div class="bio-line">📍내 피부에서 시작한 화장품, 15년.</div>
+      <div class="bio-line">📍원료 산지부터 직접 관리합니다.</div>
+      <div class="bio-line">📍호호바오일 하나로 9년, 신제품 개발에 평균 3년.</div>
+      <div class="bio-line more">...더보기</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">RE:FEEEL</div>
+  <div class="footer-note">핑크원더 프로필 제안 · 2026. 04</div>
+</div>
+
+</div>
+</body>
+</html>
