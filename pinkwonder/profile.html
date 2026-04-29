@@ -236,6 +236,14 @@ body {
   color: var(--text-light);
   font-size: 12px;
 }
+.preview-box .bio-link {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border-light);
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+}
 
 /* ── Footer ── */
 .footer {
@@ -268,7 +276,38 @@ body {
 <!-- Header -->
 <div class="hd-brand">RE:FEEEL</div>
 <h1 class="hd-title"><a href="https://www.instagram.com/pinkwonder_choi/" target="_blank" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--border);">@pinkwonder_choi</a><br>프로필 문구 기획안</h1>
-<p class="hd-desc">줄별로 후보를 정리했습니다. 각 줄에서 하나씩 고르시면 됩니다.<br>마지막 줄은 고정이고, 아래에 조합 예시 4개도 함께 드립니다.</p>
+<p class="hd-desc">바이오 4줄과 링크 영역까지, 총 5개 항목을 설계했습니다.<br>1~3줄은 후보 중에 고르시고, 4줄과 링크는 고정값으로 제안드립니다.</p>
+
+
+<!-- ═══ STEP 1 — FIXED ZONE ═══ -->
+<div class="sec">
+  <div class="sec-label">STEP 01</div>
+  <div class="sec-title">먼저, 정해진 부분</div>
+  <div class="sec-desc">우리가 확신해서 결정한 두 항목. 바이오 4번째 줄과 링크 영역입니다.</div>
+</div>
+
+<div class="fixed-block">
+  <div class="fixed-label">Line 04 — 고정</div>
+  <div class="fixed-text">UNICEF UIC Member No.1</div>
+  <div class="fixed-note">대표님이 원문 그대로 유지를 원하셔서 고정값으로 설정했습니다. 1~3줄이 이 사람의 기준을 깔아준 뒤 등장하기 때문에, 단순한 타이틀 나열이 아니라 이 사람이 도달한 지점으로 자연스럽게 읽힙니다.</div>
+</div>
+
+<div class="fixed-block">
+  <div class="fixed-label">Link — 고정</div>
+  <div class="fixed-text">@pinkwonder_official</div>
+  <div class="fixed-note">바이오 4줄 아래 링크 영역에 배치합니다. 페르소나 계정(@pinkwonder_choi)을 통해 이 사람의 기준을 본 사람이, 제품·입점·구매 정보를 찾을 때 공식 계정으로 자연스럽게 이동하는 동선입니다.</div>
+</div>
+
+
+<div class="div-line"></div>
+
+
+<!-- ═══ STEP 2 — SELECTABLE ZONE ═══ -->
+<div class="sec">
+  <div class="sec-label">STEP 02</div>
+  <div class="sec-title">이제, 고르실 부분</div>
+  <div class="sec-desc">바이오 1~3번째 줄. 줄별로 후보를 정리했습니다. 각 줄에서 하나씩 골라주세요.</div>
+</div>
 
 
 <!-- ═══ LINE 1 ═══ -->
@@ -402,20 +441,12 @@ body {
 </div>
 
 
-<!-- ═══ FIXED LINE ═══ -->
-<div class="fixed-block">
-  <div class="fixed-label">Line 04 — 고정</div>
-  <div class="fixed-text">UNICEF UIC Member No.1 · @pinkwonder_official</div>
-  <div class="fixed-note">인스타그램에서 5번째 줄부터 ...더보기로 접힙니다. 1~3줄이 이 사람의 기준을 깔아준 뒤, 더보기를 누르면 UNICEF가 나타납니다. 제품·입점 정보는 공식 계정(@pinkwonder_official)에서 확인할 수 있도록 안내합니다.</div>
-</div>
-
-
 <div class="div-line"></div>
 
 
 <!-- ═══ COMBOS ═══ -->
 <div class="sec">
-  <div class="sec-label">Combinations</div>
+  <div class="sec-label">STEP 03</div>
   <div class="sec-title">조합 예시</div>
   <div class="sec-desc">줄별 후보를 조합한 4가지 안입니다. 이대로 쓰셔도 되고, 줄별로 바꿔서 조합하셔도 됩니다.</div>
 </div>
@@ -428,7 +459,8 @@ body {
     <div class="combo-line"><em>15년차, 문제성 피부 고민 연구&개발</em></div>
     <div class="combo-line"><em>원료 산지부터 직접 관리합니다.</em></div>
     <div class="combo-line"><em>신제품 개발 평균 3년.</em></div>
-    <div class="combo-line fixed">UNICEF UIC Member No.1 · @pinkwonder_official</div>
+    <div class="combo-line"><em>UNICEF UIC Member No.1</em></div>
+    <div class="combo-line fixed">🔗 @pinkwonder_official</div>
   </div>
   <div class="preview-wrap">
     <div class="preview-label">PREVIEW</div>
@@ -438,7 +470,8 @@ body {
       <div class="bio-line">📍15년차, 문제성 피부 고민 연구&개발</div>
       <div class="bio-line">📍원료 산지부터 직접 관리합니다.</div>
       <div class="bio-line">📍신제품 개발 평균 3년.</div>
-      <div class="bio-line more">...더보기</div>
+      <div class="bio-line">📍UNICEF UIC Member No.1</div>
+      <div class="bio-link">🔗 @pinkwonder_official</div>
     </div>
   </div>
 </div>
@@ -451,7 +484,8 @@ body {
     <div class="combo-line"><em>아토피에서 시작한 화장품, 15년.</em></div>
     <div class="combo-line"><em>이스라엘 원료 농장 직접 계약·관리.</em></div>
     <div class="combo-line"><em>신제품 개발 평균 3년.</em></div>
-    <div class="combo-line fixed">UNICEF UIC Member No.1 · @pinkwonder_official</div>
+    <div class="combo-line"><em>UNICEF UIC Member No.1</em></div>
+    <div class="combo-line fixed">🔗 @pinkwonder_official</div>
   </div>
   <div class="preview-wrap">
     <div class="preview-label">PREVIEW</div>
@@ -461,7 +495,8 @@ body {
       <div class="bio-line">📍아토피에서 시작한 화장품, 15년.</div>
       <div class="bio-line">📍이스라엘 원료 농장 직접 계약·관리.</div>
       <div class="bio-line">📍신제품 개발 평균 3년.</div>
-      <div class="bio-line more">...더보기</div>
+      <div class="bio-line">📍UNICEF UIC Member No.1</div>
+      <div class="bio-link">🔗 @pinkwonder_official</div>
     </div>
   </div>
 </div>
@@ -474,7 +509,8 @@ body {
     <div class="combo-line"><em>문제성 피부 연구 15년. PINKWONDER를 만듭니다.</em></div>
     <div class="combo-line"><em>원료는 이스라엘 농장에서 직접 관리합니다.</em></div>
     <div class="combo-line"><em>호호바오일 단일 제품으로 9년.</em></div>
-    <div class="combo-line fixed">UNICEF UIC Member No.1 · @pinkwonder_official</div>
+    <div class="combo-line"><em>UNICEF UIC Member No.1</em></div>
+    <div class="combo-line fixed">🔗 @pinkwonder_official</div>
   </div>
   <div class="preview-wrap">
     <div class="preview-label">PREVIEW</div>
@@ -484,7 +520,8 @@ body {
       <div class="bio-line">📍문제성 피부 연구 15년. PINKWONDER를 만듭니다.</div>
       <div class="bio-line">📍원료는 이스라엘 농장에서 직접 관리합니다.</div>
       <div class="bio-line">📍호호바오일 단일 제품으로 9년.</div>
-      <div class="bio-line more">...더보기</div>
+      <div class="bio-line">📍UNICEF UIC Member No.1</div>
+      <div class="bio-link">🔗 @pinkwonder_official</div>
     </div>
   </div>
 </div>
@@ -497,7 +534,8 @@ body {
     <div class="combo-line"><em>내 피부에서 시작한 화장품, 15년.</em></div>
     <div class="combo-line"><em>원료 산지부터 직접 관리합니다.</em></div>
     <div class="combo-line"><em>호호바오일 하나로 9년, 신제품 개발에 평균 3년.</em></div>
-    <div class="combo-line fixed">UNICEF UIC Member No.1 · @pinkwonder_official</div>
+    <div class="combo-line"><em>UNICEF UIC Member No.1</em></div>
+    <div class="combo-line fixed">🔗 @pinkwonder_official</div>
   </div>
   <div class="preview-wrap">
     <div class="preview-label">PREVIEW</div>
@@ -507,7 +545,8 @@ body {
       <div class="bio-line">📍내 피부에서 시작한 화장품, 15년.</div>
       <div class="bio-line">📍원료 산지부터 직접 관리합니다.</div>
       <div class="bio-line">📍호호바오일 하나로 9년, 신제품 개발에 평균 3년.</div>
-      <div class="bio-line more">...더보기</div>
+      <div class="bio-line">📍UNICEF UIC Member No.1</div>
+      <div class="bio-link">🔗 @pinkwonder_official</div>
     </div>
   </div>
 </div>
