@@ -36,9 +36,10 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
 .cover-top{position:absolute;top:32px;left:0;right:0;padding:0 var(--px);display:flex;justify-content:space-between;align-items:center}
 .cover-brand{font-size:10px;font-weight:800;letter-spacing:4px;color:var(--white)}
 .cover-type{font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-500)}
-.cover-body{padding:0 var(--px) 40px}
+.cover-body{padding:0 0 40px}
 .cover h1{font-family:var(--font-d);font-size:32px;font-weight:900;line-height:1.2;letter-spacing:-1.2px;color:var(--white);margin-bottom:40px}
-.cover-meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-800);padding:0 var(--px)}
+.cover-inner{padding:0 var(--px)}
+.cover-meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-800)}
 .cover-meta>div{padding:18px 0;border-bottom:1px solid var(--gray-800)}
 .cover-meta>div:nth-child(odd){padding-right:16px;border-right:1px solid var(--gray-800)}
 .cover-meta>div:nth-child(even){padding-left:16px}
@@ -223,7 +224,7 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
 @media(min-width:1080px){
   :root{--px:52px}
   .w{max-width:1080px;margin:0 auto}
-  .cover-body,.cover-meta{max-width:1080px;margin:0 auto}
+  .cover-inner{max-width:1080px;margin:0 auto}
   .cover-top{padding:0 52px;max-width:1080px;margin:0 auto}
   .cover h1{font-size:58px;letter-spacing:-2px;margin-bottom:56px}
   .cover-body{padding-bottom:72px}
@@ -291,15 +292,17 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
     <div class="cover-brand">RE:FEEEL</div>
     <div class="cover-type">Brand Strategy Proposal</div>
   </div>
-  <div class="cover-body rv">
-    <h1>브랜드 콘텐츠<br>전략 기획 제안서</h1>
+  <div class="cover-inner">
+    <div class="cover-body rv">
+      <h1>브랜드 콘텐츠<br>전략 기획 제안서</h1>
+    </div>
+    <dl class="cover-meta rv">
+      <div><dt>For.</dt><dd>피몽쉐 (Phymongshe)</dd></div>
+      <div><dt>Prepared by.</dt><dd>RE:FEEEL</dd></div>
+      <div><dt>Date.</dt><dd>2026. 05. 20</dd></div>
+      <div><dt>Meeting Date.</dt><dd>2026. 06. 15</dd></div>
+    </dl>
   </div>
-  <dl class="cover-meta rv">
-    <div><dt>For.</dt><dd>피몽쉐 (Phymongshe)</dd></div>
-    <div><dt>Prepared by.</dt><dd>RE:FEEEL</dd></div>
-    <div><dt>Date.</dt><dd>2026. 05. 20</dd></div>
-    <div><dt>Meeting Date.</dt><dd>2026. 06. 15</dd></div>
-  </dl>
 </section>
 
 
