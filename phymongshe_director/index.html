@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>프로젝트 제안서 — 피몽쉐</title>
+<link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root {
+  --black: #0c0c0c;
+  --gray-800: #2a2a2a;
+  --gray-600: #555;
+  --gray-500: #777;
+  --gray-400: #999;
+  --gray-300: #bbb;
+  --gray-200: #ddd;
+  --white: #ffffff;
+  --font-d: 'Pretendard Variable', 'SUIT Variable', sans-serif;
+  --font-b: 'SUIT Variable', 'Pretendard Variable', sans-serif;
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --px: 20px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--white);color:var(--black);line-height:1.8;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden}
+
+.w{padding:0 var(--px)}
+
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/* ═══════ COVER ═══════ */
+.cover{min-height:100svh;background:var(--black);color:var(--white);display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+.cover-top{position:absolute;top:32px;left:0;right:0;padding:0 var(--px);display:flex;justify-content:space-between;align-items:center}
+.cover-brand{font-size:10px;font-weight:800;letter-spacing:4px;color:var(--white)}
+.cover-type{font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-500)}
+.cover-body{padding:0 var(--px) 40px}
+.cover h1{font-family:var(--font-d);font-size:32px;font-weight:900;line-height:1.2;letter-spacing:-1.2px;color:var(--white);margin-bottom:40px}
+.cover-meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-800);padding:0 var(--px)}
+.cover-meta>div{padding:18px 0;border-bottom:1px solid var(--gray-800)}
+.cover-meta>div:nth-child(odd){padding-right:16px;border-right:1px solid var(--gray-800)}
+.cover-meta>div:nth-child(even){padding-left:16px}
+.cover-meta>div:nth-last-child(-n+2){border-bottom:none}
+.cover-meta dt{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-500);margin-bottom:3px}
+.cover-meta dd{font-size:13px;font-weight:600;color:var(--gray-300)}
+
+/* ═══════ SECTIONS ═══════ */
+.sec{padding:56px 0 48px;border-bottom:1px solid var(--gray-200)}
+.sec:last-of-type{border-bottom:none}
+.sec--flush{padding-bottom:0}
+.eyebrow{font-size:9px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:12px}
+.eyebrow .n{color:var(--black);font-weight:800}
+.sec-t{font-family:var(--font-d);font-size:23px;font-weight:800;line-height:1.38;letter-spacing:-.5px;color:var(--black)}
+.prose{margin-top:24px}
+.prose p{font-size:14px;line-height:1.95;color:var(--gray-600);margin-bottom:16px}
+.prose p:last-child{margin-bottom:0}
+.prose b,.prose strong{font-weight:700;color:var(--black)}
+
+/* ═══════ DARK BAR ═══════ */
+.dk-bar{background:var(--black);color:var(--white);margin:36px calc(var(--px) * -1) 0;padding:32px var(--px)}
+.dk-bar--flush{margin-bottom:0}
+.g3{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.gc{padding:0}
+.gc .gn{font-family:var(--font-d);font-size:22px;font-weight:900;color:var(--white);margin-bottom:3px;letter-spacing:-.5px}
+.gc .gl{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px}
+.gc .gt{font-family:var(--font-d);font-size:14px;font-weight:800;color:var(--white);margin-bottom:6px;line-height:1.4;letter-spacing:-.2px}
+.gc .gd{font-size:12.5px;line-height:1.85;color:var(--gray-400)}
+.g3 .gc{padding:0 16px 20px 0;border-right:1px solid var(--gray-800);border-bottom:1px solid var(--gray-800)}
+.g3 .gc:nth-child(2n){border-right:none;padding-left:16px;padding-right:0}
+.g3 .gc:nth-child(2n+1){padding-left:0}
+.g3 .gc:last-child{border-bottom:none;grid-column:1/-1;padding:20px 0 0;border-right:none;border-top:1px solid var(--gray-800)}
+
+.g4{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.g4 .gc{padding:0 16px 20px 0;border-right:1px solid var(--gray-800);border-bottom:1px solid var(--gray-800)}
+.g4 .gc:nth-child(2n){border-right:none;padding-left:16px;padding-right:0}
+.g4 .gc:nth-child(2n+1){padding-left:0}
+.g4 .gc:nth-last-child(-n+2){border-bottom:none}
+
+.lt-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--gray-200);padding-top:24px}
+.lt-grid .gc{padding:0 16px 20px 0;border-right:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+.lt-grid .gc:nth-child(2n){border-right:none;padding-left:16px;padding-right:0}
+.lt-grid .gc:nth-child(2n+1){padding-left:0}
+.lt-grid .gc:last-child{border-bottom:none;grid-column:1/-1;padding:20px 0 0;border-right:none;border-top:1px solid var(--gray-200)}
+.lt-grid .gc .gt{color:var(--black)}
+.lt-grid .gc .gd{color:var(--gray-600)}
+
+/* ═══════ FUNNEL DIAGRAM ═══════ */
+.funnel{display:flex;align-items:stretch;gap:8px;width:100%}
+.funnel-step{flex:1;padding:20px 14px;text-align:center;border:1px solid var(--gray-800);background:var(--gray-800);display:flex;flex-direction:column;justify-content:flex-start}
+.funnel-step--tofu{background:var(--white);color:var(--black);border-color:var(--white);flex:1.3}
+.funnel-step--mofu{background:#444;color:var(--white);flex:1.05}
+.funnel-step--bofu{background:#1f1f1f;color:var(--gray-300);flex:0.85}
+.funnel-stage{font-family:var(--font-d);font-size:22px;font-weight:900;letter-spacing:-.5px;line-height:1}
+.funnel-meta{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:5px;opacity:.55}
+.funnel-divider{height:1px;background:currentColor;opacity:.18;margin:14px auto;width:28px}
+.funnel-purpose{font-size:12px;font-weight:600;margin-bottom:14px;letter-spacing:-.1px}
+.funnel-channel{font-size:12.5px;font-weight:700;margin-bottom:3px;letter-spacing:-.2px;word-break:break-all}
+.funnel-channel-sub{font-size:10px;opacity:.6;line-height:1.45}
+.funnel-arrow{display:flex;align-items:center;justify-content:center;color:var(--gray-400);font-size:16px;flex-shrink:0;padding:0 2px;line-height:1}
+.funnel-tag{display:inline-block;font-size:8.5px;font-weight:800;letter-spacing:1.5px;background:var(--black);color:var(--white);padding:3px 7px;margin-top:8px;border-radius:1px}
+
+@media(max-width:680px){
+  .funnel{flex-direction:column;gap:0}
+  .funnel-step{width:100%;flex:1}
+  .funnel-arrow{padding:6px 0;transform:rotate(90deg);font-size:18px}
+}
+@media(min-width:1080px){
+  .funnel-step{padding:30px 22px}
+  .funnel-stage{font-size:28px}
+  .funnel-purpose{font-size:13px;margin-bottom:18px}
+  .funnel-channel{font-size:14px}
+  .funnel-channel-sub{font-size:11px}
+}
+
+/* ═══════ DELIVERABLE ═══════ */
+.dtbl{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-200);margin-top:28px;gap:0}
+.dc{padding:20px 16px 20px 0;border-bottom:1px solid var(--gray-200);border-right:1px solid var(--gray-200)}
+.dc:nth-child(2n){border-right:none;padding-left:16px;padding-right:0}
+.dc:nth-child(2n+1){padding-left:0}
+.dc:nth-last-child(-n+2){border-bottom:none}
+.dc .dn{font-family:var(--font-d);font-size:16px;font-weight:900;color:var(--black);margin-bottom:4px;letter-spacing:-.3px}
+.dc h4{font-family:var(--font-d);font-size:13px;font-weight:800;color:var(--black);margin-bottom:4px;letter-spacing:-.1px;line-height:1.4}
+.dc p{font-size:11.5px;color:var(--gray-500);line-height:1.75}
+
+/* ═══════ TIMELINE ═══════ */
+.tl{margin-top:32px;position:relative;padding-left:28px}
+.tl::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--gray-200);transform-origin:top;transform:scaleY(0);transition:transform 1s var(--ease) .2s}
+.tl.vis::before{transform:scaleY(1)}
+.tl-item{position:relative;padding-bottom:32px;opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.tl-item:nth-child(1){transition-delay:.3s}
+.tl-item:nth-child(2){transition-delay:.55s}
+.tl-item:nth-child(3){transition-delay:.8s}
+.tl-item:nth-child(4){transition-delay:1.05s}
+.tl.vis .tl-item{opacity:1;transform:translateY(0)}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-28px;top:7px;width:11px;height:11px;border-radius:50%;border:2px solid var(--black);background:var(--white);z-index:1;transform:scale(0);transition:transform .35s var(--ease)}
+.tl-item:nth-child(1)::before{transition-delay:.3s}
+.tl-item:nth-child(2)::before{transition-delay:.55s}
+.tl-item:nth-child(3)::before{transition-delay:.8s}
+.tl-item:nth-child(4)::before{transition-delay:1.05s}
+.tl.vis .tl-item::before{transform:scale(1)}
+.tl-item:first-child::before{background:var(--black)}
+.tl-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.tl-week{font-size:13px;font-weight:700;letter-spacing:-.1px;color:var(--gray-400)}
+.tl-phase{font-family:var(--font-d);font-size:13px;font-weight:500;letter-spacing:-.1px;color:var(--black)}
+.tl-desc{font-size:12.5px;line-height:1.85;color:var(--gray-500)}
+
+/* ═══════ FEE ═══════ */
+.sec-fee{background:var(--black);color:var(--white);padding:56px 0 48px}
+.fee-total{display:flex;flex-direction:column;gap:6px;padding:24px 0 20px;margin-bottom:28px}
+.fee-total-l{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray-500)}
+.fee-total-v{font-family:var(--font-d);font-size:26px;font-weight:900;color:var(--white);letter-spacing:-.6px}
+.fee-total-v span{font-size:10px;font-weight:500;color:var(--gray-500);letter-spacing:0;margin-left:6px}
+.fee-row{display:flex;flex-direction:column;border-top:1px solid var(--gray-800);padding:0 12px}
+.fee-cell{padding:20px 0;border-bottom:1px solid var(--gray-800)}
+.fee-cell:last-child{border-bottom:none}
+.fee-cell .fl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-500);margin-bottom:5px}
+.fee-cell .ft{font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px}
+.fee-cell .fs{font-size:12px;color:var(--gray-500);line-height:1.6}
+.fee-cell .fv{font-family:var(--font-d);font-size:18px;font-weight:800;color:var(--white);margin-top:10px;letter-spacing:-.2px}
+.fee-info{margin-top:32px;border-top:1px solid var(--gray-800);padding:4px 12px 0}
+.fi{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--gray-800)}
+.fi:last-child{border-bottom:none}
+.fi-l{font-size:11px;font-weight:600;color:var(--gray-500);min-width:64px;flex-shrink:0;padding-top:1px}
+.fi-v{font-size:13px;font-weight:500;color:var(--gray-300);line-height:1.5}
+
+/* ═══════ FOOTER ═══════ */
+.foot{background:var(--black);padding:48px 0 40px;border-top:1px solid var(--gray-800);text-align:center}
+.foot-brand{font-family:var(--font-d);font-size:12px;font-weight:800;color:var(--white);letter-spacing:4px;margin-bottom:8px}
+.foot-note{font-size:10px;color:var(--gray-500);line-height:1.7}
+
+/* ═══════ TABLET ═══════ */
+@media(min-width:768px){
+  :root{--px:36px}
+  .cover h1{font-size:44px;letter-spacing:-1.5px;margin-bottom:48px}
+  .cover-body{padding-bottom:56px}
+  .cover-meta{grid-template-columns:repeat(4,1fr)}
+  .cover-meta>div{padding:24px 24px 0 0;border-bottom:none;border-right:1px solid var(--gray-800)}
+  .cover-meta>div:nth-child(odd){padding-right:24px;border-right:1px solid var(--gray-800)}
+  .cover-meta>div:nth-child(even){padding-left:24px}
+  .cover-meta>div:last-child{border-right:none;padding-right:0}
+  .cover-meta dd{font-size:14px}
+  .sec{padding:80px 0 72px}
+  .sec-t{font-size:28px}
+  .prose{margin-top:32px}
+  .prose p{font-size:15px}
+  .dk-bar{margin:48px calc(var(--px) * -1) 0;padding:44px var(--px)}
+  .g4 .gc,.lt-grid .gc{padding:0 24px 24px 0}
+  .g4 .gc:nth-child(2n),.lt-grid .gc:nth-child(2n){padding-left:24px;padding-right:0}
+  .g4 .gc:nth-child(n+3),.lt-grid .gc:nth-child(n+3){padding-top:24px}
+  .lt-grid .gc:last-child{padding:24px 0 0}
+  .g3{grid-template-columns:repeat(2,1fr)}
+  .g3 .gc{padding:0 24px 20px 0}
+  .g3 .gc:nth-child(2n){padding-left:24px}
+  .g3 .gc:last-child{grid-column:1/-1;padding:20px 0 0}
+  .dc{padding:28px 24px 28px 0}
+  .dc:nth-child(2n){padding-left:24px;padding-right:0}
+  .dc h4{font-size:15px}
+  .dc p{font-size:12.5px}
+  .dc .dn{font-size:20px}
+  .fee-row{display:grid;grid-template-columns:1fr 1fr}
+  .fee-cell{padding:28px 28px 28px 0;border-bottom:none;border-right:1px solid var(--gray-800)}
+  .fee-cell:last-child{border-right:none;padding-left:28px;padding-right:0}
+  .fee-total{flex-direction:row;align-items:baseline;justify-content:space-between}
+  .fee-total-v{font-size:32px}
+  .fi-l{font-size:12px;min-width:80px}
+  .gc .gn{font-size:28px}
+  .tl{padding-left:36px;margin-top:40px}
+  .tl::before{left:6px}
+  .tl-item::before{left:-36px;width:13px;height:13px}
+  .tl-phase{font-size:14px}
+  .tl-week{font-size:14px}
+  .tl-desc{font-size:13px}
+  .tl-item{padding-bottom:40px}
+  .sec-fee{padding:80px 0 72px}
+  .foot{padding:56px 0 48px}
+  .foot-brand{font-size:13px}
+}
+
+/* ═══════ DESKTOP ═══════ */
+@media(min-width:1080px){
+  :root{--px:52px}
+  .w{max-width:1080px;margin:0 auto}
+  .cover-body,.cover-meta{max-width:1080px;margin:0 auto}
+  .cover-top{padding:0 52px;max-width:1080px;margin:0 auto}
+  .cover h1{font-size:58px;letter-spacing:-2px;margin-bottom:56px}
+  .cover-body{padding-bottom:72px}
+  .cover-meta>div{padding:28px 32px 0 0}
+  .cover-meta>div:not(:first-child){padding-left:32px}
+  .sec{padding:108px 0 100px}
+  .sec-t{font-size:34px;letter-spacing:-.8px}
+  .prose p{font-size:15.5px}
+  .prose{margin-top:40px}
+  .dk-bar{padding:52px var(--px)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g3 .gc:nth-child(2n){border-right:1px solid var(--gray-800);padding-right:32px}
+  .g3 .gc:nth-child(n+3){padding-top:0;border-top:none}
+  .g3 .gc{padding:0 32px;border-bottom:none}
+  .g3 .gc:first-child{padding-left:0}
+  .g3 .gc:last-child{border-right:none;padding-right:0;grid-column:auto;border-top:none;padding-top:0}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g4 .gc:nth-child(2n){border-right:1px solid var(--gray-800);padding-right:28px}
+  .g4 .gc:nth-child(n+3){padding-top:0;border-top:none}
+  .g4 .gc{padding:0 28px;border-bottom:none}
+  .g4 .gc:first-child{padding-left:0}
+  .g4 .gc:last-child{border-right:none;padding-right:0}
+  .lt-grid{grid-template-columns:repeat(3,1fr)}
+  .lt-grid .gc:nth-child(2n){border-right:1px solid var(--gray-200);padding-right:32px}
+  .lt-grid .gc:nth-child(n+3){padding-top:0;border-top:none}
+  .lt-grid .gc{padding:0 32px;border-bottom:none}
+  .lt-grid .gc:first-child{padding-left:0;padding-top:0}
+  .lt-grid .gc:last-child{border-right:none;padding-right:0;grid-column:auto;border-top:none;padding-top:0}
+  .dtbl{grid-template-columns:repeat(3,1fr)}
+  .dc{padding:36px 32px;border-right:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+  .dc:nth-child(2n){border-right:1px solid var(--gray-200);padding-left:32px;padding-right:32px}
+  .dc:nth-child(3n+1){padding-left:0}
+  .dc:nth-child(3n){border-right:none;padding-right:0}
+  .dc:nth-child(n+4){border-bottom:none}
+  .gc .gn{font-size:32px}
+  .dc .dn{font-size:24px}
+  .fee-total-v{font-size:40px}
+  .fee-cell .fv{font-size:22px}
+  .tl{padding-left:44px;margin-top:48px}
+  .tl::before{left:7px}
+  .tl-item::before{left:-44px;width:15px;height:15px}
+  .tl-phase{font-size:15px}
+  .tl-week{font-size:15px}
+  .tl-desc{font-size:14px}
+  .tl-item{padding-bottom:48px}
+  .sec-fee{padding:108px 0 100px}
+  .fi-l{min-width:88px}
+  .foot{padding:64px 0 56px}
+  .foot-brand{font-size:14px;letter-spacing:5px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .rv,.tl-item{transition:none!important;opacity:1!important;transform:none!important}
+  .tl::before{transform:scaleY(1)!important;transition:none!important}
+  .tl-item::before{transform:scale(1)!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+
+<!-- ═══════ COVER ═══════ -->
+<section class="cover">
+  <div class="cover-top">
+    <div class="cover-brand">RE:FEEEL</div>
+    <div class="cover-type">Brand Strategy Proposal</div>
+  </div>
+  <div class="cover-body rv">
+    <h1>브랜드 콘텐츠<br>전략 기획 제안서</h1>
+  </div>
+  <dl class="cover-meta rv">
+    <div><dt>For.</dt><dd>피몽쉐 (Phymongshe)</dd></div>
+    <div><dt>Prepared by.</dt><dd>RE:FEEEL</dd></div>
+    <div><dt>Date.</dt><dd>2026. 05. 20</dd></div>
+    <div><dt>Meeting Date.</dt><dd>2026. 06. 15</dd></div>
+  </dl>
+</section>
+
+
+<!-- ═══════ 01 ═══════ -->
+<section class="sec" style="border-bottom:none;">
+<div class="w">
+  <div class="eyebrow rv"><span class="n">01</span> &mdash; Point of View</div>
+  <h2 class="sec-t rv">디렉터 계정인데<br>디렉터가 보이지 않습니다</h2>
+
+  <div class="prose">
+    <p class="rv">@phymongshe_director의 콘텐츠는 디렉터의 시각이 아니라 제품을 말하고 있습니다. 캠페인·세일·라이브 안내·신제품 소개가 발행의 60% 이상을 차지합니다. 공식 계정에서 다루어야 할 콘텐츠가 디렉터 계정에서 반복되고 있는 구조입니다.</p>
+    <p class="rv">2026년 2월 24일 게시물 "Ai 기미 광고에 속지 마세요"의 ER은 10.80%, 댓글 1,175개입니다. 같은 기간 다른 게시물 평균 ER의 5배 이상입니다. 이 게시물의 콘텐츠 유형은 디렉터의 전문 관점으로 시장의 잘못된 정보를 다루는 형식 — 후킹 카피나 프로모션이 아니라, 디렉터의 직업적 권위가 시장 반응을 끌어낸 데이터 포인트입니다.</p>
+    <p class="rv">해당 게시물 이후 ER은 본래 평균선인 1% 내외로 복귀했습니다. 시장이 반응한 콘텐츠 유형이 시리즈로 정규화되지 않았고, 디렉터 계정은 다시 공식 계정의 축소판처럼 운영되고 있습니다. 가장 강한 시각 자산인 디렉터의 외모와 피부도 직업적 컨텍스트 없이 노출되면서, 일반적인 뷰티 인플루언서 룩으로 소비되고 있습니다.</p>
+    <p class="rv">이 프로젝트는 콘텐츠 개별 품질을 높이는 작업이 아닙니다. <b>디렉터 계정에 인지·유입(TOFU) 채널의 역할을 부여하고, 공식 계정·자사몰과의 퍼널 분담을 설계하는 작업입니다.</b></p>
+  </div>
+
+  <div class="prose rv" style="margin-top:24px;">
+    <p style="font-size:12.5px;line-height:1.7;color:var(--gray-500);">
+      ※ ER(Engagement Rate, 참여율) = (좋아요 + 댓글) / 팔로워 수. 계정에 대한 실제 반응의 밀도를 보여주는 지표로, 일반적으로 1~3%가 평균 수준이며 5% 이상은 화제성 콘텐츠로 분류됩니다. <br>
+      ※ TOFU(Top of Funnel, 인지·유입 단계) — 잠재 고객이 브랜드를 처음 인지하고 관심을 갖게 되는 마케팅 퍼널의 최상위 단계.
+    </p>
+  </div>
+
+  <div class="dk-bar rv">
+    <div class="g3">
+      <div class="gc">
+        <div class="gn">10.80%</div>
+        <div class="gl">2월 최고 ER</div>
+        <div class="gd">"Ai 기미 광고에 속지 마세요" 게시물. 디렉터의 전문 관점이 만든 한 번의 폭발</div>
+      </div>
+      <div class="gc">
+        <div class="gn">1%</div>
+        <div class="gl">본래 평균 ER</div>
+        <div class="gd">한 게시물 이상치를 제외한 계정의 평균선. 시그니처 콘텐츠 부재 시 돌아오는 자연 평균</div>
+      </div>
+      <div class="gc">
+        <div class="gn">60%+</div>
+        <div class="gl">공식 계정형 콘텐츠 비중</div>
+        <div class="gd">캠페인·세일·라이브 안내·신제품 소개가 디렉터 계정에서 차지하는 비율. 채널 역할이 부여되지 않은 증상</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- ═══════ 02 ═══════ -->
+<section class="sec">
+<div class="w">
+  <div class="eyebrow rv"><span class="n">02</span> &mdash; Opportunity</div>
+  <h2 class="sec-t rv">이 구조가 바뀌면<br>열리는 것</h2>
+
+  <div class="prose">
+    <p class="rv">브랜드 디렉터 계정이 별도로 존재해야 하는 이유는 두 가지입니다. <b>공식 계정이 닿지 못하는 인지·유입의 확장과, 가격이 아닌 신뢰로 구매를 만드는 구조.</b> 이 두 가지는 디렉터 계정이 공식 계정과 다른 일을 할 때만 만들어집니다.</p>
+    <p class="rv">지금 @phymongshe_director는 공식 계정과 같은 콘텐츠를 발행하고 있습니다. 이 구조가 바뀌어 디렉터의 시각·일상·관점·임상 경험이 누적되기 시작하면, <b>같은 팔로워 수에서도 두 계정이 서로 다른 사용자를 데려옵니다.</b> 디렉터 계정은 새로운 인지를 만들고, 공식 계정은 그 인지를 구매로 확정합니다.</p>
+  </div>
+
+  <div class="dk-bar rv">
+    <div class="funnel">
+      <div class="funnel-step funnel-step--tofu">
+        <div class="funnel-stage">TOFU</div>
+        <div class="funnel-meta">Top of Funnel</div>
+        <div class="funnel-divider"></div>
+        <div class="funnel-purpose">인지 · 유입</div>
+        <div class="funnel-channel">@phymongshe_director</div>
+        <div class="funnel-channel-sub">디렉터 계정</div>
+        <div class="funnel-tag">본 작업 대상</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step funnel-step--mofu">
+        <div class="funnel-stage">MOFU</div>
+        <div class="funnel-meta">Middle of Funnel</div>
+        <div class="funnel-divider"></div>
+        <div class="funnel-purpose">관심 · 고려</div>
+        <div class="funnel-channel">@phymongshe_official</div>
+        <div class="funnel-channel-sub">브랜드 공식 계정</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step funnel-step--bofu">
+        <div class="funnel-stage">BOFU</div>
+        <div class="funnel-meta">Bottom of Funnel</div>
+        <div class="funnel-divider"></div>
+        <div class="funnel-purpose">전환</div>
+        <div class="funnel-channel">phymongshe.com</div>
+        <div class="funnel-channel-sub">자사몰 · 상세페이지</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lt-grid rv" style="margin-top:32px;">
+    <div class="gc">
+      <div class="gt">채널 역할이 분리되면</div>
+      <div class="gd">각 채널이 자기 KPI에 집중할 수 있습니다. 디렉터 계정의 도달이 공식 계정의 팔로워로, 공식 계정의 팔로워가 자사몰 구매로 이어지는 동선이 만들어집니다.</div>
+    </div>
+    <div class="gc">
+      <div class="gt">디렉터가 컨텍스트로 드러나면</div>
+      <div class="gd">디렉터의 외모와 피부가 일반 인플루언서 룩이 아닌 제품 효능의 시각적 근거로 작동합니다. 가격 방어와 신뢰 형성이 같은 콘텐츠에서 일어납니다.</div>
+    </div>
+    <div class="gc">
+      <div class="gt">시그니처 콘텐츠가 정규화되면</div>
+      <div class="gd">시장이 한 번 보여준 ER 10.80%의 반응이 일회성이 아닌 계정의 평균선으로 이동할 수 있는 기반이 만들어집니다.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- ═══════ 03 ═══════ -->
+<section class="sec sec--flush">
+<div class="w">
+  <div class="eyebrow rv"><span class="n">03</span> &mdash; Approach</div>
+  <h2 class="sec-t rv" style="margin-bottom:12px;">RE:FEEEL이<br>일하는 방식</h2>
+  <div class="prose rv">
+    <p>누구에게나 같은 말을 하지 않습니다. 사업과 사업주를 깊이 분석하고, 본인도 정리하지 못했던 것을 발굴하고, 그것을 전략의 언어로 구조화합니다.</p>
+  </div>
+
+  <div class="dk-bar dk-bar--flush rv">
+    <div class="g4">
+      <div class="gc">
+        <div class="gn">01</div>
+        <div class="gl">Diagnose</div>
+        <div class="gd">계정 전수 검토, 콘텐츠별 성과 분석. 도달과 전환의 간극, 타겟과 실제 유입자의 불일치를 데이터로 정리합니다.</div>
+      </div>
+      <div class="gc">
+        <div class="gn">02</div>
+        <div class="gl">Discover</div>
+        <div class="gd">대면 심층 인터뷰로 암묵지를 발굴합니다. 제품을 선택해온 사용자들의 패턴, 디렉터의 임상 경험과 원칙 — 콘텐츠의 새로운 축이 될 소재를 선별합니다.</div>
+      </div>
+      <div class="gc">
+        <div class="gn">03</div>
+        <div class="gl">Design</div>
+        <div class="gd">타겟을 재정의하고, 포지셔닝과 핵심 메시지를 확정합니다. 콘텐츠 구조를 '정보 전달'에서 '사람과 관점의 누적'으로 재설계합니다.</div>
+      </div>
+      <div class="gc">
+        <div class="gn">04</div>
+        <div class="gl">Deliver</div>
+        <div class="gd">인터랙티브 웹 문서로 납품. 협업자에게 공유하고, 2년 뒤에도 열어볼 수 있는 판단 체계.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- ═══════ 04 ═══════ -->
+<section class="sec">
+<div class="w">
+  <div class="eyebrow rv"><span class="n">04</span> &mdash; Deliverable</div>
+  <h2 class="sec-t rv" style="margin-bottom:8px;">납품물</h2>
+  <div class="prose rv">
+    <p>아래는 현재 시점에서의 산출물 구성입니다. 대면 심층 인터뷰 후 각 섹션의 비중과 방향이 조정될 수 있습니다. RE:FEEEL의 전략서는 사업주마다 구조가 다릅니다.</p>
+  </div>
+
+  <div class="dtbl rv">
+    <div class="dc">
+      <div class="dn">01</div>
+      <h4>타겟 재정의 및 포지셔닝</h4>
+      <p>실제 구매자의 문제와 언어 분석, POP/POD 구분, 핵심 메시지 설계</p>
+    </div>
+    <div class="dc">
+      <div class="dn">02</div>
+      <h4>콘텐츠 축 재설계</h4>
+      <p>'정보 전달'에서 '사람과 관점의 누적'으로. 콘텐츠 유형별 비중과 역할 재배치</p>
+    </div>
+    <div class="dc">
+      <div class="dn">03</div>
+      <h4>레퍼런스 벤치마킹</h4>
+      <p>인지·유입이 구매로 이어지는 브랜드 디렉터 계정 분석, 적용 가능한 구조와 포맷</p>
+    </div>
+    <div class="dc">
+      <div class="dn">04</div>
+      <h4>콘텐츠 전략 및 포맷</h4>
+      <p>채널별 콘텐츠 유형, 인지 → 신뢰 → 전환 퍼널, 릴스·캐러셀 포맷 구조</p>
+    </div>
+    <div class="dc">
+      <div class="dn">05</div>
+      <h4>서사 소재 아카이브</h4>
+      <p>인터뷰에서 발굴한 디렉터의 관점·원칙·임상 경험을 재사용 가능한 소재 카드로 분류</p>
+    </div>
+    <div class="dc">
+      <div class="dn">06</div>
+      <h4>운영 대응 가이드</h4>
+      <p>성과 지표 기반 판단 기준. 지속적으로 쓸 수 있는 운영 도구</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- ═══════ 05 ═══════ -->
+<section class="sec">
+<div class="w">
+  <div class="eyebrow rv"><span class="n">05</span> &mdash; Process</div>
+  <h2 class="sec-t rv" style="margin-bottom:8px;">진행 순서</h2>
+  <div class="prose rv">
+    <p>착수일로부터 약 4주가 소요됩니다.</p>
+  </div>
+
+  <div class="tl rv">
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-week">Week 1</span><span class="tl-phase">착수 및 대면 심층 인터뷰</span></div>
+      <div class="tl-desc">대면 미팅. 브랜드 운영 구조, 현재 사용자 유형, 시장에 대한 디렉터의 관점과 기준을 깊이 파악합니다. 이 인터뷰를 기반으로 전체 전략의 방향이 결정됩니다.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-week">Week 2</span><span class="tl-phase">진단 · 분석</span></div>
+      <div class="tl-desc">콘텐츠 전수 검토, 성과 데이터 분석, 경쟁 벤치마킹. 서사 자산 발굴, 타겟 재정의, POP/POD 확정.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-week">Week 3</span><span class="tl-phase">설계 · 구조화</span></div>
+      <div class="tl-desc">타겟·포지셔닝 확정. 콘텐츠 축 재설계, 퍼널 구조 설계, 서사 소재 분류.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-week">Week 4</span><span class="tl-phase">전략서 납품</span></div>
+      <div class="tl-desc">모든 결과물을 하나의 인터랙티브 웹 문서로 구조화, 전용 URL로 전달.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- ═══════ 06 ═══════ -->
+<section class="sec-fee">
+<div class="w">
+  <div class="eyebrow rv" style="color:var(--gray-500)"><span class="n" style="color:var(--white)">06</span> &mdash; Investment</div>
+  <h2 class="sec-t rv" style="color:var(--white);margin-bottom:32px;">금액 및 결제</h2>
+
+  <div class="fee-total rv">
+    <div class="fee-total-l">Total</div>
+    <div class="fee-total-v">3,200,000원<span>VAT 포함</span></div>
+  </div>
+
+  <div class="fee-row rv">
+    <div class="fee-cell">
+      <div class="fl">Step 1</div>
+      <div class="ft">계약금 10%</div>
+      <div class="fs">계약 확정과 함께 입금. 대면 미팅은 6월 15일 진행 예정, 시간은 추후 조율합니다.</div>
+      <div class="fv">320,000원</div>
+    </div>
+    <div class="fee-cell">
+      <div class="fl">Step 2</div>
+      <div class="ft">잔금 90%</div>
+      <div class="fs">대면 심층 인터뷰 이후 완납 후 본 작업 착수.</div>
+      <div class="fv">2,880,000원</div>
+    </div>
+  </div>
+
+  <div class="fee-info rv">
+    <div class="fi">
+      <span class="fi-l">대면 미팅</span>
+      <span class="fi-v">2026. 06. 15 (월) · 시간 추후 조율</span>
+    </div>
+    <div class="fi">
+      <span class="fi-l">분석 자료</span>
+      <span class="fi-v">데이터 추적·분석을 위해 인스타그램 비즈니스 인사이트 등 Meta 계정 정보를 요청 시 공유 부탁드립니다.</span>
+    </div>
+    <div class="fi">
+      <span class="fi-l">입금 계좌</span>
+      <span class="fi-v">신한 110-351-745320 김솔이</span>
+    </div>
+    <div class="fi">
+      <span class="fi-l">세금계산서</span>
+      <span class="fi-v">사업자등록증 사본을 naktaaa00@gmail.com으로 보내주세요.</span>
+    </div>
+    <div class="fi">
+      <span class="fi-l">Contact</span>
+      <span class="fi-v">김솔이 010 5750 0200</span>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- ═══════ FOOTER ═══════ -->
+<section class="foot">
+<div class="w">
+  <div class="rv">
+    <div class="foot-brand">RE:FEEEL</div>
+    <div class="foot-note">본 제안서는 피몽쉐 대표님을 위해 작성되었습니다.<br>© 2026 RE:FEEEL. All rights reserved.</div>
+  </div>
+</div>
+</section>
+
+
+<script>
+(function(){
+  var el=document.querySelectorAll('.rv');
+  if(!el.length)return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){el.forEach(function(e){e.classList.add('vis')});return}
+  var o=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');o.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  el.forEach(function(e){o.observe(e)});
+})();
+</script>
+</body>
+</html>
