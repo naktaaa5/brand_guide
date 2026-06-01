@@ -14,6 +14,7 @@
   --font-d:'SUIT Variable',sans-serif;
   --font-b:'Pretendard Variable',sans-serif;
   --ease:cubic-bezier(.22,.61,.36,1);
+  --sidebar-w:248px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -174,9 +175,74 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
 .rc-apply{font-size:13px;line-height:1.7;margin:11px 0 4px;padding:11px 14px;background:rgba(0,0,0,.025);border-radius:2px}
 .rc-apply b{color:var(--accent-d)}
 
+.carousel{position:relative;overflow:hidden;border-radius:3px;border:1px solid var(--line);background:#000}
+.carousel-track{display:flex;transition:transform .45s ease}
+.carousel-track img{min-width:100%;width:100%;object-fit:contain;max-height:620px;background:#000;display:block}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);color:#fff;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:20px;line-height:1;z-index:2}
+.carousel-btn:hover{background:rgba(0,0,0,.7)}
+.carousel-btn.prev{left:10px}
+.carousel-btn.next{right:10px}
+.carousel-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:2}
+.carousel-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.45);cursor:pointer;transition:background .2s}
+.carousel-dots span.on{background:#fff}
+
+html{scroll-behavior:smooth}
+.sidebar{position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;background:var(--bg);border-right:1px solid var(--line);padding:38px 24px;display:flex;flex-direction:column;z-index:100;overflow-y:auto;transition:transform .35s var(--ease)}
+.sb-brand{font-family:var(--font-d);font-size:15px;font-weight:800;letter-spacing:-.3px;color:var(--ink)}
+.sb-sub{font-size:10.5px;color:var(--soft);letter-spacing:.5px;margin:5px 0 34px;line-height:1.6}
+.sb-nav{flex:1}
+.sb-sec{margin-bottom:24px}
+.sb-label{font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--soft);margin-bottom:9px}
+.sb-link{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--sub);text-decoration:none;padding:6px 0;line-height:1.45;transition:color .2s}
+.sb-link:hover{color:var(--ink)}
+.sb-link.active{color:var(--accent);font-weight:700}
+.sb-link .n{font-family:var(--font-d);font-size:10px;font-weight:800;color:var(--soft);min-width:40px;letter-spacing:.5px}
+.sb-link.active .n{color:var(--accent)}
+.sb-link::before{content:'';width:2px;height:0;background:var(--accent);border-radius:1px;transition:height .3s var(--ease);flex-shrink:0}
+.sb-link.active::before{height:15px}
+.sb-foot{font-size:10.5px;color:var(--soft);line-height:1.7;border-top:1px solid var(--line);padding-top:18px;margin-top:14px}
+.sb-foot strong{display:block;font-size:11.5px;color:var(--sub);font-weight:700;letter-spacing:.5px}
+.main{margin-left:var(--sidebar-w)}
+.sb-toggle{display:none;position:fixed;top:16px;left:16px;z-index:200;width:42px;height:42px;background:var(--card);border:1px solid var(--line);border-radius:6px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.sb-toggle span{display:block;width:18px;height:1.6px;background:var(--ink);transition:.2s}
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.32);z-index:90}
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%);box-shadow:2px 0 24px rgba(0,0,0,.12)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .sb-toggle{display:flex}
+  .sb-overlay.show{display:block}
+}
+
 </style>
 </head>
 <body>
+
+<button class="sb-toggle" type="button" aria-label="목차 열기" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
+<div class="sb-overlay" id="sbOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="sidebar" aria-label="목차">
+  <div class="sb-brand">배지타</div>
+  <div class="sb-sub">콘텐츠 전략 가이드라인</div>
+  <nav class="sb-nav">
+    <div class="sb-sec">
+      <div class="sb-label">본문</div>
+      <a class="sb-link" href="#part1"><span class="n">PART 1</span>진단</a>
+      <a class="sb-link" href="#part2"><span class="n">PART 2</span>수익 모델</a>
+      <a class="sb-link" href="#part3"><span class="n">PART 3</span>페르소나 재구축</a>
+      <a class="sb-link" href="#part4"><span class="n">PART 4</span>콘텐츠 설계</a>
+      <a class="sb-link" href="#part5"><span class="n">PART 5</span>실행</a>
+      <a class="sb-link" href="#part6"><span class="n">PART 6</span>톤앤매너</a>
+    </div>
+    <div class="sb-sec">
+      <div class="sb-label">부록</div>
+      <a class="sb-link" href="#appendix"><span class="n">부록 A</span>레퍼런스</a>
+      <a class="sb-link" href="#appendix-b"><span class="n">부록 B</span>@bobpro__</a>
+    </div>
+  </nav>
+  <div class="sb-foot"><strong>RE:FEEEL</strong>Content Strategy</div>
+</aside>
+
+<div class="main">
 
 <!-- ═══════════ COVER ═══════════ -->
 <section class="cover">
@@ -226,18 +292,6 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
     <div class="scope-note">다루지 않는 항목은 가치가 없어서가 아니라, 이 가이드라인의 일이 아니어서 뺀 것입니다. 전략이 선 다음에 별도로 진행하면 됩니다.</div>
   </div>
 
-  <!-- ═══════════ TOC ═══════════ -->
-  <nav class="toc rv">
-    <div class="toc-h">목차</div>
-    <a href="#part1"><span class="tn">PART 1</span><span class="tt">진단</span><span class="td">지금의 배지타</span></a>
-    <a href="#part2"><span class="tn">PART 2</span><span class="tt">수익 모델 포지셔닝</span><span class="td">광고·공구 확장</span></a>
-    <a href="#part3"><span class="tn">PART 3</span><span class="tt">페르소나 재구축</span><span class="td">한 줄 정체성</span></a>
-    <a href="#part4"><span class="tn">PART 4</span><span class="tt">콘텐츠 설계</span><span class="td">축·포맷·기준</span></a>
-    <a href="#part5"><span class="tn">PART 5</span><span class="tt">실행</span><span class="td">우선순위·빈도·캘린더</span></a>
-    <a href="#part6"><span class="tn">PART 6</span><span class="tt">톤앤매너</span><span class="td">비주얼·텍스트</span></a>
-    <a href="#appendix"><span class="tn">부록</span><span class="tt">레퍼런스 분석</span><span class="td">포맷별</span></a>
-  </nav>
-
   <!-- ═══════════ PART 1 ═══════════ -->
   <section class="part" id="part1">
     <div class="part-tag rv"><span class="pn">PART 1</span> &nbsp;&mdash;&nbsp; 진단</div>
@@ -253,12 +307,32 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
         <p>24.5만 팔로워가 배지타님을 처음 만난 자리는 정보가 아니라 <b>비주얼</b>입니다. 한 게시물에 여러 장이 들어가는 정지 사진 캐러셀, 그것도 일상 셀카가 아니라 의도적으로 연출된 화보의 결을 가진 콘텐츠였습니다. 사람들이 들어와서 머문 이유가 여기에 있습니다.</p>
       </div>
       <figure class="rv" style="margin:26px 0;">
-        <div style="width:100%;aspect-ratio:16/10;border:1.5px dashed var(--line);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;border-radius:2px;">
-          <span style="font-family:var(--font-d);font-weight:800;font-size:13px;color:var(--accent-d);">비주얼 캡처 이미지 첨부</span>
-          <span style="font-size:12px;color:var(--soft);">화보형 캐러셀 대표 컷</span>
+        <div class="carousel">
+          <div class="carousel-track" id="ctrack1">
+            <img src="https://pub-3c769f1382a34c35adf93cd1749c7e8e.r2.dev/chrome_fEgxdL0Ps2.jpg" alt="배지타님 계정 피드 캡처 1" loading="lazy">
+            <img src="https://pub-3c769f1382a34c35adf93cd1749c7e8e.r2.dev/chrome_cBgrGLbZFs.jpg" alt="배지타님 계정 피드 캡처 2" loading="lazy">
+            <img src="https://pub-3c769f1382a34c35adf93cd1749c7e8e.r2.dev/chrome_kcN8IHgltI.png" alt="배지타님 계정 피드 캡처 3" loading="lazy">
+            <img src="https://pub-3c769f1382a34c35adf93cd1749c7e8e.r2.dev/chrome_jW598Kz9pM.jpg" alt="배지타님 계정 피드 캡처 4" loading="lazy">
+          </div>
+          <button class="carousel-btn prev" type="button" aria-label="이전">&#8249;</button>
+          <button class="carousel-btn next" type="button" aria-label="다음">&#8250;</button>
+          <div class="carousel-dots"></div>
         </div>
-        <figcaption style="margin-top:10px;font-size:12px;line-height:1.6;color:var(--soft);">24.5만이 모인 자리. 정보가 아니라 연출된 비주얼이었다.</figcaption>
+        <figcaption style="margin-top:10px;font-size:12px;line-height:1.6;color:var(--soft);">배지타님의 계정 피드. 사람을 모은 자리는 정보가 아니라 연출된 비주얼이었다.</figcaption>
       </figure>
+      <script>
+      (function(){
+        var track=document.getElementById('ctrack1');
+        if(!track)return;
+        var box=track.parentNode, n=track.children.length, i=0;
+        var dots=box.querySelector('.carousel-dots');
+        for(var k=0;k<n;k++){(function(idx){var d=document.createElement('span');if(idx===0)d.className='on';d.addEventListener('click',function(){go(idx);});dots.appendChild(d);})(k);}
+        function go(x){i=(x+n)%n;track.style.transform='translateX(-'+(i*100)+'%)';var ds=dots.children;for(var j=0;j<n;j++){ds[j].className=(j===i)?'on':'';}}
+        box.querySelector('.prev').addEventListener('click',function(){go(i-1);});
+        box.querySelector('.next').addEventListener('click',function(){go(i+1);});
+        setInterval(function(){go(i+1);},4000);
+      })();
+      </script>
       <div class="prose">
         <p>이 비주얼에는 네 가지 자산이 일관되게 드러납니다. 짧은 머리와 절제된 스타일링으로 만들어진 시각 정체성, 중성적인 분위기와 여성적인 라인이 한 사람 안에 공존하는 갭, 입은 옷과 공간이 그대로 광고 컷처럼 보이는 자연스러운 브랜드 노출, 그리고 셀카로는 만들 수 없는 라이팅과 배경의 다양성입니다.</p>
         <p>댓글의 결도 같은 방향을 가리킵니다.</p>
@@ -287,7 +361,8 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
         <p>특히 참여율 1위는 딸과 함께한 영상으로 <b>3.90%</b>, 2위(1.76%)의 두 배가 넘습니다. 사람과 관계가 얹히면 반응이 폭발한다는 것을 데이터가 보여줍니다.</p>
         <p>반대로 최근 올라오는 정보성 릴스들 &mdash; 번아웃, 폭식의 원리, 혈당 설명 같은 편들 &mdash; 은 <b>0.1~0.4%</b>대로 가라앉아 있습니다. 얼굴을 정면에 두고 정보를 글로 풀어내는 콘텐츠입니다.</p>
         <p>정리하면 이렇습니다. <b>자산이 화면에서 작동한 콘텐츠는 터졌고, 자산 없이 정보를 글로 푸는 콘텐츠는 가라앉습니다.</b> 이것이 데이터가 가리키는 현재입니다.</p>
-        <p>그리고 이건 배지타님 계정만의 일이 아닙니다. 다이어트와 피부 콘텐츠로 잘 되는 @bobpro__(뒤에서 자세히 다룹니다)에서도, 정보를 정리한 캐러셀은 좋아요 약 1,500개에 그친 반면 시각적 비교 릴스는 약 4.1만 개로 <b>27배 가까이</b> 터졌습니다. 정보를 글이나 카드로 풀면 가라앉고 보여주면 터진다는 건, 배지타님만의 문제가 아니라 이 분야 전체에서 반복되는 패턴입니다.</p>
+        <p>실제로 배지타님 계정 피드에서도 이 격차가 그대로 드러납니다. 비주얼이 또렷한 게시물은 좋아요 1,500~1,800대(최고 약 1,867개)인 반면, 정보를 글로 풀어낸 설명형 게시물은 300~400대(약 393개)에 머뭅니다. 같은 계정, 같은 사람인데 <b>약 4~5배</b> 차이가 납니다.</p>
+        <p>그리고 이건 배지타님 계정만의 일도 아닙니다. 다이어트와 피부 콘텐츠로 잘 되는 @bobpro__(뒤에서 자세히 다룹니다)에서도, 정보를 정리한 캐러셀은 좋아요 약 1,500개에 그친 반면 시각적 비교 릴스는 약 4.1만 개로 <b>27배 가까이</b> 터졌습니다. 정보를 글이나 카드로 풀면 가라앉고 보여주면 터진다는 건, 배지타님만의 문제가 아니라 이 분야 전체에서 반복되는 패턴입니다.</p>
         <p>한 가지 더. 조회수와 참여는 다른 축입니다. 가장 많이 본 영상(57만 조회)의 참여율은 1.22%였던 반면, 참여율이 가장 높은 영상(3.90%)의 조회수는 40만이었습니다. 많이 닿는 것과 깊이 반응하는 것은 같지 않습니다.</p>
       </div>
 
@@ -296,6 +371,42 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
         <div class="st"><div class="sv">0.40%</div><div class="sl">5개월 평균 참여율(ER)</div></div>
         <div class="st"><div class="sv">3.90%</div><div class="sl">최고 참여율 — 가족 콘텐츠</div></div>
       </div>
+
+      <figure class="rv" style="margin:26px 0;">
+        <div style="border:1px solid var(--line);border-radius:2px;background:var(--card);padding:22px 20px 16px;">
+          <div style="font-family:var(--font-d);font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--accent-d);margin-bottom:8px;">월별 참여율(ER) 추세 · 2026년 1~5월</div>
+          <svg viewBox="0 0 600 270" style="width:100%;height:auto;font-family:var(--font-b);" xmlns="http://www.w3.org/2000/svg">
+            <!-- grid -->
+            <line x1="60" y1="70" x2="575" y2="70" stroke="var(--line)" stroke-width="1"/>
+            <line x1="60" y1="150" x2="575" y2="150" stroke="var(--line)" stroke-width="1"/>
+            <line x1="60" y1="230" x2="575" y2="230" stroke="var(--line)" stroke-width="1.5"/>
+            <text x="50" y="74" text-anchor="end" font-size="11" fill="var(--soft)">0.8%</text>
+            <text x="50" y="154" text-anchor="end" font-size="11" fill="var(--soft)">0.4%</text>
+            <text x="50" y="234" text-anchor="end" font-size="11" fill="var(--soft)">0%</text>
+            <!-- line -->
+            <polyline points="60,148 185,148 310,182 435,138 560,68" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- points -->
+            <circle cx="60" cy="148" r="4" fill="var(--accent)"/>
+            <circle cx="185" cy="148" r="4" fill="var(--accent)"/>
+            <circle cx="310" cy="182" r="4" fill="var(--accent)"/>
+            <circle cx="435" cy="138" r="4" fill="var(--accent)"/>
+            <circle cx="560" cy="68" r="6" fill="var(--accent)" stroke="#fff" stroke-width="2"/>
+            <!-- value labels -->
+            <text x="60" y="136" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)">0.41%</text>
+            <text x="185" y="136" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)">0.41%</text>
+            <text x="310" y="200" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--soft)">0.24%</text>
+            <text x="435" y="126" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ink)">0.46%</text>
+            <text x="560" y="54" text-anchor="middle" font-size="13" font-weight="900" fill="var(--accent-d)">0.81%</text>
+            <!-- x labels -->
+            <text x="60" y="252" text-anchor="middle" font-size="11" fill="var(--soft)">1월</text>
+            <text x="185" y="252" text-anchor="middle" font-size="11" fill="var(--soft)">2월</text>
+            <text x="310" y="252" text-anchor="middle" font-size="11" fill="var(--soft)">3월</text>
+            <text x="435" y="252" text-anchor="middle" font-size="11" fill="var(--soft)">4월</text>
+            <text x="560" y="252" text-anchor="middle" font-size="11" fill="var(--accent-d)" font-weight="700">5월</text>
+          </svg>
+        </div>
+        <figcaption style="margin-top:10px;font-size:12px;line-height:1.6;color:var(--soft);">3월에 0.24%까지 내려갔다가 5월에 0.81%로 두 배 넘게 올랐다. 평균(0.40%)을 가르는 건 시기가 아니라 <b>무엇을 올렸느냐</b>다. 5월처럼 자산이 화면에 선 콘텐츠가 ER을 끌어올린다.</figcaption>
+      </figure>
 
       <div class="bars rv">
         <div class="bcap">게시물별 참여율 — 무엇이 터지고 무엇이 가라앉았나</div>
@@ -478,6 +589,34 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
         <p>포맷을 보기 전에 방향부터 잡습니다. 지금까지 배지타님의 콘텐츠는 "다이어트"라는 한 단어에 묶여 있었습니다. 그런데 같은 식단과 운동이 만드는 결과는 살이 빠지는 것만이 아닙니다. 몸이 맑아지고, 피부가 좋아지고, 잘 쉬게 되는 것까지 포함합니다. PART 2에서 짚은 포지셔닝 확장을 콘텐츠에서 실현하는 길이 이것입니다. <b>다이어트를 넘어 피부와 웰니스로 넓히는 것</b>입니다. 그리고 그 대상은 배지타님과 같은 시간을 지나는 30~50대입니다. 갓 스물의 다이어트 경쟁이 아니라, 출산과 나이를 지나고도 맑고 건강하고 싶은 세대에게 배지타님의 외모와 서사가 가장 정확하게 닿습니다.</p>
         <p>그리고 이것은 다이어트 기법의 문제가 아닙니다. 배지타님이 어떻게 먹고, 어떻게 움직이고, 어떻게 쉬는지 — 그 라이프스타일과 기준 자체가 콘텐츠입니다. <b>다이어트는 그 삶이 만들어낸 결과 하나일 뿐, 전부가 아닙니다.</b> 같은 라이프스타일이 피부로도, 운동으로도, 일상의 태도로도 드러납니다. 그래서 콘텐츠의 폭은 "살 빼는 법"이 아니라 "이렇게 사는 사람"으로 넓어집니다.</p>
         <p>이 방향을 잘 보여주는 예시로 @bobpro__라는 계정을 들겠습니다. "다이어트·피부관리"를 한 계정 안에 묶어, 콘텐츠로 신뢰를 쌓고 자사 제품 공구로 수익화하는 구조를 잘 보여줍니다. 먹는 것이 살이 아니라 피부와 건강으로 연결되니, 다룰 수 있는 소재도 받을 수 있는 제품도 함께 넓어집니다. 배지타님이 참고할 만한 구조가 거기 있습니다.</p>
+      </div>
+      <figure class="rv" style="margin:24px 0;">
+        <div class="carousel">
+          <div class="carousel-track" id="ctrack2">
+            <img src="https://pub-3c769f1382a34c35adf93cd1749c7e8e.r2.dev/chrome_EVBqlYFxo3.png" alt="@bobpro__ 피드 캡처 1" loading="lazy">
+            <img src="https://pub-3c769f1382a34c35adf93cd1749c7e8e.r2.dev/chrome_ozSmB2F2He.jpg" alt="@bobpro__ 피드 캡처 2" loading="lazy">
+            <img src="https://pub-3c769f1382a34c35adf93cd1749c7e8e.r2.dev/chrome_Lwk9Q6zR3A.jpg" alt="@bobpro__ 피드 캡처 3" loading="lazy">
+          </div>
+          <button class="carousel-btn prev" type="button" aria-label="이전">&#8249;</button>
+          <button class="carousel-btn next" type="button" aria-label="다음">&#8250;</button>
+          <div class="carousel-dots"></div>
+        </div>
+        <figcaption style="margin-top:10px;font-size:12px;line-height:1.6;color:var(--soft);">@bobpro__의 피드. 다이어트와 피부를 한 계정에 묶어 콘텐츠로 신뢰를 쌓고 공구로 수익화한다.</figcaption>
+      </figure>
+      <script>
+      (function(){
+        var track=document.getElementById('ctrack2');
+        if(!track)return;
+        var box=track.parentNode, n=track.children.length, i=0;
+        var dots=box.querySelector('.carousel-dots');
+        for(var k=0;k<n;k++){(function(idx){var d=document.createElement('span');if(idx===0)d.className='on';d.addEventListener('click',function(){go(idx);});dots.appendChild(d);})(k);}
+        function go(x){i=(x+n)%n;track.style.transform='translateX(-'+(i*100)+'%)';var ds=dots.children;for(var j=0;j<n;j++){ds[j].className=(j===i)?'on':'';}}
+        box.querySelector('.prev').addEventListener('click',function(){go(i-1);});
+        box.querySelector('.next').addEventListener('click',function(){go(i+1);});
+        setInterval(function(){go(i+1);},4000);
+      })();
+      </script>
+      <div class="prose">
         <p>그런데 이 계정에서 한 가지를 먼저 짚어야 합니다. @bobpro__조차 정보를 정리한 캐러셀은 좋아요 약 1,500개에 그쳤고, 시각적인 비교 릴스는 약 4.1만 개로 27배 가까이 터졌습니다(PART 1 참조). 잘 되는 계정에서도 정보를 정리해 보여주는 것보다 보여주고 비교하는 릴스가 이깁니다. 그래서 이 계정의 릴스를 부록 B에서 따로 분석합니다.</p>
         <p>다만 분명한 차이가 하나 있습니다. 배지타님은 정보를 잘 푸는 사람이 아니라, <b>외모·몸·피부라는 결과 자체가 콘텐츠인 사람</b>입니다. 그러니 @bobpro__의 구조는 참고하되, 그 안을 배지타님의 비주얼로 채웁니다. 아래 다섯 포맷이 그 방법입니다.</p>
       </div>
@@ -504,6 +643,10 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
       <div class="prose">
         <p>이 포맷을 가장 앞에 둡니다. 배지타님의 가장 크게 검증된 자산이 비주얼이기 때문입니다. 다만 지금까지 그 비주얼은 대부분 멈춰 있는 사진이었습니다. 그래서 이 포맷의 과제는 하나로 좁혀집니다. <b>정지된 이미지를 어떻게 움직이는 영상으로 옮기느냐</b>입니다.</p>
         <p>레퍼런스가 그 답을 보여줍니다. 서울 러닝과 데이터 인증 영상은 음악의 카운트다운(5, 4, 3, 2, 1)에 맞춰 신발 끈을 묶고 스트레칭하는 동작을 비트에 끊어 붙입니다. 드롭 순간 재킷을 벗어 던지는 트랜지션으로 시선을 끌고, 경복궁 돌담길을 달린 뒤, 마지막에 스트라바 기록(9.41km, 페이스 5:32)을 띄워 마무리합니다. soohy_n은 서울 골목을 러닝 무드로 담고, juliatrevino는 거울 앞 운동복 차림의 움직임을 음악에 얹어 몸 자체를 무드로 전시합니다. 셋의 공통점은 말이 없다는 것입니다. 음악과 몸과 비트만으로 완성됩니다.</p>
+      </div>
+      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYJFmWJxhiH/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/p/DYJFmWJxhiH/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
+      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYedJFkv25v/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/p/DYedJFkv25v/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
+      <div class="prose">
         <p>이 포맷이 배지타님에게 정확한 이유가 있습니다. 정지 사진은 한 장의 결과지만, 영상은 그 몸이 실제로 움직이고 살아가는 모습이라 설득력이 다릅니다. 말이 없으니 언어의 벽도 없어 글로벌 도달까지 열립니다. 스테파니킴치가 한식 영상으로 해외 조회수를 끌어올린 것이 그 증거입니다. 무엇보다 정보가 끼어들 자리가 없어, 정보를 글로 풀다 가라앉던 문제를 처음부터 피합니다.</p>
       </div>
       <div class="refbox">
@@ -516,8 +659,6 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
       <div class="prose">
         <p><b>게이트 &mdash;</b> 이 영상에서 배지타님의 몸과 움직임이 화면의 주인공인가. 자막이나 정보가 주인공이 되는 순간 이 포맷은 실패합니다.</p>
       </div>
-      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYJFmWJxhiH/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/p/DYJFmWJxhiH/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
-      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYedJFkv25v/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/p/DYedJFkv25v/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
     </div>
 
     <div class="sec rv">
@@ -526,6 +667,9 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
       <h3 class="sec-t">변화 서사</h3>
       <div class="prose">
         <p>하이록스 엄마의 증명, 다이어트 하지 마세요가 이 포맷입니다. 하이록스 영상은 어두운 초음파 사진 위에 "여자는 애 낳으면 끝이야"라는 폭력적인 편견을 텍스트로 띄우며 시작합니다. "직접 확인해 보지 뭐"라는 한마디를 기점으로 대회에 도전하는 장면을 강렬한 비트에 맞춰 교차 편집하고, 아이들의 응원 피켓과 동료와의 연대를 끼워 감정을 끌어올린 뒤, 피니시 기록(1:46:24)과 함께 "우리는 생각보다 강하다"로 닫습니다. 흑백의 과거에서 땀이 튀는 현재로 넘어가는 대비가 스포츠 브랜드 광고처럼 작동합니다.</p>
+      </div>
+      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DNSbQc_v2QU/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/reel/DNSbQc_v2QU/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
+      <div class="prose">
         <p>이 포맷은 배지타님에게 거의 변형이 필요 없습니다. 스물둘 출산, 산후의 자가면역, 9년 재건이라는 서사가 이 구조와 그대로 맞기 때문입니다. PART 1 데이터에서 가장 크게 터진 자리가 가족·서사였다는 사실이, 이 포맷이 배지타님의 가장 강한 무기라는 것을 이미 증명합니다. 외모만으로는 타고난 사람처럼 보이지만, 무너졌다 다시 세운 이야기가 붙으면 "방법을 아는 사람"이 됩니다.</p>
       </div>
       <div class="refbox">
@@ -539,7 +683,6 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
         <p><b>게이트 &mdash;</b> 편견이라는 훅과 현재의 몸이라는 증명이 한 영상 안에 같이 있는가. 서사만 있고 결과(현재 몸)가 안 보이면 공감으로 끝나고, 결과만 있고 서사가 없으면 자랑으로 보입니다. 둘이 붙어야 합니다.</p>
       </div>
       <div class="prose"><p><b>@bobpro__는</b> 체중계를 버리라는 역발상이나 "호르몬 망치기 vs 살리기"의 대비처럼, 통념을 뒤집는 한 줄로 시작하는 영상으로 이 포맷을 씁니다. 배지타님은 같은 구조에 본인의 몸과 9년이라는 증거를 더합니다.</p></div>
-      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DNSbQc_v2QU/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/reel/DNSbQc_v2QU/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
     </div>
 
     <div class="sec rv">
@@ -548,6 +691,34 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
       <h3 class="sec-t">레시피·식단 영상</h3>
       <div class="prose">
         <p>스테파니킴치의 몸이 맑아지는 스무디, 연어 파피요트, 마늘 장아찌가 이 포맷입니다. 14-day glow smoothie 영상은 음성 없이, 당근·비트·오렌지·생강을 썰고 찌는 과정을 ASMR로 보여주다가, 지퍼백 14개에 소분하는 밀프렙을 거쳐 완성된 스무디를 마시는 장면으로 이어집니다. 화면에는 "몸이 맑아지는 스무디"라는 결과형 텍스트가 먼저 걸리고, 마지막에 레시피를 띄워 캡처를 유도합니다. 요리법을 가르치는 게 아니라 결과를 먼저 보여주고 과정을 따라붙이는 구조입니다.</p>
+      </div>
+      <figure class="rv" style="margin:22px 0;">
+        <div class="carousel">
+          <div class="carousel-track" id="ctrack3">
+            <img src="https://pub-3c769f1382a34c35adf93cd1749c7e8e.r2.dev/image1.png" alt="@stephaniekimchi 피드 캡처 1" loading="lazy">
+            <img src="https://pub-3c769f1382a34c35adf93cd1749c7e8e.r2.dev/image2.png" alt="@stephaniekimchi 피드 캡처 2" loading="lazy">
+          </div>
+          <button class="carousel-btn prev" type="button" aria-label="이전">&#8249;</button>
+          <button class="carousel-btn next" type="button" aria-label="다음">&#8250;</button>
+          <div class="carousel-dots"></div>
+        </div>
+        <figcaption style="margin-top:10px;font-size:12px;line-height:1.6;color:var(--soft);">@stephaniekimchi의 피드. 음성 없이 결과를 먼저 보여주고 과정을 따라붙이는 한식·식단 영상으로 해외 도달까지 끌어올린다.</figcaption>
+      </figure>
+      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/stephaniekimchi/reel/DV2MvjGkxSw/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/stephaniekimchi/reel/DV2MvjGkxSw/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
+      <script>
+      (function(){
+        var track=document.getElementById('ctrack3');
+        if(!track)return;
+        var box=track.parentNode, n=track.children.length, i=0;
+        var dots=box.querySelector('.carousel-dots');
+        for(var k=0;k<n;k++){(function(idx){var d=document.createElement('span');if(idx===0)d.className='on';d.addEventListener('click',function(){go(idx);});dots.appendChild(d);})(k);}
+        function go(x){i=(x+n)%n;track.style.transform='translateX(-'+(i*100)+'%)';var ds=dots.children;for(var j=0;j<n;j++){ds[j].className=(j===i)?'on':'';}}
+        box.querySelector('.prev').addEventListener('click',function(){go(i-1);});
+        box.querySelector('.next').addEventListener('click',function(){go(i+1);});
+        setInterval(function(){go(i+1);},4000);
+      })();
+      </script>
+      <div class="prose">
         <p>이 포맷이 배지타님에게 맞는 이유는 정확합니다. "맑아짐"은 배지타님이 위고비와 갈라서는 바로 그 포지셔닝이고, 먹는 것은 라이크 지타라는 본진과 곧장 이어지는 소재입니다. 비트는 방법은 화자 전환입니다. 누구의 레시피가 아니라 <b>이 몸과 피부를 만든 식탁</b>으로 보여주는 것입니다.</p>
       </div>
       <div class="refbox">
@@ -562,7 +733,6 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
       </div>
       <div class="prose"><p><b>@bobpro__가</b> 가장 다양하게 쓰는 포맷이기도 합니다. 당근을 "먹는 스킨케어"로, 마늘을 "천연 항생제"로 부르고, 등갈비나 노밀가루 티라미수처럼 죄책감 드는 음식도 건강하게 풀어냅니다. 배지타님은 같은 레시피에 본인의 피부와 몸을 결과로 같이 올립니다.</p></div>
       <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DU73DRzEp8P/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/p/DU73DRzEp8P/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
-      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/stephaniekimchi/reel/DV2MvjGkxSw/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/stephaniekimchi/reel/DV2MvjGkxSw/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
     </div>
 
     <div class="sec rv">
@@ -571,6 +741,9 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
       <h3 class="sec-t">추천·순위 큐레이션</h3>
       <div class="prose">
         <p>약사의 살 안 찌는 음식 TOP 10, 치과의사의 치약 살래요·안 사요, 운동 종목 평점이 이 포맷입니다. 약사 영상은 질문자가 음식을 던지면 약사가 부연 설명 없이 즉시 순위를 매기는 블라인드 랭킹으로, 화면 우측의 1~10위 빈 보드가 채워지는 것 자체가 프로그레스 바가 되어 끝까지 보게 만듭니다. 치약 영상은 O·X만 고정해두고 손가락으로 가리키며 "살래요·안 사요"를 반복하는데, 이유를 설명하지 않아 댓글에서 논쟁이 일어납니다.</p>
+      </div>
+      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYWoHqrSu9a/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/p/DYWoHqrSu9a/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
+      <div class="prose">
         <p>배지타님이 그대로 쓰되, 권위의 출처가 다릅니다. 약사는 가운으로, 치과의사는 진료실로 말하지만 배지타님은 트레이너 경력과 무엇보다 몸으로 말합니다. 그래서 같은 포맷이라도 <b>배지타님의 몸이 화면에 함께 있어야</b> 큐레이션에 신뢰가 갑니다. 가운 대신 몸이 자격증입니다.</p>
       </div>
       <div class="refbox">
@@ -584,7 +757,6 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
         <p><b>게이트 &mdash;</b> 약사의 가운 자리에 배지타님의 몸이 들어와 있는가. 얼굴만 나오고 몸이 안 보이면, 배지타님이 이 큐레이션을 할 자격이 화면에 증명되지 않습니다.</p>
       </div>
       <div class="prose"><p><b>@bobpro__도</b> 마트 과일 고르는 법, 나만 아는 식료품점 3곳, 몰래 먹는 다이어트 간식 5가지처럼 큐레이션을 자주 씁니다. "저장 안 하면 손해"라는 심리와 "댓글 달면 링크"라는 보상으로 참여까지 끌어냅니다. 배지타님은 그 큐레이션의 권위를 지식이 아니라 몸으로 세웁니다.</p></div>
-      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYWoHqrSu9a/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/p/DYWoHqrSu9a/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
     </div>
 
     <div class="sec rv">
@@ -593,6 +765,9 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
       <h3 class="sec-t">제품·공구</h3>
       <div class="prose">
         <p>@bobpro__의 위고비 콘텐츠와 자사몰 공구 퍼널, 당근 라페 먹는 스킨케어, 쿠팡 건강 먹거리가 이 포맷입니다. @bobpro__는 화제성(머스크 다이어트)으로 시작해 메커니즘(GLP-1 호르몬)을 설명하고, 자사 제품을 솔루션으로 연결한 뒤 임상·후기로 신뢰를 보강하고 공동구매 마감으로 닫는 정교한 퍼널을 자사몰 공동 게시로 굴립니다. 당근 라페는 흔한 레시피를 "먹는 스킨케어"라는 뷰티 솔루션으로 리프레이밍해 팔고, 쿠팡 먹거리는 "아는 사람만 쟁이는"이라는 희소성과 극적인 후기로 구매를 유도합니다. PART 2 공구 전략의 실행 레퍼런스입니다.</p>
+      </div>
+      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DU73DRzEp8P/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/p/DU73DRzEp8P/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
+      <div class="prose">
         <p>@bobpro__가 메커니즘 설명으로 판다면, 배지타님은 결과로 팝니다. 제품을 효능으로 설명하지 않고 <b>배지타님의 외모라는 결과의 일부</b>로 보여주는 것입니다. 위고비가 굶어서 푸석해지는 자리라면 배지타님은 맑아지는 자리라는 차별이, 그대로 판매 메시지가 됩니다.</p>
       </div>
       <div class="refbox">
@@ -612,7 +787,6 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
         <b>공구일</b> &mdash; 제품을 결과의 일부로 보여주고, 직접적인 구매 안내는 스토리로 보냅니다.<br><br>
         <b>공구 후 1주</b> &mdash; 후기, 자주 묻는 질문(CS), 사용법, 먹는 방법을 이어 올립니다. 산 사람에게는 만족을, 망설인 사람에게는 다시 한번 이유를 줍니다.
       </div>
-      <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DU73DRzEp8P/" data-instgrm-version="14" style="max-width:540px;width:100%;"><a href="https://www.instagram.com/p/DU73DRzEp8P/" target="_blank" rel="noopener" style="display:block;padding:14px;text-align:center;color:#e75519;font-size:13px;text-decoration:none;border:1px solid #e5ded2;border-radius:6px;">▶ 인스타그램에서 영상 보기</a></blockquote></div>
     </div>
   </section>
 
@@ -987,9 +1161,37 @@ footer .fn{font-size:11px;color:var(--soft);margin-top:8px}
   <div class="fn">본 가이드라인은 배지타님을 위해 작성되었습니다.</div>
 </footer>
 
+</div><!-- /main -->
+
 <script>
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sbOverlay').classList.toggle('show');
+}
+(function(){
+  var links={};
+  document.querySelectorAll('.sb-link').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var spy=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        for(var k in links){links[k].classList.remove('active');}
+        if(links[e.target.id]){links[e.target.id].classList.add('active');}
+      }
+    });
+  },{rootMargin:'-15% 0px -75% 0px'});
+  document.querySelectorAll('section.part[id]').forEach(function(s){spy.observe(s);});
+  document.querySelectorAll('.sb-link').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window.innerWidth<=900){
+        document.getElementById('sidebar').classList.remove('open');
+        document.getElementById('sbOverlay').classList.remove('show');
+      }
+    });
+  });
+})();
 </script>
 <script async src="https://www.instagram.com/embed.js"></script>
 <script>
