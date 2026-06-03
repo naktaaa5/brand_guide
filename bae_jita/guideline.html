@@ -311,6 +311,15 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
   [id]{scroll-margin-top:24px}
   .xref{color:#e75519;font-weight:600;border-bottom:1px solid rgba(231,85,25,.45);text-decoration:none;cursor:pointer;transition:opacity .15s}
   .xref:hover{opacity:.65}
+  .steps{display:flex;flex-direction:column;gap:11px;margin:14px 0 2px}
+  .step{display:flex;gap:11px;align-items:flex-start}
+  .step-n{flex:0 0 21px;width:21px;height:21px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--font-d);font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .step-c{flex:1;font-size:14px;line-height:1.75;color:var(--sub)}
+  .step-c b{color:var(--ink);font-weight:700}
+  .step-c em{font-style:normal;font-size:11px;color:var(--soft);letter-spacing:.3px}
+  .rc-apply .ra-item{margin-bottom:9px}
+  .rc-apply .ra-item:last-child{margin-bottom:0}
+  .rc-apply .ra-item b{display:block;font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--accent);margin-bottom:3px}
 </style>
 </head>
 <body>
@@ -816,9 +825,7 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
       </div>
       <div class="refbox">
         <div class="rt">배지타님 버전 시나리오</div>
-        <b>오프닝 (3초)</b> &mdash; 운동복 차림으로, 음악 첫 박에 맞춰 동작 하나. 스트레칭이든 신발 끈이든 거울 앞 정면이든, 첫 컷에서 몸의 라인이 보여야 합니다.<br><br>
-        <b>전개</b> &mdash; 러닝이든 홈트든 한 가지 운동을 비트에 맞춰 빠르게 붙입니다. 땀, 호흡, 근육의 움직임을 클로즈업으로 끼우고, 한강·골목·집 안 같은 배경이 무드를 만듭니다.<br><br>
-        <b>마무리</b> &mdash; 스트라바 기록이나 운동 후의 개운한 표정, 또는 거울 속 몸 한 컷으로 "오늘도 했다"는 결과를 증거로 남깁니다.<br><br>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>오프닝</b> <em>3초</em> 운동복 차림으로, 음악 첫 박에 맞춰 동작 하나. 스트레칭이든 신발 끈이든 거울 앞 정면이든, 첫 컷에서 몸의 라인이 보여야 합니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 러닝이든 홈트든 한 가지 운동을 비트에 맞춰 빠르게 붙입니다. 땀, 호흡, 근육의 움직임을 클로즈업으로 끼우고, 한강·골목·집 안 같은 배경이 무드를 만듭니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 스트라바 기록이나 운동 후의 개운한 표정, 또는 거울 속 몸 한 컷으로 "오늘도 했다"는 결과를 증거로 남깁니다.</div></div></div>
         텍스트는 거리·시간 같은 데이터 자막 정도로만. 설명하지 않습니다.
       </div>
       <div class="prose">
@@ -839,9 +846,7 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
       </div>
       <div class="refbox">
         <div class="rt">배지타님 버전 시나리오</div>
-        <b>오프닝 (3초)</b> &mdash; 편견을 텍스트로 정면에 던집니다. "여자는 애 낳으면 끝이야", "마흔 넘으면 끝이야" 위에, 무너졌던 시절의 흔적(과거 사진, 기록)을 깔아 즉각적인 반발심을 만듭니다.<br><br>
-        <b>전개</b> &mdash; 10년의 재건을 압축해 교차 편집합니다. 운동, 식단, 반복된 일상을 빠른 호흡으로 붙이되, 비트감 있는 음악으로 감정선을 끌어올립니다.<br><br>
-        <b>마무리</b> &mdash; 현재의 몸을 풀샷으로 보여주며 "끝이 아니라 더 강해졌다"를 증거로 남깁니다. 말이 아니라 몸이 결론입니다.<br><br>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>오프닝</b> <em>3초</em> 편견을 텍스트로 정면에 던집니다. "여자는 애 낳으면 끝이야", "마흔 넘으면 끝이야" 위에, 무너졌던 시절의 흔적(과거 사진, 기록)을 깔아 즉각적인 반발심을 만듭니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 10년의 재건을 압축해 교차 편집합니다. 운동, 식단, 반복된 일상을 빠른 호흡으로 붙이되, 비트감 있는 음악으로 감정선을 끌어올립니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 현재의 몸을 풀샷으로 보여주며 "끝이 아니라 더 강해졌다"를 증거로 남깁니다. 말이 아니라 몸이 결론입니다.</div></div></div>
         자녀나 가족을 어디까지 화면에 넣을지는 배지타님이 정하는 영역입니다. 서사는 본인의 재건만으로도 충분히 성립합니다.
       </div>
       <div class="prose">
@@ -889,9 +894,7 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
       </div>
       <div class="refbox">
         <div class="rt">배지타님 버전 시나리오</div>
-        <b>오프닝 (3초)</b> &mdash; 결과를 먼저 보여줍니다. 맑은 피부의 배지타님이 완성된 음식이나 스무디를 드는 컷 위에 "내가 매일 이렇게 먹는다" 같은 결과형 한 줄을 겁니다.<br><br>
-        <b>전개</b> &mdash; 재료를 손질하는 ASMR과 밀프렙 과정을 무드 있게. 말로 설명하기보다 소리와 손의 움직임으로 채웁니다. 중간중간 배지타님의 얼굴·피부가 스쳐야 합니다.<br><br>
-        <b>마무리</b> &mdash; 완성된 한 끼와 레시피 자막으로 캡처를 유도하고, 더 깊은 식단법은 프로필의 라이크 지타로 넘깁니다. 인스타에는 식탁만, 방법은 사이트에.<br><br>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>오프닝</b> <em>3초</em> 결과를 먼저 보여줍니다. 맑은 피부의 배지타님이 완성된 음식이나 스무디를 드는 컷 위에 "내가 매일 이렇게 먹는다" 같은 결과형 한 줄을 겁니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 재료를 손질하는 ASMR과 밀프렙 과정을 무드 있게. 말로 설명하기보다 소리와 손의 움직임으로 채웁니다. 중간중간 배지타님의 얼굴·피부가 스쳐야 합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 완성된 한 끼와 레시피 자막으로 캡처를 유도하고, 더 깊은 식단법은 프로필의 라이크 지타로 넘깁니다. 인스타에는 식탁만, 방법은 사이트에.</div></div></div>
         재료와 도구는 이 흐름 안에서 공구로 자연스럽게 이어집니다.
       </div>
       <div class="prose">
@@ -918,9 +921,7 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
       </div>
       <div class="refbox">
         <div class="rt">배지타님 버전 시나리오</div>
-        <b>오프닝 (3초)</b> &mdash; 배지타님이 몸이 보이는 차림으로 등장하며 빈 리스트를 겁니다. "내가 먹어본 다이어트 간식 살래요·안 사요", "운동 종목 솔직 평점" 같은 제목과 함께.<br><br>
-        <b>전개</b> &mdash; 제품이나 종목을 하나씩 빠르게 던지고 즉각 O·X나 점수로 판정합니다. 설명은 최소한으로, 배지타님의 표정과 제스처가 리듬을 만듭니다.<br><br>
-        <b>마무리</b> &mdash; 리스트가 채워지는 순간 설명 없이 끝냅니다. 이유를 다 말하지 않아야 댓글에서 "왜요?"라는 반응이 이어지고 저장과 논쟁이 생깁니다.<br><br>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>오프닝</b> <em>3초</em> 배지타님이 몸이 보이는 차림으로 등장하며 빈 리스트를 겁니다. "내가 먹어본 다이어트 간식 살래요·안 사요", "운동 종목 솔직 평점" 같은 제목과 함께.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 제품이나 종목을 하나씩 빠르게 던지고 즉각 O·X나 점수로 판정합니다. 설명은 최소한으로, 배지타님의 표정과 제스처가 리듬을 만듭니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 리스트가 채워지는 순간 설명 없이 끝냅니다. 이유를 다 말하지 않아야 댓글에서 "왜요?"라는 반응이 이어지고 저장과 논쟁이 생깁니다.</div></div></div>
         깊은 원리 설명(성분, 메커니즘)은 사이트로 넘기고, 인스타에는 판정만 남깁니다.
       </div>
       <div class="prose">
@@ -942,9 +943,7 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
       </div>
       <div class="refbox">
         <div class="rt">배지타님 버전 시나리오</div>
-        <b>오프닝 (3초)</b> &mdash; 제품 소개가 아니라 결과로 시작합니다. 배지타님의 피부나 몸이 먼저 보이고, 그 일상 안에 제품이 자연스럽게 놓여 있습니다.<br><br>
-        <b>전개</b> &mdash; "내가 이걸 이렇게 쓴다"를 보여줍니다. 효능을 단정하지 않고, 배지타님의 루틴과 결과의 일부로 제품을 녹입니다. 레시피나 경험의 형태라 표현 규제도 자연스럽게 비껴갑니다.<br><br>
-        <b>마무리</b> &mdash; 인스타는 결과까지만. 구매와 자세한 사용법은 프로필 링크를 통해 사이트나 공구 페이지로 넘깁니다. 피드는 전환을 직접 하지 않고, 욕망까지만 만듭니다.<br><br>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>오프닝</b> <em>3초</em> 제품 소개가 아니라 결과로 시작합니다. 배지타님의 피부나 몸이 먼저 보이고, 그 일상 안에 제품이 자연스럽게 놓여 있습니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> "내가 이걸 이렇게 쓴다"를 보여줍니다. 효능을 단정하지 않고, 배지타님의 루틴과 결과의 일부로 제품을 녹입니다. 레시피나 경험의 형태라 표현 규제도 자연스럽게 비껴갑니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 인스타는 결과까지만. 구매와 자세한 사용법은 프로필 링크를 통해 사이트나 공구 페이지로 넘깁니다. 피드는 전환을 직접 하지 않고, 욕망까지만 만듭니다.</div></div></div>
         받을 제품을 고르는 기준은 PART 2의 게이트 그대로입니다. 팔로워가 배지타님에게 기대하는 카테고리인가.
       </div>
       <div class="prose">
@@ -953,10 +952,7 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
       <div class="refbox">
         <div class="rt">공구는 단발이 아니라 흐름으로</div>
         공구는 갑자기 한 편으로 올리고 끝내지 않습니다. 앞뒤로 서사를 깔아야 전환이 됩니다.<br><br>
-        <b>공구 전 1주</b> &mdash; 이 제품과 연결되는 서사나 일상으로 기대를 쌓습니다. "요즘 이걸 이렇게 먹는다" 정도로 미리 노출합니다.<br><br>
-        <b>공구일</b> &mdash; 제품을 결과의 일부로 보여주고, 직접적인 구매 안내는 스토리로 보냅니다.<br><br>
-        <b>공구 후 1주</b> &mdash; 후기, 자주 묻는 질문(CS), 사용법, 먹는 방법을 이어 올립니다. 산 사람에게는 만족을, 망설인 사람에게는 다시 한번 이유를 줍니다.
-      </div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>공구 전 1주</b> 이 제품과 연결되는 서사나 일상으로 기대를 쌓습니다. "요즘 이걸 이렇게 먹는다" 정도로 미리 노출합니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>공구일</b> 제품을 결과의 일부로 보여주고, 직접적인 구매 안내는 스토리로 보냅니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>공구 후 1주</b> 후기, 자주 묻는 질문(CS), 사용법, 먹는 방법을 이어 올립니다. 산 사람에게는 만족을, 망설인 사람에게는 다시 한번 이유를 줍니다.</div></div></div></div>
       <div class="prose">
         <p>왜 이 흐름이 중요한지는, 흐름이 없었을 때를 보면 분명합니다. 배지타님 피드 중앙에 "이거 하나면 모공관리 끝"이라는 진동 클렌저 영상이 있습니다. 콘텐츠 자체는 나쁘지 않습니다. 문제는 <b>앞뒤 어디에도 피부 이야기가 없다</b>는 것입니다. 위아래로 운동·러닝·몸 콘텐츠만 깔린 가운데 뷰티 광고가 혼자 떨어져 있으니, 팔로워 입장에서는 "이 사람이 갑자기 왜 모공 클렌저를?"이 됩니다.</p>
       </div>
@@ -1147,9 +1143,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-title">남산 6km 러닝 브이로그</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYedJFkv25v/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"여러분 제가 지금 한국에 왔는데요, 저랑 한번 달려보시죠. 1km 처음 뛰어보는 남산 러닝코스. 2km 한국 날씨 반칙이네. … 6km Finished! 6km 러닝 끝!"</div>
-        <div class="rc-row"><b>훅</b> &mdash; 밝은 미소로 "저랑 한번 달려보시죠"라며 3초 만에 시청자를 러닝 메이트로 초대합니다.<br><b>전개</b> &mdash; 1~6km를 빠른 컷과 거리 자막으로, "날씨 반칙이네" 같은 실시간 리액션을 끼워 지루할 틈을 없앱니다.<br><b>마무리</b> &mdash; "6km Finished!"와 완주 후의 개운한 미소로 성취감을 전합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 밝은 미소로 "저랑 한번 달려보시죠"라며 3초 만에 시청자를 러닝 메이트로 초대합니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 1~6km를 빠른 컷과 거리 자막으로, "날씨 반칙이네" 같은 실시간 리액션을 끼워 지루할 틈을 없앱니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> "6km Finished!"와 완주 후의 개운한 미소로 성취감을 전합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 뛰는 걸 자랑하는 게 아니라, 1인칭 앵글로 시청자에게 '같이 뛰는' 동참 경험을 준 점.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; 1인칭 앵글로 한강이나 동네 러닝을 찍어 시청자를 러닝 메이트로 부릅니다. 거리 자막과 완주 표정, 그날의 컨디션 리액션을 그대로 살립니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 정지 사진은 결과 한 장이지만, 같이 뛰는 영상은 그 몸으로 매일 사는 사람이라는 증거입니다. 41세가 이렇게 달린다는 사실 자체가 "이 외모가 가능한 라이프스타일"을 움직임으로 쌓습니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>1인칭 앵글로 한강이나 동네 러닝을 찍어 시청자를 러닝 메이트로 부릅니다. 거리 자막과 완주 표정, 그날의 컨디션 리액션을 그대로 살립니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>정지 사진은 결과 한 장이지만, 같이 뛰는 영상은 그 몸으로 매일 사는 사람이라는 증거입니다. 41세가 이렇게 달린다는 사실 자체가 "이 외모가 가능한 라이프스타일"을 움직임으로 쌓습니다.</div></div>
         
       </div>
 
@@ -1157,9 +1153,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-title">서울 러닝과 데이터 인증</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYJFmWJxhiH/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>(음성 없음) 음악 "5 4 3 2 1 Go, Run run run…" / 자막 Distance 9.41km, Pace 5:32/km, Time 52m 6s, STRAVA</div>
-        <div class="rc-row"><b>훅</b> &mdash; 음악의 카운트다운(5,4,3,2,1) 비트에 맞춰 신발 끈 묶기·스트레칭을 딱딱 끊어 배치해 초반 3초의 쾌감을 만듭니다.<br><b>전개</b> &mdash; 비트 드롭과 동시에 재킷을 벗어 던지는 트랜지션, 경복궁 돌담길 러닝.<br><b>마무리</b> &mdash; 완주 후 스트라바 기록 데이터를 미니멀 UI로 띄워 '진짜 기록'의 성취감을 줍니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 음악의 카운트다운(5,4,3,2,1) 비트에 맞춰 신발 끈 묶기·스트레칭을 딱딱 끊어 배치해 초반 3초의 쾌감을 만듭니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 비트 드롭과 동시에 재킷을 벗어 던지는 트랜지션, 경복궁 돌담길 러닝.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 완주 후 스트라바 기록 데이터를 미니멀 UI로 띄워 '진짜 기록'의 성취감을 줍니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 비트 트랜지션의 트렌디함과 결말부 데이터 UI의 진정성을 동시에 잡은 점.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; 음악 비트에 맞춘 칼편집으로 러닝을 붙이고, 마지막에 스트라바 기록을 미니멀 UI로 띄웁니다. 텍스트는 최소화합니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 비트 편집이 멋을 만들고 기록 데이터가 진정성을 박습니다. 외모로 끄는 시선에 "이건 진짜다"라는 객관 증거가 붙어, 타고난 게 아니라 만들어 사는 라이프스타일임을 함께 증명합니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>음악 비트에 맞춘 칼편집으로 러닝을 붙이고, 마지막에 스트라바 기록을 미니멀 UI로 띄웁니다. 텍스트는 최소화합니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>비트 편집이 멋을 만들고 기록 데이터가 진정성을 박습니다. 외모로 끄는 시선에 "이건 진짜다"라는 객관 증거가 붙어, 타고난 게 아니라 만들어 사는 라이프스타일임을 함께 증명합니다.</div></div>
         
       </div>
 
@@ -1167,9 +1163,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-title">런던 모닝 베이글 런</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DVrQLk_DSQp/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>(음성 없음, 발랄한 팝송) 자막 MORNING BAGEL RUN / 7:47 AM … 10:07 AM (타임스탬프)</div>
-        <div class="rc-row"><b>훅</b> &mdash; 'MORNING BAGEL RUN'이라는 목적 텍스트와 빠른 외출 준비로 "어떤 하루일까" 호기심을 자극합니다.<br><b>전개</b> &mdash; 7:47AM부터 10:07AM까지 타임스탬프 자막으로 그 시간을 따라가고, 런던 거리·공원 풍경을 배치합니다.<br><b>마무리</b> &mdash; 목적지 베이글 가게에서 한 입 베어 무는 보상으로 닫습니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 'MORNING BAGEL RUN'이라는 목적 텍스트와 빠른 외출 준비로 "어떤 하루일까" 호기심을 자극합니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 7:47AM부터 10:07AM까지 타임스탬프 자막으로 그 시간을 따라가고, 런던 거리·공원 풍경을 배치합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 목적지 베이글 가게에서 한 입 베어 무는 보상으로 닫습니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; '아침 운동'이라는 허들 높은 행위를 '맛있는 보상'과 결합해 타임라인 동참 경험으로 푼 점.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; 운동이 들어간 하루를 타임스탬프 브이로그로 압축합니다. 기상부터 러닝, 식사까지 시간 흐름으로 따라가게 합니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 이 포맷은 운동 한 컷이 아니라 운동이 박힌 하루 전체를 보여줍니다. 한 줄의 핵심인 라이프스타일이 가장 직접적으로 드러나는 형식이라, 결과가 어떤 일상에서 나오는지를 통째로 전합니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>운동이 들어간 하루를 타임스탬프 브이로그로 압축합니다. 기상부터 러닝, 식사까지 시간 흐름으로 따라가게 합니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>이 포맷은 운동 한 컷이 아니라 운동이 박힌 하루 전체를 보여줍니다. 한 줄의 핵심인 라이프스타일이 가장 직접적으로 드러나는 형식이라, 결과가 어떤 일상에서 나오는지를 통째로 전합니다.</div></div>
         
       </div>
     </div>
@@ -1182,9 +1178,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-title">하이록스 도전기 &mdash; 엄마의 증명</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DNSbQc_v2QU/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"여자는 애 낳으면 끝이야. … 진짜 끝인가 직접 확인해 보지 뭐. 나의 첫 하이록스 도전기. … 엄마가 되어도 나는 변하지 않는다는 것, 아니 더 강해졌음을 스스로에게 증명한 도전. … 우리는 우리가 생각하는 거보다 훨씬 더 강한 사람이라는 걸."</div>
-        <div class="rc-row"><b>훅</b> &mdash; 어두운 초음파 사진 위에 "여자는 애 낳으면 끝이야"라는 폭력적인 편견을 텍스트로 띄워 즉각적인 반발심을 만듭니다.<br><b>전개</b> &mdash; "직접 확인해 보지 뭐"를 기점으로 대회 도전을 비트에 맞춰 교차 편집하고, 아이들의 응원과 동료의 연대를 끼웁니다.<br><b>마무리</b> &mdash; 피니시 기록(1:46:24)과 "우리는 생각보다 강하다"로 카타르시스를 남깁니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 어두운 초음파 사진 위에 "여자는 애 낳으면 끝이야"라는 폭력적인 편견을 텍스트로 띄워 즉각적인 반발심을 만듭니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> "직접 확인해 보지 뭐"를 기점으로 대회 도전을 비트에 맞춰 교차 편집하고, 아이들의 응원과 동료의 연대를 끼웁니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 피니시 기록(1:46:24)과 "우리는 생각보다 강하다"로 카타르시스를 남깁니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 억울하게 듣던 사회적 편견을 훅으로 찌른 뒤, 노력으로 박살 내는 과정을 스포츠 영화처럼 엮은 언더독 스토리텔링.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; 편견을 첫 화면에 텍스트로 던지고, 무너졌던 과거와 다시 세운 현재를 비트에 맞춰 교차 편집합니다. 마무리는 현재의 몸과 한 줄의 선언으로 닫습니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 위태로운 출산과 폭식·요요를 지나 서른부터 다시 세운 재건의 서사가 이 구조와 그대로 맞습니다. 이 포맷은 그 몸이 어떻게 만들어졌나를 증명하는 자리이고, 외모를 타고난 자랑이 아니라 만들어낸 결과로 바꿉니다. 배지타님의 가장 강한 무기입니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>편견을 첫 화면에 텍스트로 던지고, 무너졌던 과거와 다시 세운 현재를 비트에 맞춰 교차 편집합니다. 마무리는 현재의 몸과 한 줄의 선언으로 닫습니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>위태로운 출산과 폭식·요요를 지나 서른부터 다시 세운 재건의 서사가 이 구조와 그대로 맞습니다. 이 포맷은 그 몸이 어떻게 만들어졌나를 증명하는 자리이고, 외모를 타고난 자랑이 아니라 만들어낸 결과로 바꿉니다. 배지타님의 가장 강한 무기입니다.</div></div>
         
       </div>
 
@@ -1192,9 +1188,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct"><a class="xref" href="https://www.instagram.com/bobpro__/" target="_blank" rel="noopener">@bobpro__</a></span><span class="rc-title">다이어트 하지 마세요</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DWgaT1hj7JE/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"아침에 일어나자마자 … 체중계에 올라서 몸무게부터 확인하던 사람이었어요. … 기분이 나빠서 체중계를 버렸는데 … 10kg이 빠져 있더라고요. … 그거 먹지마! 하면 더 먹고 싶죠. 그러니까 여러분 체중계 버리세요, 다이어트 하지 마세요, 먹고 싶은 거 다 드세요."</div>
-        <div class="rc-row"><b>훅</b> &mdash; 옷을 다 벗고 체중계에 오르던 구체적 행동을 묘사해 다이어터의 격렬한 공감을 끌어냅니다.<br><b>전개</b> &mdash; 체중계를 버린 뒤 오히려 10kg 빠졌다는 반전을 먼저 던지고, 금지하면 더 하고 싶어지는 청개구리 심리로 설득합니다.<br><b>마무리</b> &mdash; "다이어트 하지 마세요"라는 역발상 제안 + "건강하게만 지내자"는 따뜻한 격려.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 옷을 다 벗고 체중계에 오르던 구체적 행동을 묘사해 다이어터의 격렬한 공감을 끌어냅니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 체중계를 버린 뒤 오히려 10kg 빠졌다는 반전을 먼저 던지고, 금지하면 더 하고 싶어지는 청개구리 심리로 설득합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> "다이어트 하지 마세요"라는 역발상 제안 + "건강하게만 지내자"는 따뜻한 격려.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 다이어터의 최대 스트레스인 '강박'을 짚고, 역발상 솔루션으로 해방감을 준 점. 음성은 해방을 말하면서 화면은 활동적인 건강한 일상을 교차해 묘한 설득력을 만듭니다.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; "굶지 마세요" 같은 통념 뒤집는 역발상을 훅으로 던지고, 활동적이고 잘 사는 일상 컷을 교차해 말과 화면의 대비를 만듭니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 강박을 내려놓아도 된다는 메시지가, 굶지 않고 만든 배지타님의 몸과 정확히 겹칩니다. 위고비가 굶어서 가는 자리와 갈라서는 포지셔닝을 서사로 푸는 방식입니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>"굶지 마세요" 같은 통념 뒤집는 역발상을 훅으로 던지고, 활동적이고 잘 사는 일상 컷을 교차해 말과 화면의 대비를 만듭니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>강박을 내려놓아도 된다는 메시지가, 굶지 않고 만든 배지타님의 몸과 정확히 겹칩니다. 위고비가 굶어서 가는 자리와 갈라서는 포지셔닝을 서사로 푸는 방식입니다.</div></div>
         
       </div>
     </div>
@@ -1207,9 +1203,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct"><a class="xref" href="https://www.instagram.com/stephaniekimchi/" target="_blank" rel="noopener">@stephaniekimchi</a></span><span class="rc-title">14-Day Glow Smoothie</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/stephaniekimchi/reel/DV2MvjGkxSw/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>(음성 없음) 자막 "14-day glow smoothie 몸이 맑아지는 스무디 / steam for 10 min 10분 가볍게 찌기 / coconut water" + 레시피 텍스트</div>
-        <div class="rc-row"><b>훅</b> &mdash; 화사한 스무디를 따르고 마시는 모습에 "몸이 맑아지는 스무디"라는 결과형 텍스트를 얹어 기대를 만듭니다.<br><b>전개</b> &mdash; 당근·비트·오렌지·생강을 썰고 찌는 과정부터 지퍼백 14개 밀프렙까지 배속 ASMR로 보여줍니다.<br><b>마무리</b> &mdash; 완성 스무디와 식사 장면, 마지막에 정확한 레시피를 띄워 캡처를 유도합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 화사한 스무디를 따르고 마시는 모습에 "몸이 맑아지는 스무디"라는 결과형 텍스트를 얹어 기대를 만듭니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 당근·비트·오렌지·생강을 썰고 찌는 과정부터 지퍼백 14개 밀프렙까지 배속 ASMR로 보여줍니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 완성 스무디와 식사 장면, 마지막에 정확한 레시피를 띄워 캡처를 유도합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 번거로운 건강식을 '14일치 밀프렙 시스템'으로 보여줘 실행 가능성을 높이고 저장을 유도한 점.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; 음식 클로즈업, 손질 ASMR, 밀프렙을 그대로 살립니다. 더하는 건 이 식탁이 어떤 사람의 하루에 놓였다는 맥락 &mdash; 먹는 사람과 공간, 먹고 난 일상이 같은 영상 안에 있게 합니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 스테파니킴치는 "맛있는 한식"에서 끝나지만, 같은 레시피가 배지타님의 일상에 놓이면 "이 외모가 가능한 라이프스타일"의 한 조각이 됩니다. "맑아짐"이 위고비와 갈라서는 자리라, 이 식탁이 곧 차별점이 됩니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>음식 클로즈업, 손질 ASMR, 밀프렙을 그대로 살립니다. 더하는 건 이 식탁이 어떤 사람의 하루에 놓였다는 맥락 &mdash; 먹는 사람과 공간, 먹고 난 일상이 같은 영상 안에 있게 합니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>스테파니킴치는 "맛있는 한식"에서 끝나지만, 같은 레시피가 배지타님의 일상에 놓이면 "이 외모가 가능한 라이프스타일"의 한 조각이 됩니다. "맑아짐"이 위고비와 갈라서는 자리라, 이 식탁이 곧 차별점이 됩니다.</div></div>
         
       </div>
 
@@ -1217,9 +1213,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct">@stephaniekimchi</span><span class="rc-title">연어 파피요트 &amp; 스매쉬드 포테이토</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/stephaniekimchi/reel/DVpWaE3kx85/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>(조리 음성 없음) 시식 후 한마디 &mdash; "음~ 맛있다."</div>
-        <div class="rc-row"><b>훅</b> &mdash; 도마 위 신선한 연어 통살을 썰어내는 시각적 쾌감으로 시작합니다.<br><b>전개</b> &mdash; 종이호일로 감싸는 파피요트, 컵으로 눌러 으깬 스매쉬드 포테이토 등 트렌디한 테크닉을 세련되게 보여줍니다.<br><b>마무리</b> &mdash; 레스토랑급 플레이팅과 "음~ 맛있다" 한마디로 식욕을 자극합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 도마 위 신선한 연어 통살을 썰어내는 시각적 쾌감으로 시작합니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 종이호일로 감싸는 파피요트, 컵으로 눌러 으깬 스매쉬드 포테이토 등 트렌디한 테크닉을 세련되게 보여줍니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 레스토랑급 플레이팅과 "음~ 맛있다" 한마디로 식욕을 자극합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 종이호일·컵 같은 일상 도구로 외식 수준 결과를 만드는 '시각적 마술' 같은 연출.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; 종이호일 포장, 컵으로 으깬 감자 같은 트렌디한 조리 테크닉을 그대로 보여줍니다. 다만 그것이 잘 차려 먹고 사는 사람의 한 끼라는 맥락을 함께 둡니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 평범한 재료를 낯선 포장으로 고급스럽게 만드는 이 구조는 "이렇게까지 차려 먹고 사는 사람"이라는 라이프스타일을 전합니다. 음식의 완성도가 그 사람의 기준을 증명합니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>종이호일 포장, 컵으로 으깬 감자 같은 트렌디한 조리 테크닉을 그대로 보여줍니다. 다만 그것이 잘 차려 먹고 사는 사람의 한 끼라는 맥락을 함께 둡니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>평범한 재료를 낯선 포장으로 고급스럽게 만드는 이 구조는 "이렇게까지 차려 먹고 사는 사람"이라는 라이프스타일을 전합니다. 음식의 완성도가 그 사람의 기준을 증명합니다.</div></div>
         
       </div>
 
@@ -1227,9 +1223,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-title">대용량 마늘 장아찌 &mdash; 살림 브이로그</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZBWfG9zN28/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>(음성 없음, 팝송 배경음악만)</div>
-        <div class="rc-row"><b>훅</b> &mdash; 대파 다발과 깐마늘 대용량을 품에 안고 주방으로 들어오는 과장된 연출로 시선을 잡습니다.<br><b>전개</b> &mdash; 마늘 씻기, 유리병 열탕 소독, 간장물 붓기 같은 노동 과정을 리듬감 있게 편집합니다.<br><b>마무리</b> &mdash; 완성된 장아찌 병 앞에서 신나서 춤을 추는 모습으로 닫습니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 대파 다발과 깐마늘 대용량을 품에 안고 주방으로 들어오는 과장된 연출로 시선을 잡습니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 마늘 씻기, 유리병 열탕 소독, 간장물 붓기 같은 노동 과정을 리듬감 있게 편집합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 완성된 장아찌 병 앞에서 신나서 춤을 추는 모습으로 닫습니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 압도적인 식재료의 양과 그것이 깔끔하게 담기는 과정이 주는 대리만족과 시각적 안정감.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; 대용량 식재료 손질, 병 소독, 담는 과정을 리듬감 있는 브이로그로 찍습니다. 말이나 정보 없이 과정의 쾌감과 무드로 채웁니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 이 포맷은 다이어트가 아니라 "이렇게 사는 사람"의 일상 그 자체입니다. 살림과 식재료를 다루는 무드가, 외모 뒤에 있는 라이프스타일을 조용하고 설득력 있게 깔아줍니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>대용량 식재료 손질, 병 소독, 담는 과정을 리듬감 있는 브이로그로 찍습니다. 말이나 정보 없이 과정의 쾌감과 무드로 채웁니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>이 포맷은 다이어트가 아니라 "이렇게 사는 사람"의 일상 그 자체입니다. 살림과 식재료를 다루는 무드가, 외모 뒤에 있는 라이프스타일을 조용하고 설득력 있게 깔아줍니다.</div></div>
         
       </div>
     </div>
@@ -1242,9 +1238,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct">약사</span><span class="rc-title">살 안 찌는 음식 TOP 10</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYWoHqrSu9a/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>(질문자) 회 &rarr; (약사) 4위 / 보쌈 &rarr; 6위 / 쌀국수 &rarr; 8위 / 샤브샤브 &rarr; 1위 / 오징어 숙회 &rarr; 2위 / 월남쌈 &rarr; 3위 …</div>
-        <div class="rc-row"><b>훅</b> &mdash; 상단 타이틀과 함께 1초의 지연도 없이 "회 - 4위" 문답으로 바로 진입합니다.<br><b>전개</b> &mdash; 질문자가 음식을 던지면 약사가 즉각 순위를 매기는 블라인드 랭킹. 부연 없이 티키타카만 이어집니다.<br><b>마무리</b> &mdash; 우측 1~10위 보드가 채워지는 순간 끝나 루핑을 유도합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 상단 타이틀과 함께 1초의 지연도 없이 "회 - 4위" 문답으로 바로 진입합니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 질문자가 음식을 던지면 약사가 즉각 순위를 매기는 블라인드 랭킹. 부연 없이 티키타카만 이어집니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 우측 1~10위 보드가 채워지는 순간 끝나 루핑을 유도합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 전문가의 권위와 '빈칸 채우기' 게이미피케이션을 결합해 끝까지 보게 만든 점. 우측 빈 보드 자체가 프로그레스 바입니다.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; "내가 먹어본 다이어트 간식 TOP 10" 같은 블라인드 랭킹을 빈 보드 채우기로 합니다. 설명은 최소화하고 판정의 리듬으로 끌고 갑니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 약사가 가운으로 권위를 세운다면, 배지타님은 먹는 것을 실제로 가려 먹고 이 몸을 만든 사람이라는 게 권위입니다. 화면에 몸이 함께 있어야 그 큐레이션에 "기준을 가진 사람"의 무게가 실립니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>"내가 먹어본 다이어트 간식 TOP 10" 같은 블라인드 랭킹을 빈 보드 채우기로 합니다. 설명은 최소화하고 판정의 리듬으로 끌고 갑니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>약사가 가운으로 권위를 세운다면, 배지타님은 먹는 것을 실제로 가려 먹고 이 몸을 만든 사람이라는 게 권위입니다. 화면에 몸이 함께 있어야 그 큐레이션에 "기준을 가진 사람"의 무게가 실립니다.</div></div>
         
       </div>
 
@@ -1252,9 +1248,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct">치과의사</span><span class="rc-title">치약 살래요 / 안 사요</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYedRzJx5oO/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"센소다인, 살래요. 마르비스, 안 사요. 콜게이트, 안 사요. 닥터시니올, 살래요. 파라돈탁스, 살래요. 시린메드, 살래요. 2080, 안 사요. …"</div>
-        <div class="rc-row"><b>훅</b> &mdash; '센소다인'을 띄우고 즉시 "살래요"를 선언해 1초 만에 전개 방식을 각인시킵니다.<br><b>전개</b> &mdash; 12개 브랜드를 연속으로 보여주며 추천·비추천을 이분법으로 빠르게 분류합니다.<br><b>마무리</b> &mdash; 이유는 일절 설명하지 않고 끝내, 댓글창의 자발적 토론을 유도합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> '센소다인'을 띄우고 즉시 "살래요"를 선언해 1초 만에 전개 방식을 각인시킵니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 12개 브랜드를 연속으로 보여주며 추천·비추천을 이분법으로 빠르게 분류합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 이유는 일절 설명하지 않고 끝내, 댓글창의 자발적 토론을 유도합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 절대 권위자가 부연 없이 '살래요/안 사요'로 판별하는 쾌감. 상단에 O(초록)·X(빨강)를 고정하고 손가락으로 지목합니다.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; "내가 써본 다이어트 제품 살래요/안 사요"를 O·X 단호 판정으로 합니다. 이유는 일부러 다 말하지 않아 댓글 논쟁을 만듭니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 단호한 판정이 먹히려면 판정하는 사람이 그 분야의 결과를 가져야 합니다. 써보고 이 몸을 유지하는 사람이라는 사실이, 부연 없는 O·X에 신뢰를 줍니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>"내가 써본 다이어트 제품 살래요/안 사요"를 O·X 단호 판정으로 합니다. 이유는 일부러 다 말하지 않아 댓글 논쟁을 만듭니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>단호한 판정이 먹히려면 판정하는 사람이 그 분야의 결과를 가져야 합니다. 써보고 이 몸을 유지하는 사람이라는 사실이, 부연 없는 O·X에 신뢰를 줍니다.</div></div>
         
       </div>
 
@@ -1262,9 +1258,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-title">해외 피트니스 평점 (운동 종목 10점 만점)</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DWPBJYljLwL/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"Pilates 5/10. Running 5/10. Yoga 7/10. Crossfit 5/10. Swimming 5/10. Weightlifting 10/10. Powerlifting 4/10. …"</div>
-        <div class="rc-row"><b>훅</b> &mdash; 첫 1초부터 부연 없이 평점으로 진입해 통념을 깹니다.<br><b>전개</b> &mdash; 10개 종목을 빠른 호흡으로 평점, 웨이트에만 만점을 주어 뚜렷한 기준을 보여줍니다.<br><b>마무리</b> &mdash; 클로징 없이 끝나 루핑을 유도합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 첫 1초부터 부연 없이 평점으로 진입해 통념을 깹니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 10개 종목을 빠른 호흡으로 평점, 웨이트에만 만점을 주어 뚜렷한 기준을 보여줍니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 클로징 없이 끝나 루핑을 유도합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 대중적 운동에 단호한 주관 평점을 매겨 공감과 반발(댓글 논쟁)을 자극한 점.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; "운동 종목 솔직 평점"을 부연 없이 점수만 빠르게 매깁니다. 뚜렷한 선호로 댓글 반응을 부릅니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 트레이너 경력과 이 몸이 평가의 근거입니다. 같은 평점이라도 결과를 가진 사람이 매기면, 통념을 깨는 단호함이 자랑이 아니라 기준으로 읽힙니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>"운동 종목 솔직 평점"을 부연 없이 점수만 빠르게 매깁니다. 뚜렷한 선호로 댓글 반응을 부릅니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>트레이너 경력과 이 몸이 평가의 근거입니다. 같은 평점이라도 결과를 가진 사람이 매기면, 통념을 깨는 단호함이 자랑이 아니라 기준으로 읽힙니다.</div></div>
         
       </div>
 
@@ -1272,9 +1268,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct">약사</span><span class="rc-title">피부 고민 최강 조합</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DY0cTnyT58m/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"피부고민 최강조합 약사 Pick! 기미 주근깨 &rarr; 트라넥삼산/비타민C, 왕모공 &rarr; 나이아신아마이드/AHA, 눈가주름 &rarr; 레티놀/펩타이드 …"</div>
-        <div class="rc-row"><b>훅</b> &mdash; "약사 Pick!"으로 전문가 권위와 베네핏을 동시에 어필합니다.<br><b>전개</b> &mdash; 대중적 피부 고민을 던지고 최적 성분 조합을 1:1로 매칭합니다.<br><b>마무리</b> &mdash; 구매 유도 없이 매칭만 보여줘 캡처(저장)를 유도합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> "약사 Pick!"으로 전문가 권위와 베네핏을 동시에 어필합니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 대중적 피부 고민을 던지고 최적 성분 조합을 1:1로 매칭합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 구매 유도 없이 매칭만 보여줘 캡처(저장)를 유도합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 페인포인트에 '정답 공식'만 떠먹여 저장 가치를 극대화한 점.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; "고민별 운동·식단 루틴 매칭"으로 문제와 해법을 1:1로 빠르게 붙입니다. 원리 설명은 빼고 매칭만 남겨 저장을 유도합니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 약사가 성분 공식을 떠먹이듯, 배지타님은 결과를 만든 루틴을 공식처럼 보여줍니다. 그 매칭의 신뢰는 그 결과를 실제로 가진 본인에게서 나옵니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>"고민별 운동·식단 루틴 매칭"으로 문제와 해법을 1:1로 빠르게 붙입니다. 원리 설명은 빼고 매칭만 남겨 저장을 유도합니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>약사가 성분 공식을 떠먹이듯, 배지타님은 결과를 만든 루틴을 공식처럼 보여줍니다. 그 매칭의 신뢰는 그 결과를 실제로 가진 본인에게서 나옵니다.</div></div>
         
       </div>
 
@@ -1282,9 +1278,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct">약사</span><span class="rc-title">라로슈포제 성분 분석 (올리브영)</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYUQmK9znMW/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"라로슈포제가 진짜 웃긴 게 … 판테놀 굳이 쓰실 거면 비싼 거 쓸 필요 없고, 판테놀 75% 원액을 인터넷에서 13,000원이면 살 수 있거든요. 기존 로션에 살짝 같이 바르면 끝."</div>
-        <div class="rc-row"><b>훅</b> &mdash; 유명 브랜드에 대한 가벼운 비판으로 호기심을 끕니다.<br><b>전개</b> &mdash; 유명 제품의 단점을 지적하고 저렴한 대안(판테놀 원액)을 성분 설명과 함께 제시합니다.<br><b>마무리</b> &mdash; "비싼 거 사지 말라"는 가이드와 다음 편 예고로 체류를 유도합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 유명 브랜드에 대한 가벼운 비판으로 호기심을 끕니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 유명 제품의 단점을 지적하고 저렴한 대안(판테놀 원액)을 성분 설명과 함께 제시합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> "비싼 거 사지 말라"는 가이드와 다음 편 예고로 체류를 유도합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 브랜드 환상을 깨고 손실 회피 심리를 자극해 비용을 아껴주는 '업계 내부자' 톤. 올리브영 매장에서 커피를 든 다큐식 연출.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; "트레이너가 보는 운동·식품 솔직 분석"으로, 과대평가된 것의 허점과 가성비 대안을 내부자 톤으로 짚습니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 업계 안에서 본 사람만 할 수 있는 솔직함이 이 포맷의 힘입니다. 현장에서 보고 본인 몸으로 검증한 시선이라, "내 편에 선 유능한 사람"으로 읽힙니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>"트레이너가 보는 운동·식품 솔직 분석"으로, 과대평가된 것의 허점과 가성비 대안을 내부자 톤으로 짚습니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>업계 안에서 본 사람만 할 수 있는 솔직함이 이 포맷의 힘입니다. 현장에서 보고 본인 몸으로 검증한 시선이라, "내 편에 선 유능한 사람"으로 읽힙니다.</div></div>
         
       </div>
 
@@ -1292,9 +1288,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct">피부과 의사</span><span class="rc-title">30대 안티에이징 시술 구조도</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DWSL4cdEx-L/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"30대는 안티에이징에 초점. 피부는 표피·진피, 그 밑에 피하지방층, 근육, 뼈. 노화되면 다 꺼져요. … 채우는 것만 하면 흘러내려요. 쪼여주는 게 먼저겠죠. 리프팅의 핵심은 SMAS층…"</div>
-        <div class="rc-row"><b>훅</b> &mdash; "30대 절대 해야 할 시술 1"이라는 명확한 타겟팅으로 시작합니다.<br><b>전개</b> &mdash; 스케치북에 피부 층 구조를 직접 그리며 노화 원리를 해체하고, 층별 시술을 매칭합니다.<br><b>마무리</b> &mdash; 결론 직전에 끊어 다음 시청을 강하게 유도합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> "30대 절대 해야 할 시술 1"이라는 명확한 타겟팅으로 시작합니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 스케치북에 피부 층 구조를 직접 그리며 노화 원리를 해체하고, 층별 시술을 매칭합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 결론 직전에 끊어 다음 시청을 강하게 유도합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 어려운 의학을 스케치북 구조도와 '고무줄' 같은 일상 비유로 시각화한 점. 아날로그 화이트보드가 1:1 마스터클래스 같은 몰입을 줍니다.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; "40대가 절대 하지 말아야 할 다이어트", "40대가 꼭 해야 할 운동 1"처럼 나이 타깃이 분명한 선언형으로 갑니다. 의사가 스케치북에 구조를 그리듯 단호하게 끌고, 원리는 라이크 지타로 넘기고 인스타에는 결론만 남깁니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 의사가 가운과 스케치북으로 권위를 세운다면, 배지타님은 본인의 몸과 트레이너 경력이 그 단호함을 떠받칩니다. "40대"라는 타깃이 한 줄과 정확히 겹쳐, 선언이 곧 본인 증명이 됩니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>"40대가 절대 하지 말아야 할 다이어트", "40대가 꼭 해야 할 운동 1"처럼 나이 타깃이 분명한 선언형으로 갑니다. 의사가 스케치북에 구조를 그리듯 단호하게 끌고, 원리는 라이크 지타로 넘기고 인스타에는 결론만 남깁니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>의사가 가운과 스케치북으로 권위를 세운다면, 배지타님은 본인의 몸과 트레이너 경력이 그 단호함을 떠받칩니다. "40대"라는 타깃이 한 줄과 정확히 겹쳐, 선언이 곧 본인 증명이 됩니다.</div></div>
         
       </div>
     </div>
@@ -1307,9 +1303,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-title">쿠팡 건강 먹거리 3가지</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYlYQ5SxeR_/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"아는 사람들만 몰래 쟁이는 쿠팡 건강 먹거리 3가지. … 폐경이었던 생리를 다시 하게 됐다는 후기를 보고 깜짝 놀랐는데 … 한 팩에 2,000원대라 완전 추천."</div>
-        <div class="rc-row"><b>훅</b> &mdash; "아는 사람들만 몰래 쟁이는"이라는 희소성 프레임과 친숙한 '쿠팡'을 결합합니다.<br><b>전개</b> &mdash; 시각적 반전(치즈처럼 보이는 두부), 충격적 후기(폐경 생리), 가격으로 진입 장벽을 낮춥니다.<br><b>마무리</b> &mdash; "2,000원대라 완전 추천"으로 당장 구매할 명분을 줍니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> "아는 사람들만 몰래 쟁이는"이라는 희소성 프레임과 친숙한 '쿠팡'을 결합합니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 시각적 반전(치즈처럼 보이는 두부), 충격적 후기(폐경 생리), 가격으로 진입 장벽을 낮춥니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> "2,000원대라 완전 추천"으로 당장 구매할 명분을 줍니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; "아는 사람만 안다"는 희소성과 극강의 후기를 훅으로 쓴 점.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; "내가 챙겨 먹는 것 3가지"로, 효능을 단정하지 않고 본인 루틴의 일부로 보여줍니다. 구매와 자세한 건 스토리·링크로 넘깁니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 희소성과 후기로 끄는 이 구조에, 배지타님은 "실제로 이걸 먹고 이렇게 산다"는 결과를 더합니다. 제품이 추천이 아니라 라이프스타일의 일부로 보여 선망이 작동합니다. 커머스 퍼널은 <a class="xref" href="#appendix-b">부록 B</a>에서 다룹니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>"내가 챙겨 먹는 것 3가지"로, 효능을 단정하지 않고 본인 루틴의 일부로 보여줍니다. 구매와 자세한 건 스토리·링크로 넘깁니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>희소성과 후기로 끄는 이 구조에, 배지타님은 "실제로 이걸 먹고 이렇게 산다"는 결과를 더합니다. 제품이 추천이 아니라 라이프스타일의 일부로 보여 선망이 작동합니다. 커머스 퍼널은 <a class="xref" href="#appendix-b">부록 B</a>에서 다룹니다.</div></div>
         
       </div>
     </div>
@@ -1353,9 +1349,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct">@bobpro__</span><span class="rc-title">당근 라페 &mdash; 먹는 스킨케어</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DU73DRzEp8P/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"혹시 이거 아세요? 먹는 스킨 케어! 당근의 주황색 색소가 피부 세포 재생을 도와줘서 각질, 여드름, 주름 개선에 효과적이고 … 레몬의 비타민C가 산화를 막고 올리브오일이 베타카로틴 흡수를 도와주고 커큐민으로 염증을 막아주면 끝. 환절기에 커큐민은 필수예요!"</div>
-        <div class="rc-row"><b>훅</b> &mdash; "혹시 이거 아세요? 먹는 스킨케어!" 질문형 + 당근 먹방으로 호기심을 유발합니다.<br><b>전개</b> &mdash; 당근·레몬·올리브오일·커큐민의 효능을 성분명 근거로 속도감 있게 나열합니다.<br><b>마무리</b> &mdash; "모두 잡아주거든요!"라는 확신에 찬 어미로 레시피 가치를 극대화합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> "혹시 이거 아세요? 먹는 스킨케어!" 질문형 + 당근 먹방으로 호기심을 유발합니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 당근·레몬·올리브오일·커큐민의 효능을 성분명 근거로 속도감 있게 나열합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> "모두 잡아주거든요!"라는 확신에 찬 어미로 레시피 가치를 극대화합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 흔한 '당근 라페 레시피'를 '먹는 스킨케어'라는 뷰티 솔루션으로 리프레이밍한 기획력. 기능이 아니라 결과(피부 개선)를 팝니다.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; 평범한 재료를 "먹는 스킨케어"처럼 욕망의 언어로 리프레이밍하는 구조를 가져옵니다. 효능 나열은 그대로 살리되, 결과를 가진 본인을 화면에 둡니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; @bobpro__는 효능을 말로 약속하지만, 배지타님은 그 결과를 이미 가진 사람입니다. 같은 리프레이밍이라도 결과가 화면에 함께 있으면 약속이 증거가 됩니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>평범한 재료를 "먹는 스킨케어"처럼 욕망의 언어로 리프레이밍하는 구조를 가져옵니다. 효능 나열은 그대로 살리되, 결과를 가진 본인을 화면에 둡니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>@bobpro__는 효능을 말로 약속하지만, 배지타님은 그 결과를 이미 가진 사람입니다. 같은 리프레이밍이라도 결과가 화면에 함께 있으면 약속이 증거가 됩니다.</div></div>
         
       </div>
 
@@ -1363,9 +1359,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct">@bobpro__</span><span class="rc-title">망고 디저트 &mdash; 다이어트 중 단것이 땡길 때</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/bobpro__/reel/DXeH7QCj6lz/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>"다이어트 중인데 달달한 디저트가 땡길 때 이거 드세요. 망고 잘라주고 와인잔으로 망고살 꺼내기 깔끔하죠? 그릭요거트 올리고 자몽 알맹이 빼서… 달달하고 꾸덕하고 상큼함까지… 존맛ㅠㅠㅠㅠ"</div>
-        <div class="rc-row"><b>훅</b> &mdash; 완성 디저트 ASMR과 "다이어트 중인데 달달한 게 땡길 때"라는 타깃 맞춤 문제 제시.<br><b>전개</b> &mdash; 와인잔으로 망고를 파내는 시각적 쾌감(꿀팁)과 함께 레시피를 전개합니다.<br><b>마무리</b> &mdash; "존맛ㅠㅠ"이라는 격 없는 표현으로 감정적 동요와 저장·공유를 유도합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 완성 디저트 ASMR과 "다이어트 중인데 달달한 게 땡길 때"라는 타깃 맞춤 문제 제시.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 와인잔으로 망고를 파내는 시각적 쾌감(꿀팁)과 함께 레시피를 전개합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> "존맛ㅠㅠ"이라는 격 없는 표현으로 감정적 동요와 저장·공유를 유도합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 페인포인트(다이어트 중 단것)와 시각적 쾌감(와인잔 팁, 쨍한 색감)의 결합.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; 죄책감 드는 단 음식을 가져와 "다이어트 중에도"라는 페인포인트로 풉니다. 와인잔 꿀팁 같은 시각적 쾌감은 그대로 살립니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; "이거 먹고도 이 몸"이라는 대비가 이 포맷의 핵심인데, 그 대비는 결과를 가진 사람만 만들 수 있습니다. 굶지 않고 사는 라이프스타일을 단 음식 하나로 증명하는 자리입니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>죄책감 드는 단 음식을 가져와 "다이어트 중에도"라는 페인포인트로 풉니다. 와인잔 꿀팁 같은 시각적 쾌감은 그대로 살립니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>"이거 먹고도 이 몸"이라는 대비가 이 포맷의 핵심인데, 그 대비는 결과를 가진 사람만 만들 수 있습니다. 굶지 않고 사는 라이프스타일을 단 음식 하나로 증명하는 자리입니다.</div></div>
         
       </div>
 
@@ -1373,9 +1369,9 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         <div class="rc-head"><span class="rc-acct">@bobpro__</span><span class="rc-title">칼로리의 배신 &mdash; 350kcal vs 0kcal</span></div>
         <div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/bobpro__/reel/DY16BVOPLPC/" data-instgrm-version="14" style="max-width:540px;width:100%;"></blockquote></div>
         <div class="rc-script"><span class="sl">스크립트</span>(음성 없음, 먹방 ASMR + 텍스트) 화면 분할 "350kcal vs 0kcal" / '기분좋아 350kcal' vs '기분나빠 780kcal'</div>
-        <div class="rc-row"><b>훅</b> &mdash; 화면을 반으로 분할해 왼쪽은 고정(350kcal), 오른쪽은 음식이 계속 바뀌며 시각적 대비를 만듭니다.<br><b>전개</b> &mdash; 당근·요거트·단백질바 등 다이어트 식품이 의외로 고칼로리임을 수치로 직관 비교합니다.<br><b>마무리</b> &mdash; 양쪽의 상반된 표정 연기로 "적당히 먹는 게 낫다"는 메시지를 전합니다.</div>
+        <div class="steps"><div class="step"><span class="step-n">1</span><div class="step-c"><b>훅</b> 화면을 반으로 분할해 왼쪽은 고정(350kcal), 오른쪽은 음식이 계속 바뀌며 시각적 대비를 만듭니다.</div></div><div class="step"><span class="step-n">2</span><div class="step-c"><b>전개</b> 당근·요거트·단백질바 등 다이어트 식품이 의외로 고칼로리임을 수치로 직관 비교합니다.</div></div><div class="step"><span class="step-n">3</span><div class="step-c"><b>마무리</b> 양쪽의 상반된 표정 연기로 "적당히 먹는 게 낫다"는 메시지를 전합니다.</div></div></div>
         <div class="rc-row"><b>반응이 컸던 이유</b> &mdash; 통념(다이어트 식품은 무조건 저칼로리)을 깨는 직관적 시각 비교. <b>이 계정에서 정보 캐러셀보다 27배 더 큰 반응을 얻은 바로 그 비교 릴스 포맷</b>입니다.</div>
-        <div class="rc-apply"><b>어떻게 변형하나</b> &mdash; 직접 먹어보고 비교하는 실험 릴스로, 통념을 깨는 수치 대비를 시각적으로 보여줍니다. 이 계정에서 27배 반응을 만든 바로 그 비교 포맷입니다.<br><br><b>왜 배지타님에게 맞나</b> &mdash; 비교가 신뢰를 얻으려면 비교하는 사람이 결과를 가져야 합니다. 화면 안에 본인의 몸이 함께 있어, 실험이 정보가 아니라 "이렇게 가려 먹고 사는 사람의 검증"으로 읽힙니다.</div>
+        <div class="rc-apply"><div class="ra-item"><b>어떻게 변형하나</b>직접 먹어보고 비교하는 실험 릴스로, 통념을 깨는 수치 대비를 시각적으로 보여줍니다. 이 계정에서 27배 반응을 만든 바로 그 비교 포맷입니다.</div><div class="ra-item"><b>왜 배지타님에게 맞나</b>비교가 신뢰를 얻으려면 비교하는 사람이 결과를 가져야 합니다. 화면 안에 본인의 몸이 함께 있어, 실험이 정보가 아니라 "이렇게 가려 먹고 사는 사람의 검증"으로 읽힙니다.</div></div>
         
       </div>
     </div>
