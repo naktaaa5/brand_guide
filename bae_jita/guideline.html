@@ -189,9 +189,10 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
 
 /* embeds */
 .embed{margin:26px 0;display:flex;justify-content:center}
-.embed-group{display:flex;flex-wrap:wrap;gap:16px;margin:24px 0;justify-content:flex-start}
+.embed-group{display:flex;flex-wrap:wrap;gap:16px;margin:24px auto;justify-content:center;max-width:680px}
 .embed-group .embed{flex:0 0 calc(50% - 8px);max-width:calc(50% - 8px);margin:0;display:block}
-.embed-group .embed blockquote{min-width:0!important;width:100%!important}
+.embed-group .embed:only-child{flex-basis:100%;max-width:420px;margin:0 auto}
+.embed-group .embed blockquote,.embed-group .embed iframe,.embed-group .embed .instagram-media{min-width:0!important;width:100%!important;max-width:100%!important}
 @media(max-width:680px){.embed-group .embed{flex:0 0 100%;max-width:100%}}
 .embed blockquote{margin:0 auto!important}
 
