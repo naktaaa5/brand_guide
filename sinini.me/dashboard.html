@@ -177,7 +177,7 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
             <div class="kpi"><div class="top"><div class="lab">저장</div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M6 4h12v16l-6-4-6 4z"/></svg></div></div><div class="row"><div class="val">1,242</div><svg class="spark" viewBox="0 0 84 30"><path d="M0,8 14,12 28,10 42,15 56,14 70,22 84,25 L84,30 L0,30 Z" fill="rgba(209,67,67,.12)"/><polyline fill="none" stroke="#d14343" stroke-width="2" points="0,8 14,12 28,10 42,15 56,14 70,22 84,25"/></svg></div><div class="chg down">▼ 4% <span>vs 지난달</span></div></div>
           </div>
           <div class="card">
-            <div class="card-h"><h2>📊 조회수 추이</h2><span class="pill">최근 7일 ▾</span></div>
+            <div class="card-h"><h2>조회수 추이</h2><span class="pill">최근 7일 ▾</span></div>
             <div class="chartbox"><canvas id="trend"></canvas></div>
           </div>
         </div>
@@ -191,17 +191,17 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 
       <div class="card" id="best">
         <div class="card-h">
-          <div><h2>🏆 성과 베스트</h2><div class="hint">기간별 대표 게시물 — 카드를 누르면 세부 + 영상</div></div>
+          <div><h2>성과 베스트</h2><div class="hint">기간별 대표 게시물 — 카드를 누르면 세부 + 영상</div></div>
           <div class="filter" id="filter"><button data-p="7">최근 1주</button><button data-p="30" class="on">30일</button><button data-p="90">90일</button></div>
         </div>
         <div class="bestwrap">
-          <div><div class="bcol-h">📈 조회수 베스트</div><div id="bViews"></div></div>
-          <div><div class="bcol-h">💗 ER 베스트</div><div id="bEr"></div></div>
+          <div><div class="bcol-h">조회수 베스트</div><div id="bViews"></div></div>
+          <div><div class="bcol-h">ER 베스트</div><div id="bEr"></div></div>
         </div>
       </div>
 
       <div class="card" id="tbl" style="margin-top:18px">
-        <div class="card-h"><h2>🎬 게시물 성과</h2><span class="hint">행을 누르면 세부 + 영상</span></div>
+        <div class="card-h"><h2>게시물 성과</h2><span class="hint">행을 누르면 세부 + 영상</span></div>
         <table class="tbl">
           <thead><tr><th>게시물</th><th>유형</th><th class="num">조회</th><th class="num">좋아요</th><th class="num">저장</th><th class="num">ER</th></tr></thead>
           <tbody id="prows">
@@ -215,8 +215,8 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
       </div>
 
       <div class="grid2" id="types">
-        <div class="card"><div class="card-h"><h2>🧩 콘텐츠 유형별 평균 반응</h2></div><div class="chartbox" style="height:230px"><canvas id="bytype"></canvas></div></div>
-        <div class="card"><div class="card-h"><h2>↔ 도달 vs 연결</h2></div><div class="chartbox" style="height:230px"><canvas id="reach"></canvas></div></div>
+        <div class="card"><div class="card-h"><h2>콘텐츠 유형별 평균 반응</h2></div><div class="chartbox" style="height:230px"><canvas id="bytype"></canvas></div></div>
+        <div class="card"><div class="card-h"><h2>도달 vs 연결</h2></div><div class="chartbox" style="height:230px"><canvas id="reach"></canvas></div></div>
       </div>
 
       <div class="foot">
