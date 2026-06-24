@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이시니 콘텐츠 대시보드 (샘플)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --bg:#f3f1ec; --card:#fff; --ink:#1d1f22; --sub:#565a60; --soft:#9a9286;
+  --line:#e6e1d8; --accent:#4a6e5f; --accent-d:#3a574b; --warn:#c2603a;
+  --font-d:'SUIT Variable',sans-serif; --font-b:'Pretendard Variable',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;padding:0 0 60px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+.top{padding:34px 0 22px;border-bottom:1px solid var(--line);display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.top h1{font-family:var(--font-d);font-size:26px;font-weight:900;letter-spacing:-.8px}
+.top .sub{font-size:12.5px;color:var(--soft);margin-top:5px}
+.badge{display:inline-block;font-family:var(--font-d);font-size:11px;font-weight:800;letter-spacing:1px;color:#fff;background:var(--warn);padding:6px 12px;border-radius:3px}
+.tokenbar{background:#fbf3ee;border:1px dashed var(--warn);border-radius:4px;padding:14px 18px;margin:22px 0 6px;font-size:13px;color:var(--sub);line-height:1.7}
+.tokenbar b{color:var(--warn)}
+.tokenbar input{margin-top:9px;width:100%;max-width:520px;padding:9px 12px;border:1px solid var(--line);border-radius:3px;font-family:var(--font-b);font-size:12px;color:var(--soft);background:#fff}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:26px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px 16px}
+.kpi .lab{font-family:var(--font-d);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--soft);text-transform:uppercase}
+.kpi .val{font-family:var(--font-d);font-size:30px;font-weight:800;letter-spacing:-1.5px;margin-top:8px;font-variant-numeric:tabular-nums}
+.kpi .chg{font-size:11.5px;margin-top:5px;color:var(--accent);font-weight:600}
+.kpi .chg.down{color:var(--warn)}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.grid2{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;margin:8px 0}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px 22px}
+.panel h2{font-family:var(--font-d);font-size:14px;font-weight:800;letter-spacing:-.3px;margin-bottom:4px}
+.panel .ph{font-size:11.5px;color:var(--soft);margin-bottom:16px}
+.panel.full{margin:18px 0}
+.chartbox{position:relative;height:260px}
+.ftable{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+.ftable th,.ftable td{border-bottom:1px solid var(--line);padding:11px 10px 11px 0;text-align:left;vertical-align:middle}
+.ftable thead th{border-bottom:1.5px solid var(--ink);font-family:var(--font-d);font-weight:800;color:var(--accent);font-size:10px;letter-spacing:.8px;text-transform:uppercase}
+.ftable td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--font-d);font-weight:700}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:20px;background:var(--accent);color:#fff}
+.tag.b{background:#7a8c83}.tag.c{background:#b08968}.tag.d{background:#8a8f98}
+.foot{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--soft);line-height:1.8}
+.foot b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div>
+      <h1>이시니 콘텐츠 대시보드</h1>
+      <div class="sub">@sinini.me · 최근 30일 · RE:FEEEL</div>
+    </div>
+    <span class="badge">● 샘플 데이터</span>
+  </div>
+
+  <div class="tokenbar">
+    <b>지금은 샘플 화면입니다.</b> 아래 칸에 메타 장기토큰을 넣고 연결하면, 이 자리에 <b>이시니님 실제 데이터</b>가 그대로 들어옵니다. (토큰 발급은 설명서대로 Claude가 도와줍니다.)
+    <input type="text" placeholder="메타 장기토큰 붙여넣기 — (지금은 비활성, 토큰 준비되면 연결)" disabled>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="lab">팔로워</div><div class="val">3,133</div><div class="chg">▲ 2.1% (30일)</div></div>
+    <div class="kpi"><div class="lab">게시물</div><div class="val">239</div><div class="chg">+8편 (30일)</div></div>
+    <div class="kpi"><div class="lab">평균 ER</div><div class="val">2.4%</div><div class="chg">▲ 0.5%p</div></div>
+    <div class="kpi"><div class="lab">30일 조회</div><div class="val">281K</div><div class="chg">▲ 18%</div></div>
+    <div class="kpi"><div class="lab">저장</div><div class="val">1,242</div><div class="chg down">▼ 4%</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h2>조회수 · 참여율 추이</h2>
+      <div class="ph">월별 — 도달(막대)과 평균 ER(선)</div>
+      <div class="chartbox"><canvas id="trend"></canvas></div>
+    </div>
+    <div class="panel">
+      <h2>콘텐츠 유형별 평균 반응</h2>
+      <div class="ph">어느 결이 잘 먹히나 (평균 좋아요)</div>
+      <div class="chartbox"><canvas id="bytype"></canvas></div>
+    </div>
+  </div>
+
+  <div class="panel full">
+    <h2>도달 vs 연결</h2>
+    <div class="ph">새 사람을 데려오는 콘텐츠(도달) / 단골·신뢰를 쌓는 콘텐츠(연결) 균형</div>
+    <div class="chartbox" style="height:200px"><canvas id="reach"></canvas></div>
+  </div>
+
+  <div class="panel full">
+    <h2>최근 게시물 성과</h2>
+    <div class="ph">유형·조회·좋아요·저장·ER</div>
+    <table class="ftable">
+      <thead><tr><th>게시물</th><th>유형</th><th class="num">조회</th><th class="num">좋아요</th><th class="num">저장</th><th class="num">ER</th></tr></thead>
+      <tbody>
+        <tr><td>“남친이 어려서…” 구름펌 변신</td><td><span class="tag">변신</span></td><td class="num">52,400</td><td class="num">1,180</td><td class="num">210</td><td class="num">3.1%</td></tr>
+        <tr><td>“왜 이 길이를 골랐나” 상담 장면</td><td><span class="tag b">진단</span></td><td class="num">9,800</td><td class="num">340</td><td class="num">96</td><td class="num">4.4%</td></tr>
+        <tr><td>“특별할 것 없는 미용 인생…” 서사</td><td><span class="tag b">서사</span></td><td class="num">50,100</td><td class="num">362</td><td class="num">88</td><td class="num">5.2%</td></tr>
+        <tr><td>“곱슬매직 꿀팁” 저장각</td><td><span class="tag c">꿀팁</span></td><td class="num">40,000</td><td class="num">90</td><td class="num">312</td><td class="num">1.0%</td></tr>
+        <tr><td>“숱가위 아닌 내 질감” 시술</td><td><span class="tag d">시술</span></td><td class="num">68,000</td><td class="num">118</td><td class="num">41</td><td class="num">0.4%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="foot">
+    <b>이 화면은 샘플입니다.</b> 숫자·게시물은 형태를 보여주기 위한 예시예요. 실제 토큰을 연결하면 이시니님 인스타 데이터로 자동 채워집니다.<br>
+    읽는 법 — <b>도달</b>(조회)이 큰데 <b>ER·저장</b>이 낮으면 ‘구경꾼’이 많은 것(변신·시술), <b>ER·저장</b>이 높으면 ‘진짜 고객’이 남는 것(진단·서사·꿀팁). 둘의 균형을 봅니다.<br>
+    © 2026 RE:FEEEL · Content Dashboard
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';document.head.appendChild(s);"></script>
+<script>
+const INK='#1d1f22', ACC='#4a6e5f', SUB='#9a9286', LINE='#e6e1d8';
+function ready(){
+  if(typeof Chart==='undefined'){return setTimeout(ready,150);}
+  Chart.defaults.font.family="'Pretendard Variable',sans-serif";
+  Chart.defaults.color=SUB;
+
+  new Chart(document.getElementById('trend'),{
+    data:{
+      labels:['1월','2월','3월','4월','5월','6월'],
+      datasets:[
+        {type:'bar',label:'월 조회(천)',data:[85,92,210,130,195,281],backgroundColor:'#cfd8d2',borderRadius:3,yAxisID:'y'},
+        {type:'line',label:'평균 ER(%)',data:[1.6,1.8,2.0,1.9,2.2,2.4],borderColor:ACC,backgroundColor:ACC,tension:.35,yAxisID:'y1',pointRadius:3}
+      ]
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{boxWidth:12,font:{size:11}}}},
+      scales:{y:{grid:{color:LINE},ticks:{font:{size:10}}},y1:{position:'right',grid:{display:false},ticks:{font:{size:10}},min:0,max:6}}}
+  });
+
+  new Chart(document.getElementById('bytype'),{
+    type:'bar',
+    data:{labels:['변신','진단','공감·서사','꿀팁','시술'],
+      datasets:[{label:'평균 좋아요',data:[420,150,330,95,110],
+        backgroundColor:[ACC,'#7a8c83','#6f9483','#b08968','#8a8f98'],borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{display:false}},
+      scales:{x:{grid:{color:LINE},ticks:{font:{size:10}}},y:{grid:{display:false},ticks:{font:{size:11,weight:'700'}}}}}
+  });
+
+  new Chart(document.getElementById('reach'),{
+    type:'bar',
+    data:{labels:['도달(새 사람)','연결(단골·신뢰)'],
+      datasets:[{label:'비중',data:[62,38],backgroundColor:[ACC,'#b08968'],borderRadius:3,barThickness:46}]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x+'%'}}},
+      scales:{x:{max:100,grid:{color:LINE},ticks:{callback:v=>v+'%',font:{size:10}}},y:{grid:{display:false},ticks:{font:{size:12,weight:'700'}}}}}
+  });
+}
+ready();
+</script>
+</body>
+</html>
