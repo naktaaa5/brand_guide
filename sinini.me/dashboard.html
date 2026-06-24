@@ -44,6 +44,21 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 .ftable td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--font-d);font-weight:700}
 .tag{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:20px;background:var(--accent);color:#fff}
 .tag.b{background:#7a8c83}.tag.c{background:#b08968}.tag.d{background:#8a8f98}
+#prows tr:hover{background:#faf8f4}
+.modal{display:none;position:fixed;inset:0;background:rgba(20,20,20,.5);z-index:200;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 16px}
+.modal.on{display:flex}
+.modal-box{background:var(--card);border-radius:8px;max-width:760px;width:100%;padding:24px 26px;position:relative}
+.modal-x{position:absolute;top:12px;right:16px;border:none;background:none;font-size:26px;color:var(--soft);cursor:pointer;line-height:1}
+.modal-box h3{font-family:var(--font-d);font-size:16px;font-weight:800;margin:0 30px 16px 0;letter-spacing:-.3px}
+.mgrid{display:grid;grid-template-columns:300px 1fr;gap:22px}
+@media(max-width:640px){.mgrid{grid-template-columns:1fr}}
+.m-embed blockquote{margin:0 auto!important}
+.m-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.mcell{border:1px solid var(--line);border-radius:5px;padding:10px 13px}
+.mcell .l{font-size:10px;font-weight:800;color:var(--soft);letter-spacing:.5px;font-family:var(--font-d)}
+.mcell .v{font-family:var(--font-d);font-size:18px;font-weight:800;margin-top:3px;font-variant-numeric:tabular-nums}
+.m-note{grid-column:1/-1;font-size:12.5px;line-height:1.7;color:var(--sub);background:#f6f4ef;border-left:2px solid var(--accent);padding:11px 14px;border-radius:3px}
+.m-sample{grid-column:1/-1;font-size:11px;color:var(--warn);margin-top:2px}
 .foot{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--soft);line-height:1.8}
 .foot b{color:var(--ink)}
 </style>
@@ -92,16 +107,16 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
   </div>
 
   <div class="panel full">
-    <h2>최근 게시물 성과</h2>
-    <div class="ph">유형·조회·좋아요·저장·ER</div>
+    <h2>주요 게시물 성과</h2>
+    <div class="ph">유형·조회·좋아요·저장·ER — <b style="color:var(--accent)">행을 누르면 세부 지표 + 영상</b>이 떠요</div>
     <table class="ftable">
       <thead><tr><th>게시물</th><th>유형</th><th class="num">조회</th><th class="num">좋아요</th><th class="num">저장</th><th class="num">ER</th></tr></thead>
-      <tbody>
-        <tr><td>“남친이 어려서…” 구름펌 변신</td><td><span class="tag">변신</span></td><td class="num">52,400</td><td class="num">1,180</td><td class="num">210</td><td class="num">3.1%</td></tr>
-        <tr><td>“왜 이 길이를 골랐나” 상담 장면</td><td><span class="tag b">진단</span></td><td class="num">9,800</td><td class="num">340</td><td class="num">96</td><td class="num">4.4%</td></tr>
-        <tr><td>“특별할 것 없는 미용 인생…” 서사</td><td><span class="tag b">서사</span></td><td class="num">50,100</td><td class="num">362</td><td class="num">88</td><td class="num">5.2%</td></tr>
-        <tr><td>“곱슬매직 꿀팁” 저장각</td><td><span class="tag c">꿀팁</span></td><td class="num">40,000</td><td class="num">90</td><td class="num">312</td><td class="num">1.0%</td></tr>
-        <tr><td>“숱가위 아닌 내 질감” 시술</td><td><span class="tag d">시술</span></td><td class="num">68,000</td><td class="num">118</td><td class="num">41</td><td class="num">0.4%</td></tr>
+      <tbody id="prows">
+        <tr data-id="cloud"><td>“다섯살 어린 남친…” 구름펌 변신</td><td><span class="tag">변신</span></td><td class="num">1.6M</td><td class="num">3,547</td><td class="num">210</td><td class="num">0.3%</td></tr>
+        <tr data-id="faq"><td>“매직 다음날 감아도 되나?” FAQ</td><td><span class="tag b">진단</span></td><td class="num">53,000</td><td class="num">328</td><td class="num">420</td><td class="num">1.4%</td></tr>
+        <tr data-id="story"><td>“특별할 것 없는 미용 인생…” 서사</td><td><span class="tag b">서사</span></td><td class="num">50,000</td><td class="num">362</td><td class="num">88</td><td class="num">0.9%</td></tr>
+        <tr data-id="tip"><td>곱슬매직 꿀팁</td><td><span class="tag c">꿀팁</span></td><td class="num">40,000</td><td class="num">90</td><td class="num">312</td><td class="num">1.3%</td></tr>
+        <tr data-id="cut"><td>“숱가위 아닌 내 질감” 시술</td><td><span class="tag d">시술</span></td><td class="num">68,000</td><td class="num">118</td><td class="num">41</td><td class="num">0.2%</td></tr>
       </tbody>
     </table>
   </div>
@@ -114,6 +129,18 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 
 </div>
 
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal()" aria-label="닫기">×</button>
+    <h3 id="mTitle"></h3>
+    <div class="mgrid">
+      <div class="m-embed" id="mEmbed"></div>
+      <div class="m-metrics" id="mMetrics"></div>
+    </div>
+  </div>
+</div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';document.head.appendChild(s);"></script>
 <script>
 const INK='#1d1f22', ACC='#4a6e5f', SUB='#9a9286', LINE='#e6e1d8';
@@ -155,6 +182,28 @@ function ready(){
   });
 }
 ready();
+
+const POSTS={
+ cloud:{t:'다섯살 어린 남친 모임 → 구름펌 변신',p:'DMCQ3iHS-Bu',type:'변신',m:{'도달':'1,596,000','노출':'2,010,000','좋아요':'3,547','댓글':'51','저장':'210','공유':'480','평균시청':'7.2초','프로필 방문':'2,140','팔로우 전환':'86'},note:'도달은 폭발(160만)했지만 댓글이 논쟁형 — 구경꾼이 많은 전형. 도달만 보지 말고 저장·팔로우 전환을 같이 본다.'},
+ faq:{t:'“매직 다음날 감아도 되나?” FAQ',p:'Cr8QbFiBgNm',type:'진단·정보',m:{'도달':'53,000','노출':'61,000','좋아요':'328','댓글':'12','저장':'420','공유':'95','평균시청':'9.1초','프로필 방문':'310','팔로우 전환':'22'},note:'저장이 높음 = ‘쓸모’로 남는 정보형. 신규 유입보다 신뢰 축적에 강하다.'},
+ story:{t:'“특별할 것 없는 미용 인생…” 본인 서사',p:'DX6P9adOiNL',type:'서사',m:{'도달':'50,000','노출':'58,000','좋아요':'362','댓글':'17','저장':'88','공유':'40','평균시청':'12.4초','프로필 방문':'520','팔로우 전환':'41'},note:'평균시청·프로필 방문이 높음 = 사람에 반응. 도달은 작아도 진짜 고객·디자이너가 남는다.'},
+ tip:{t:'곱슬매직 꿀팁',p:'DZGmX29Sput',type:'꿀팁',m:{'도달':'40,000','노출':'46,000','좋아요':'90','댓글':'2','저장':'312','공유':'120','평균시청':'8.0초','프로필 방문':'140','팔로우 전환':'12'},note:'저장·공유가 높음 = 저장각. ER은 낮아도 자산으로 쌓여 검색·추천에 유리.'},
+ cut:{t:'“숱가위 아닌 내 질감” 시술',p:'DZywnUZPqLB',type:'시술',m:{'도달':'68,000','노출':'79,000','좋아요':'118','댓글':'1','저장':'41','공유':'15','평균시청':'5.1초','프로필 방문':'90','팔로우 전환':'6'},note:'도달은 나오나 저장·전환이 약함 = 기술 자랑형. 보고 지나가기 쉽다.'}
+};
+function openModal(id){
+  var p=POSTS[id]; if(!p)return;
+  document.getElementById('mTitle').textContent=p.t+'  ·  '+p.type;
+  document.getElementById('mEmbed').innerHTML='<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/'+p.p+'/" data-instgrm-version="14" style="width:100%;min-width:0"></blockquote>';
+  var mh=''; for(var k in p.m){mh+='<div class="mcell"><div class="l">'+k+'</div><div class="v">'+p.m[k]+'</div></div>';}
+  mh+='<div class="m-note">'+p.note+'</div><div class="m-sample">※ 샘플 지표 — 실제 토큰 연결 시 게시물별로 자동 채워집니다.</div>';
+  document.getElementById('mMetrics').innerHTML=mh;
+  document.getElementById('modal').classList.add('on');
+  if(window.instgrm&&window.instgrm.Embeds)window.instgrm.Embeds.process();
+}
+function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('mEmbed').innerHTML='';}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target.id==='modal')closeModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+document.querySelectorAll('#prows tr').forEach(function(tr){tr.addEventListener('click',function(){openModal(tr.dataset.id);});});
 </script>
 </body>
 </html>
