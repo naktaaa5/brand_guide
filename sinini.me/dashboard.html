@@ -21,16 +21,20 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 /* ── sidebar ── */
 .side{width:236px;flex-shrink:0;background:var(--card);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:20px 16px;position:sticky;top:0;height:100vh;overflow-y:auto}
 .logo{display:flex;align-items:center;gap:9px;font-family:var(--font-d);font-weight:900;font-size:17px;padding:4px 6px 18px}
-.logo .mk{width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px}
+.logo .mk{width:26px;height:26px;border-radius:7px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px}
 .search{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:12.5px;color:var(--soft);margin-bottom:18px}
 .search kbd{margin-left:auto;font-family:var(--font-d);font-size:10px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--soft)}
 .nav-lab{font-family:var(--font-d);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--soft);text-transform:uppercase;margin:14px 8px 7px}
 .nav-i{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;font-size:13.5px;color:var(--sub);text-decoration:none;cursor:pointer;margin-bottom:1px}
 .nav-i:hover{background:var(--line2);color:var(--ink)}
-.nav-i.on{background:var(--accent-soft);color:var(--accent);font-weight:700}
-.nav-i .ic{width:17px;text-align:center;font-size:14px}
+.nav-i.on{background:#eef0f1;color:var(--ink);font-weight:700}
+.nav-i .ic{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;color:var(--soft)}
+.nav-i .ic svg{width:18px;height:18px}
+.nav-i.on .ic{color:var(--ink)}
+.kpi .ic svg{width:15px;height:15px;color:var(--soft)}
+.logo .mk svg{width:15px;height:15px}
 .side-user{margin-top:auto;display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 11px}
-.side-user .av{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:800;font-size:12px}
+.side-user .av{width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:800;font-size:12px}
 .side-user .nm{font-size:12.5px;font-weight:700;line-height:1.3}
 .side-user .em{font-size:10.5px;color:var(--soft)}
 /* ── main ── */
@@ -75,7 +79,8 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 .feed{display:flex;flex-direction:column;gap:2px;overflow-y:auto}
 .feed-i{display:flex;gap:11px;padding:11px 6px;border-radius:8px;cursor:pointer;border-bottom:1px solid var(--line2)}
 .feed-i:hover{background:var(--line2)}
-.feed-i .fic{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;background:var(--accent-soft)}
+.feed-i .fic{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#eef0f1;color:var(--sub)}
+.feed-i .fic svg{width:15px;height:15px}
 .feed-i .ft{flex:1;min-width:0}
 .feed-i .ft .t1{font-size:12.5px;font-weight:600;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .feed-i .ft .t2{font-size:11px;color:var(--soft);margin-top:2px}
@@ -83,13 +88,13 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 /* filter / best */
 .filter{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .filter button{border:none;background:var(--card);font-family:var(--font-d);font-size:12px;font-weight:700;color:var(--soft);padding:7px 14px;cursor:pointer}
-.filter button.on{background:var(--accent);color:#fff}
+.filter button.on{background:var(--ink);color:#fff}
 .bestwrap{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:760px){.bestwrap{grid-template-columns:1fr}}
 .bcol-h{font-family:var(--font-d);font-size:12px;font-weight:800;margin:0 0 10px}
 .bestcard{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;margin-bottom:9px;cursor:pointer;background:var(--card)}
 .bestcard:hover{border-color:var(--accent)}
-.bestcard .rk{font-family:var(--font-d);font-weight:900;font-size:15px;color:var(--accent);min-width:16px}
+.bestcard .rk{font-family:var(--font-d);font-weight:900;font-size:15px;color:var(--ink);min-width:16px}
 .bestcard .bt{flex:1;font-size:12.5px;line-height:1.35;min-width:0}
 .bestcard .bt .ty{font-size:10.5px;color:var(--soft);margin-top:1px}
 .bestcard .bv{font-family:var(--font-d);font-weight:800;font-size:13.5px;font-variant-numeric:tabular-nums}
@@ -100,7 +105,7 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 .tbl tr{cursor:pointer}.tbl tbody tr:hover{background:var(--line2)}
 .tbl td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--font-d);font-weight:700}
 .tbl .ttl{font-weight:600}
-.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;background:var(--accent-soft);color:var(--accent)}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;background:#eef0f1;color:#5b6470}
 .tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .tag.b{background:#eef1f4;color:#5b6470}.tag.b::before{background:#7a8c83}
 .tag.c{background:#f5efe7;color:#a07a4f}.tag.c::before{background:#b08968}
@@ -124,7 +129,7 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 .mcell{border:1px solid var(--line);border-radius:8px;padding:10px 13px}
 .mcell .l{font-size:10px;font-weight:800;color:var(--soft);letter-spacing:.5px;font-family:var(--font-d)}
 .mcell .v{font-family:var(--font-d);font-size:18px;font-weight:800;margin-top:3px;font-variant-numeric:tabular-nums}
-.m-note{grid-column:1/-1;font-size:12.5px;line-height:1.7;color:var(--sub);background:var(--accent-soft);border-radius:8px;padding:11px 14px}
+.m-note{grid-column:1/-1;font-size:12.5px;line-height:1.7;color:var(--sub);background:#f4f5f6;border-radius:8px;padding:11px 14px}
 .m-sample{grid-column:1/-1;font-size:11px;color:#c2603a}
 @media(max-width:760px){.side{display:none}}
 </style>
@@ -134,16 +139,16 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 
   <aside class="side">
     <div class="logo"><span class="mk">시</span>이시니</div>
-    <div class="search">🔍 검색 <kbd>⌘K</kbd></div>
+    <div class="search"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-3.5-3.5"/></svg>검색 <kbd>⌘K</kbd></div>
     <div class="nav-lab">메인</div>
-    <a class="nav-i on"><span class="ic">▦</span>개요</a>
-    <a class="nav-i" href="#tbl"><span class="ic">🎬</span>게시물</a>
-    <a class="nav-i" href="#best"><span class="ic">🏆</span>성과 베스트</a>
-    <a class="nav-i" href="#types"><span class="ic">🧩</span>콘텐츠 유형</a>
+    <a class="nav-i on"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>개요</a>
+    <a class="nav-i" href="#tbl"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></span>게시물</a>
+    <a class="nav-i" href="#best"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/></svg></span>성과 베스트</a>
+    <a class="nav-i" href="#types"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>콘텐츠 유형</a>
     <div class="nav-lab">인사이트</div>
-    <a class="nav-i"><span class="ic">📈</span>도달·저장</a>
-    <a class="nav-i"><span class="ic">👥</span>팔로워</a>
-    <a class="nav-i"><span class="ic">📄</span>리포트</a>
+    <a class="nav-i"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M16 7h5v5"/></svg></span>도달·저장</a>
+    <a class="nav-i"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="8" r="3.5"/><path d="M21 19v-1a4 4 0 0 0-3-3.9"/></svg></span>팔로워</a>
+    <a class="nav-i"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg></span>리포트</a>
     <div class="side-user"><div class="av">시</div><div><div class="nm">이시니</div><div class="em">@sinini.me</div></div></div>
   </aside>
 
@@ -153,7 +158,7 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
       <div class="right">
         <span class="badge">● 샘플 데이터</span>
         <span class="pill">📅 최근 30일 ▾</span>
-        <span class="icbtn">🔔</span><span class="icbtn">⚙️</span>
+        <span class="icbtn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span><span class="icbtn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v2.5M12 19v2.5M5 5l1.8 1.8M17.2 17.2L19 19M2.5 12H5M19 12h2.5M5 19l1.8-1.8M17.2 6.8L19 5"/></svg></span>
       </div>
     </header>
 
@@ -166,10 +171,10 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
       <div class="cols">
         <div class="leftcol">
           <div class="kpis">
-            <div class="kpi"><div class="top"><div class="lab">팔로워</div><div class="ic">👥</div></div><div class="row"><div class="val">3,133</div><svg class="spark" viewBox="0 0 84 30"><polyline fill="none" stroke="#1a8a5a" stroke-width="2" points="0,24 14,22 28,23 42,16 56,18 70,11 84,6"/></svg></div><div class="chg up">▲ 2.1% <span>vs 지난달</span></div></div>
-            <div class="kpi"><div class="top"><div class="lab">평균 ER</div><div class="ic">💗</div></div><div class="row"><div class="val">2.4%</div><svg class="spark" viewBox="0 0 84 30"><polyline fill="none" stroke="#1a8a5a" stroke-width="2" points="0,22 14,20 28,21 42,15 56,17 70,12 84,8"/></svg></div><div class="chg up">▲ 0.5%p <span>vs 지난달</span></div></div>
-            <div class="kpi"><div class="top"><div class="lab">30일 조회</div><div class="ic">▶️</div></div><div class="row"><div class="val">281K</div><svg class="spark" viewBox="0 0 84 30"><polyline fill="none" stroke="#1a8a5a" stroke-width="2" points="0,25 14,20 28,24 42,14 56,18 70,10 84,5"/></svg></div><div class="chg up">▲ 18% <span>vs 지난달</span></div></div>
-            <div class="kpi"><div class="top"><div class="lab">저장</div><div class="ic">🔖</div></div><div class="row"><div class="val">1,242</div><svg class="spark" viewBox="0 0 84 30"><polyline fill="none" stroke="#d14343" stroke-width="2" points="0,8 14,12 28,10 42,15 56,14 70,22 84,25"/></svg></div><div class="chg down">▼ 4% <span>vs 지난달</span></div></div>
+            <div class="kpi"><div class="top"><div class="lab">팔로워</div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="8" r="3.5"/><path d="M21 19v-1a4 4 0 0 0-3-3.9"/></svg></div></div><div class="row"><div class="val">3,133</div><svg class="spark" viewBox="0 0 84 30"><path d="M0,24 14,22 28,23 42,16 56,18 70,11 84,6 L84,30 L0,30 Z" fill="rgba(26,138,90,.13)"/><polyline fill="none" stroke="#1a8a5a" stroke-width="2" points="0,24 14,22 28,23 42,16 56,18 70,11 84,6"/></svg></div><div class="chg up">▲ 2.1% <span>vs 지난달</span></div></div>
+            <div class="kpi"><div class="top"><div class="lab">평균 ER</div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 20s-7-4.6-9.2-9A4.6 4.6 0 0 1 12 6a4.6 4.6 0 0 1 9.2 5c-2.2 4.4-9.2 9-9.2 9z"/></svg></div></div><div class="row"><div class="val">2.4%</div><svg class="spark" viewBox="0 0 84 30"><path d="M0,22 14,20 28,21 42,15 56,17 70,12 84,8 L84,30 L0,30 Z" fill="rgba(26,138,90,.13)"/><polyline fill="none" stroke="#1a8a5a" stroke-width="2" points="0,22 14,20 28,21 42,15 56,17 70,12 84,8"/></svg></div><div class="chg up">▲ 0.5%p <span>vs 지난달</span></div></div>
+            <div class="kpi"><div class="top"><div class="lab">30일 조회</div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg></div></div><div class="row"><div class="val">281K</div><svg class="spark" viewBox="0 0 84 30"><path d="M0,25 14,20 28,24 42,14 56,18 70,10 84,5 L84,30 L0,30 Z" fill="rgba(26,138,90,.13)"/><polyline fill="none" stroke="#1a8a5a" stroke-width="2" points="0,25 14,20 28,24 42,14 56,18 70,10 84,5"/></svg></div><div class="chg up">▲ 18% <span>vs 지난달</span></div></div>
+            <div class="kpi"><div class="top"><div class="lab">저장</div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M6 4h12v16l-6-4-6 4z"/></svg></div></div><div class="row"><div class="val">1,242</div><svg class="spark" viewBox="0 0 84 30"><path d="M0,8 14,12 28,10 42,15 56,14 70,22 84,25 L84,30 L0,30 Z" fill="rgba(209,67,67,.12)"/><polyline fill="none" stroke="#d14343" stroke-width="2" points="0,8 14,12 28,10 42,15 56,14 70,22 84,25"/></svg></div><div class="chg down">▼ 4% <span>vs 지난달</span></div></div>
           </div>
           <div class="card">
             <div class="card-h"><h2>📊 조회수 추이</h2><span class="pill">최근 7일 ▾</span></div>
@@ -261,7 +266,7 @@ document.querySelectorAll('#prows tr').forEach(function(tr){tr.addEventListener(
 (function(){
   var order=['cut','tip','story','faq','cloud'];
   document.getElementById('feed').innerHTML=order.map(function(id){var p=POSTS[id];
-    return '<div class="feed-i" data-id="'+id+'"><div class="fic">'+p.ic+'</div><div class="ft"><div class="t1">'+p.t.replace(/[“”]/g,'')+'</div><div class="t2">'+p.type+' · 조회 '+p.m['도달']+'</div></div><div class="fm">'+p.ago+'</div></div>';
+    return '<div class="feed-i" data-id="'+id+'"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></div><div class="ft"><div class="t1">'+p.t.replace(/[“”]/g,'')+'</div><div class="t2">'+p.type+' · 조회 '+p.m['도달']+'</div></div><div class="fm">'+p.ago+'</div></div>';
   }).join('');
   document.querySelectorAll('#feed .feed-i').forEach(function(f){f.addEventListener('click',function(){openModal(f.dataset.id);});});
 })();
@@ -290,10 +295,10 @@ function ready(){
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
       scales:{y:{grid:{color:LINE},ticks:{font:{size:10}},border:{display:false}},x:{grid:{display:false},ticks:{font:{size:11}},border:{display:false}}}}});
   new Chart(document.getElementById('bytype'),{type:'bar',
-    data:{labels:['변신','진단','공감·서사','꿀팁','시술'],datasets:[{data:[420,150,330,95,110],backgroundColor:[ACC,'#9bb0a7','#6f9483','#c2a06f','#aab0b6'],borderRadius:5}]},
+    data:{labels:['변신','진단','공감·서사','꿀팁','시술'],datasets:[{data:[420,150,330,95,110],backgroundColor:['#23282d','#d3d7da','#d3d7da','#d3d7da','#d3d7da'],borderRadius:5}]},
     options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:LINE},ticks:{font:{size:10}},border:{display:false}},y:{grid:{display:false},ticks:{font:{size:11,weight:'700'}},border:{display:false}}}}});
   new Chart(document.getElementById('reach'),{type:'bar',
-    data:{labels:['도달(새 사람)','연결(단골·신뢰)'],datasets:[{data:[62,38],backgroundColor:[ACC,'#c2a06f'],borderRadius:5,barThickness:42}]},
+    data:{labels:['도달(새 사람)','연결(단골·신뢰)'],datasets:[{data:[62,38],backgroundColor:['#23282d','#c7ccd0'],borderRadius:5,barThickness:42}]},
     options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.x+'%';}}}},scales:{x:{max:100,grid:{color:LINE},ticks:{callback:function(v){return v+'%';},font:{size:10}},border:{display:false}},y:{grid:{display:false},ticks:{font:{size:11,weight:'700'}},border:{display:false}}}}});
 }
 ready();
