@@ -210,12 +210,14 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
 .slider-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45);cursor:pointer;transition:background .2s}
 .slider-dots span.on{background:#fff}
 .phoneshot{width:100%;display:block;border:1px solid var(--line)}
-.fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:30px 0 6px;background:#0d0d0d;padding:8px;border:1px solid var(--line)}
-.fgrid a,.fgrid figure{margin:0;display:block;line-height:0}
-.fgrid img,.fgrid video{width:100%;aspect-ratio:9/16;object-fit:contain;display:block;background:#0d0d0d;border-radius:3px}
-.fgrid a{transition:outline .15s}.fgrid a:hover img{outline:2px solid var(--accent);outline-offset:-2px}
-@media(max-width:760px){.fgrid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:460px){.fgrid{grid-template-columns:repeat(2,1fr);gap:6px}}
+.fstrip{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding:10px;margin:30px 0 6px;background:#0d0d0d;border:1px solid var(--line)}
+.fstrip>a,.fstrip>figure{flex:0 0 30%;scroll-snap-align:start;margin:0;line-height:0}
+.fstrip img,.fstrip video{width:100%;aspect-ratio:9/16;object-fit:contain;display:block;background:#0d0d0d;border-radius:3px}
+.fstrip>a{transition:outline .15s}.fstrip>a:hover img{outline:2px solid var(--accent);outline-offset:-2px}
+.fstrip::-webkit-scrollbar{height:8px}.fstrip::-webkit-scrollbar-track{background:transparent}
+.fstrip::-webkit-scrollbar-thumb{background:#3a3a3a;border-radius:4px}.fstrip:hover::-webkit-scrollbar-thumb{background:#555}
+@media(max-width:760px){.fstrip>a,.fstrip>figure{flex:0 0 40%}}
+@media(max-width:460px){.fstrip>a,.fstrip>figure{flex:0 0 46%}}
 .spectrum{width:100%;border-collapse:collapse;margin:26px 0;font-size:12.5px}
 .spectrum th,.spectrum td{border-bottom:1px solid var(--line);padding:12px 12px 12px 0;text-align:left;vertical-align:top;line-height:1.55}
 .spectrum thead th{border-bottom:1.5px solid var(--ink);font-family:var(--font-d);font-weight:800;color:var(--accent);font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase}
@@ -808,7 +810,7 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
         </ul>
         <p>핵심은 <b>일관성</b>입니다. 모든 영상에 같은 폰트·위치·색이 반복되면 보는 순간 “아, 이시니구나”가 됩니다 — 그게 자막이 브랜드가 되는 지점입니다.</p>
       </div>
-      <div class="prose"><p><b>먼저 직접 비교</b>해 봅니다. 지금 이시니님 자막과, 결이 다른 릴스들의 자막을 캡처해 모았어요. <b>기본 진행 자막(b)</b>과 <b>포인트·강조 자막(p)</b>을 각각 한눈에 펼쳐 놓았어요. 무엇이 더 직관적이고 미용 톤에 맞는지 눈으로 비교해 보고, 작게 보이면 이미지를 눌러 원본으로 크게 보세요.</p></div>
+      <div class="prose"><p><b>먼저 직접 비교</b>해 봅니다. 지금 이시니님 자막과, 결이 다른 릴스들의 자막을 캡처해 모았어요. <b>기본 진행 자막(b)</b>과 <b>포인트·강조 자막(p)</b>을 각각 가로로 넘기며 비교해 보세요. 한 화면에 서너 장씩 보이고, 옆으로 밀면 나머지가 나옵니다. 이미지를 누르면 원본으로 크게 볼 수 있어요.</p></div>
 
       <div class="fref rv">
         <img src="assets/sini_ori.png" alt="현재 이시니 릴스 자막" loading="lazy" class="phoneshot">
@@ -816,7 +818,7 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
       </div>
 
       <div class="fref rv">
-        <div class="fgrid rv">
+        <div class="fstrip rv">
           <a href="assets/sini_font_b1.png" target="_blank" rel="noopener"><img src="assets/sini_font_b1.png" alt="기본 자막 레퍼런스 b1" loading="lazy"></a>
           <a href="assets/sini_font_b2.png" target="_blank" rel="noopener"><img src="assets/sini_font_b2.png" alt="기본 자막 레퍼런스 b2" loading="lazy"></a>
           <a href="assets/sini_font_b3.png" target="_blank" rel="noopener"><img src="assets/sini_font_b3.png" alt="기본 자막 레퍼런스 b3" loading="lazy"></a>
@@ -830,7 +832,7 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
       </div>
 
       <div class="fref rv">
-        <div class="fgrid rv">
+        <div class="fstrip rv">
           <a href="assets/sini_font_p1.png" target="_blank" rel="noopener"><img src="assets/sini_font_p1.png" alt="포인트 자막 레퍼런스 p1" loading="lazy"></a>
           <a href="assets/sini_font_p2.png" target="_blank" rel="noopener"><img src="assets/sini_font_p2.png" alt="포인트 자막 레퍼런스 p2" loading="lazy"></a>
           <a href="assets/sini_font_p3.png" target="_blank" rel="noopener"><img src="assets/sini_font_p3.png" alt="포인트 자막 레퍼런스 p3" loading="lazy"></a>
