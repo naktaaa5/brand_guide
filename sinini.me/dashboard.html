@@ -191,8 +191,7 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 
       <div class="card" id="best">
         <div class="card-h">
-          <div><h2>성과 베스트</h2><div class="hint">기간별 대표 게시물 — 카드를 누르면 세부 + 영상</div></div>
-          <div class="filter" id="filter"><button data-p="7">최근 1주</button><button data-p="30" class="on">30일</button><button data-p="90">90일</button></div>
+          <div><h2>성과 베스트</h2><div class="hint">조회·ER 상위 게시물 — 카드를 누르면 세부 + 영상</div></div>
         </div>
         <div class="bestwrap">
           <div><div class="bcol-h">조회수 베스트</div><div id="bViews"></div></div>
@@ -238,21 +237,35 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-fon
 
 <script async src="https://www.instagram.com/embed.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';document.head.appendChild(s);"></script>
+<!-- 실데이터: 클로드가 data.js 를 만들면 window.LIVE_DATA 로 들어와 아래 화면을 실제 값으로 채운다. 없으면 샘플. -->
+<script src="data.js" onerror="void 0"></script>
 <script>
 const ACC='#1f6b53', SUB='#9aa0a6', LINE='#ececec', HI='#23282d';
-const POSTS={
- cloud:{t:'다섯살 어린 남친 모임 → 구름펌 변신',p:'DMCQ3iHS-Bu',type:'변신',ago:'42주 전',ic:'🎀',m:{'도달':'1,596,000','노출':'2,010,000','좋아요':'3,547','댓글':'51','저장':'210','공유':'480','평균시청':'7.2초','프로필 방문':'2,140','팔로우 전환':'86'},note:'도달은 폭발(160만)했지만 댓글이 논쟁형 — 구경꾼이 많은 전형. 도달만 보지 말고 저장·팔로우 전환을 같이 본다.'},
- faq:{t:'“매직 다음날 감아도 되나?” FAQ',p:'Cr8QbFiBgNm',type:'진단·정보',ago:'1년 전',ic:'🧠',m:{'도달':'53,000','노출':'61,000','좋아요':'328','댓글':'12','저장':'420','공유':'95','평균시청':'9.1초','프로필 방문':'310','팔로우 전환':'22'},note:'저장이 높음 = ‘쓸모’로 남는 정보형. 신규 유입보다 신뢰 축적에 강하다.'},
- story:{t:'“특별할 것 없는 미용 인생…” 본인 서사',p:'DX6P9adOiNL',type:'서사',ago:'7주 전',ic:'❤️',m:{'도달':'50,000','노출':'58,000','좋아요':'362','댓글':'17','저장':'88','공유':'40','평균시청':'12.4초','프로필 방문':'520','팔로우 전환':'41'},note:'평균시청·프로필 방문이 높음 = 사람에 반응. 도달은 작아도 진짜 고객·디자이너가 남는다.'},
- tip:{t:'곱슬매직 꿀팁',p:'DZGmX29Sput',type:'꿀팁',ago:'3주 전',ic:'💡',m:{'도달':'40,000','노출':'46,000','좋아요':'90','댓글':'2','저장':'312','공유':'120','평균시청':'8.0초','프로필 방문':'140','팔로우 전환':'12'},note:'저장·공유가 높음 = 저장각. ER은 낮아도 자산으로 쌓여 검색·추천에 유리.'},
- cut:{t:'“숱가위 아닌 내 질감” 시술',p:'DZywnUZPqLB',type:'시술',ago:'1주 전',ic:'🔧',m:{'도달':'68,000','노출':'79,000','좋아요':'118','댓글':'1','저장':'41','공유':'15','평균시청':'5.1초','프로필 방문':'90','팔로우 전환':'6'},note:'도달은 나오나 저장·전환이 약함 = 기술 자랑형. 보고 지나가기 쉽다.'}
+function abbr(s){var n=parseInt(String(s).replace(/[^0-9]/g,''),10);if(isNaN(n))return s;if(n>=1e6)return (n/1e6).toFixed(1).replace(/\.0$/,'')+'M';if(n>=1e3)return Math.round(n/1e3)+'K';return String(n);}
+function num(s){return parseFloat(String(s).replace(/[^0-9.]/g,''))||0;}
+
+// ===== 샘플 데이터 — 같은 폴더에 data.json 이 있으면 자동으로 그걸로 교체됩니다 =====
+const SAMPLE={
+ profile:{followers:'3,133',followersChg:'▲ 2.1% vs 지난달',er:'2.4%',erChg:'▲ 0.5%p vs 지난달',views30:'281K',views30Chg:'▲ 18% vs 지난달',saves:'1,242',savesChg:'▼ 4% vs 지난달'},
+ trend:{labels:['일','월','화','수','목','금','토'],data:[320,410,584,360,540,470,300],avg:426},
+ byType:{labels:['변신','진단','공감·서사','꿀팁','시술'],data:[420,150,330,95,110]},
+ reach:{newPct:62,loyalPct:38},
+ posts:[
+  {id:'cloud',t:'다섯살 어린 남친 모임 → 구름펌 변신',p:'DMCQ3iHS-Bu',type:'변신',ago:'42주 전',ic:'🎀',er:'0.3%',m:{'도달':'1,596,000','노출':'2,010,000','좋아요':'3,547','댓글':'51','저장':'210','공유':'480','평균시청':'7.2초','프로필 방문':'2,140','팔로우 전환':'86'},note:'도달은 폭발(160만)했지만 댓글이 논쟁형 — 구경꾼이 많은 전형. 도달만 보지 말고 저장·팔로우 전환을 같이 본다.'},
+  {id:'faq',t:'“매직 다음날 감아도 되나?” FAQ',p:'Cr8QbFiBgNm',type:'진단·정보',ago:'1년 전',ic:'🧠',er:'1.4%',m:{'도달':'53,000','노출':'61,000','좋아요':'328','댓글':'12','저장':'420','공유':'95','평균시청':'9.1초','프로필 방문':'310','팔로우 전환':'22'},note:'저장이 높음 = ‘쓸모’로 남는 정보형. 신규 유입보다 신뢰 축적에 강하다.'},
+  {id:'story',t:'“특별할 것 없는 미용 인생…” 본인 서사',p:'DX6P9adOiNL',type:'서사',ago:'7주 전',ic:'❤️',er:'0.9%',m:{'도달':'50,000','노출':'58,000','좋아요':'362','댓글':'17','저장':'88','공유':'40','평균시청':'12.4초','프로필 방문':'520','팔로우 전환':'41'},note:'평균시청·프로필 방문이 높음 = 사람에 반응. 도달은 작아도 진짜 고객·디자이너가 남는다.'},
+  {id:'tip',t:'곱슬매직 꿀팁',p:'DZGmX29Sput',type:'꿀팁',ago:'3주 전',ic:'💡',er:'1.3%',m:{'도달':'40,000','노출':'46,000','좋아요':'90','댓글':'2','저장':'312','공유':'120','평균시청':'8.0초','프로필 방문':'140','팔로우 전환':'12'},note:'저장·공유가 높음 = 저장각. ER은 낮아도 자산으로 쌓여 검색·추천에 유리.'},
+  {id:'cut',t:'“숱가위 아닌 내 질감” 시술',p:'DZywnUZPqLB',type:'시술',ago:'1주 전',ic:'🔧',er:'0.2%',m:{'도달':'68,000','노출':'79,000','좋아요':'118','댓글':'1','저장':'41','공유':'15','평균시청':'5.1초','프로필 방문':'90','팔로우 전환':'6'},note:'도달은 나오나 저장·전환이 약함 = 기술 자랑형. 보고 지나가기 쉽다.'}
+ ]
 };
+var D=SAMPLE, POSTS={}, LIVE=false;
+function indexPosts(){POSTS={};(D.posts||[]).forEach(function(p){POSTS[p.id]=p;});}
 function openModal(id){
   var p=POSTS[id]; if(!p)return;
   document.getElementById('mTitle').textContent=p.t+'  ·  '+p.type;
   document.getElementById('mEmbed').innerHTML='<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/'+p.p+'/" data-instgrm-version="14" style="width:100%;min-width:0"></blockquote>';
   var mh=''; for(var k in p.m){mh+='<div class="mcell"><div class="l">'+k+'</div><div class="v">'+p.m[k]+'</div></div>';}
-  mh+='<div class="m-note">'+p.note+'</div><div class="m-sample">※ 샘플 지표 — 실제 토큰 연결 시 게시물별로 자동 채워집니다.</div>';
+  mh+='<div class="m-note">'+(p.note||'')+'</div>'+(LIVE?'':'<div class="m-sample">※ 샘플 지표 — 실제 토큰 연결 시 게시물별로 자동 채워집니다.</div>');
   document.getElementById('mMetrics').innerHTML=mh;
   document.getElementById('modal').classList.add('on');
   if(window.instgrm&&window.instgrm.Embeds)window.instgrm.Embeds.process();
@@ -260,48 +273,69 @@ function openModal(id){
 function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('mEmbed').innerHTML='';}
 document.getElementById('modal').addEventListener('click',function(e){if(e.target.id==='modal')closeModal();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
-document.querySelectorAll('#prows tr').forEach(function(tr){tr.addEventListener('click',function(){openModal(tr.dataset.id);});});
 
-// feed
-(function(){
-  var order=['cut','tip','story','faq','cloud'];
-  document.getElementById('feed').innerHTML=order.map(function(id){var p=POSTS[id];
-    return '<div class="feed-i" data-id="'+id+'"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></div><div class="ft"><div class="t1">'+p.t.replace(/[“”]/g,'')+'</div><div class="t2">'+p.type+' · 조회 '+p.m['도달']+'</div></div><div class="fm">'+p.ago+'</div></div>';
+function renderKPIs(){
+  var pr=D.profile||{}, kp=document.querySelectorAll('.kpi');
+  var vals=[pr.followers,pr.er,pr.views30,pr.saves], chg=[pr.followersChg,pr.erChg,pr.views30Chg,pr.savesChg];
+  kp.forEach(function(k,i){
+    var v=k.querySelector('.val'); if(v&&vals[i]!=null)v.textContent=vals[i];
+    var c=k.querySelector('.chg'); if(c&&chg[i]!=null){c.className='chg '+(/▼/.test(chg[i])?'down':'up');c.innerHTML=String(chg[i]).replace(/(vs.*)$/,'<span>$1</span>');}
+  });
+}
+function renderTable(){
+  document.getElementById('prows').innerHTML=(D.posts||[]).map(function(p){
+    return '<tr data-id="'+p.id+'"><td class="ttl">'+p.t.replace(/[“”]/g,'')+'</td><td><span class="tag">'+p.type+'</span></td><td class="num">'+abbr(p.m['도달'])+'</td><td class="num">'+p.m['좋아요']+'</td><td class="num">'+p.m['저장']+'</td><td class="num">'+(p.er||'')+'</td></tr>';
+  }).join('');
+  document.querySelectorAll('#prows tr').forEach(function(tr){tr.addEventListener('click',function(){openModal(tr.dataset.id);});});
+}
+function renderFeed(){
+  document.getElementById('feed').innerHTML=(D.posts||[]).map(function(p){
+    return '<div class="feed-i" data-id="'+p.id+'"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></div><div class="ft"><div class="t1">'+p.t.replace(/[“”]/g,'')+'</div><div class="t2">'+p.type+' · 조회 '+abbr(p.m['도달'])+'</div></div><div class="fm">'+(p.ago||'')+'</div></div>';
   }).join('');
   document.querySelectorAll('#feed .feed-i').forEach(function(f){f.addEventListener('click',function(){openModal(f.dataset.id);});});
-})();
-
-// best + filter
-const BEST={
- '7':{views:[['cut','6.8만'],['faq','9,800'],['tip','5,200']], er:[['story','5.2%'],['faq','1.4%'],['tip','1.3%']]},
- '30':{views:[['cut','6.8만'],['cloud','5.2만'],['tip','4.0만']], er:[['faq','1.4%'],['tip','1.3%'],['story','0.9%']]},
- '90':{views:[['cloud','160만'],['cut','6.8만'],['faq','5.3만']], er:[['faq','1.4%'],['tip','1.3%'],['story','0.9%']]}
-};
-function bcards(arr){return arr.map(function(x,i){var po=POSTS[x[0]];var t=po.t.replace(/[“”]/g,'');if(t.length>20)t=t.slice(0,20)+'…';return '<div class="bestcard" data-id="'+x[0]+'"><div class="rk">'+(i+1)+'</div><div class="bt">'+t+'<div class="ty">'+po.type+'</div></div><div class="bv">'+x[1]+'</div></div>';}).join('');}
-function renderBest(p){var d=BEST[p];document.getElementById('bViews').innerHTML=bcards(d.views);document.getElementById('bEr').innerHTML=bcards(d.er);document.querySelectorAll('.bestcard').forEach(function(c){c.addEventListener('click',function(){openModal(c.dataset.id);});});}
-document.querySelectorAll('#filter button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#filter button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');renderBest(b.dataset.p);});});
-renderBest('30');
+}
+function bcards(arr,valf){return arr.map(function(p,i){var t=p.t.replace(/[“”]/g,'');if(t.length>20)t=t.slice(0,20)+'…';return '<div class="bestcard" data-id="'+p.id+'"><div class="rk">'+(i+1)+'</div><div class="bt">'+t+'<div class="ty">'+p.type+'</div></div><div class="bv">'+valf(p)+'</div></div>';}).join('');}
+function renderBest(){
+  var ps=(D.posts||[]).slice();
+  var byV=ps.slice().sort(function(a,b){return num(b.m['도달'])-num(a.m['도달']);}).slice(0,3);
+  var byE=ps.slice().sort(function(a,b){return num(b.er)-num(a.er);}).slice(0,3);
+  document.getElementById('bViews').innerHTML=bcards(byV,function(p){return abbr(p.m['도달']);});
+  document.getElementById('bEr').innerHTML=bcards(byE,function(p){return p.er;});
+  document.querySelectorAll('.bestcard').forEach(function(c){c.addEventListener('click',function(){openModal(c.dataset.id);});});
+}
 
 // charts
-function ready(){
-  if(typeof Chart==='undefined'){return setTimeout(ready,150);}
+var charts={};
+function renderCharts(){
+  if(typeof Chart==='undefined'){return setTimeout(renderCharts,150);}
   Chart.defaults.font.family="'Pretendard Variable',sans-serif";Chart.defaults.color=SUB;
-  var d=[320,410,584,360,540,470,300], peak=2;
-  new Chart(document.getElementById('trend'),{type:'bar',
-    data:{labels:['일','월','화','수','목','금','토'],datasets:[
-      {data:d,backgroundColor:d.map(function(_,i){return i===peak?HI:'#e7eaec';}),borderRadius:6,maxBarThickness:34},
-      {type:'line',data:d.map(function(){return 426;}),borderColor:'#c9ccce',borderDash:[5,5],borderWidth:1.5,pointRadius:0}
+  Object.keys(charts).forEach(function(k){if(charts[k])charts[k].destroy();});
+  var t=D.trend||{labels:[],data:[],avg:0}; var peak=t.data&&t.data.length?t.data.indexOf(Math.max.apply(null,t.data)):-1;
+  charts.trend=new Chart(document.getElementById('trend'),{type:'bar',
+    data:{labels:t.labels,datasets:[
+      {data:t.data,backgroundColor:(t.data||[]).map(function(_,i){return i===peak?HI:'#e7eaec';}),borderRadius:6,maxBarThickness:34},
+      {type:'line',data:(t.data||[]).map(function(){return t.avg;}),borderColor:'#c9ccce',borderDash:[5,5],borderWidth:1.5,pointRadius:0}
     ]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
       scales:{y:{grid:{color:LINE},ticks:{font:{size:10}},border:{display:false}},x:{grid:{display:false},ticks:{font:{size:11}},border:{display:false}}}}});
-  new Chart(document.getElementById('bytype'),{type:'bar',
-    data:{labels:['변신','진단','공감·서사','꿀팁','시술'],datasets:[{data:[420,150,330,95,110],backgroundColor:['#23282d','#d3d7da','#d3d7da','#d3d7da','#d3d7da'],borderRadius:5}]},
+  var bt=D.byType||{labels:[],data:[]};
+  charts.bytype=new Chart(document.getElementById('bytype'),{type:'bar',
+    data:{labels:bt.labels,datasets:[{data:bt.data,backgroundColor:(bt.data||[]).map(function(_,i){return i===0?'#23282d':'#d3d7da';}),borderRadius:5}]},
     options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:LINE},ticks:{font:{size:10}},border:{display:false}},y:{grid:{display:false},ticks:{font:{size:11,weight:'700'}},border:{display:false}}}}});
-  new Chart(document.getElementById('reach'),{type:'bar',
-    data:{labels:['도달(새 사람)','연결(단골·신뢰)'],datasets:[{data:[62,38],backgroundColor:['#23282d','#c7ccd0'],borderRadius:5,barThickness:42}]},
+  var rc=D.reach||{newPct:0,loyalPct:0};
+  charts.reach=new Chart(document.getElementById('reach'),{type:'bar',
+    data:{labels:['도달(새 사람)','연결(단골·신뢰)'],datasets:[{data:[rc.newPct,rc.loyalPct],backgroundColor:['#23282d','#c7ccd0'],borderRadius:5,barThickness:42}]},
     options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.x+'%';}}}},scales:{x:{max:100,grid:{color:LINE},ticks:{callback:function(v){return v+'%';},font:{size:10}},border:{display:false}},y:{grid:{display:false},ticks:{font:{size:11,weight:'700'}},border:{display:false}}}}});
 }
-ready();
+function setLiveUI(){
+  var b=document.querySelector('.badge'); if(b)b.textContent=LIVE?'● 실데이터':'● 샘플 데이터';
+  var sb=document.querySelector('.samplebar'); if(sb)sb.style.display=LIVE?'none':'';
+  var fb=document.querySelector('.foot b'); if(fb&&LIVE)fb.textContent='이시니님 실제 데이터입니다.';
+}
+function renderAll(){indexPosts();renderKPIs();renderTable();renderFeed();renderBest();renderCharts();setLiveUI();}
+// data.js 가 있으면(클로드가 만든 실데이터) window.LIVE_DATA 로 들어온다. 없으면 샘플.
+if(window.LIVE_DATA&&window.LIVE_DATA.posts&&window.LIVE_DATA.posts.length){D=window.LIVE_DATA;LIVE=true;}
+renderAll();
 </script>
 </body>
 </html>
