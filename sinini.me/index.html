@@ -186,6 +186,16 @@ footer .fn{font-family:var(--font-d);font-size:10px;font-weight:700;letter-spaci
 .fref:has(.fstrip),.fref:has(.phoneshot){max-width:none}
 .fref:has(.fstrip) .fref-note,.fref:has(.phoneshot) .fref-note{margin-top:14px}
 .fref .embed{margin:0}
+/* PC: 임베드(좌) + 설명(우) 나란히 — 모바일은 다시 세로 */
+.fref:has(.embed):has(.script){max-width:none;display:grid;grid-template-columns:340px minmax(0,1fr);column-gap:36px;align-items:start}
+.fref:has(.embed):has(.script) .embed{grid-column:1;grid-row:1}
+.fref:has(.embed):has(.script) .fref-note{grid-column:1;grid-row:2;margin-top:12px}
+.fref:has(.embed):has(.script) .script{grid-column:2;grid-row:1 / span 2;margin:0;align-self:stretch}
+@media(max-width:760px){
+  .fref:has(.embed):has(.script){display:block;max-width:460px}
+  .fref:has(.embed):has(.script) .script{margin:18px 0}
+  .fref:has(.embed):has(.script) .fref-note{margin-top:12px}
+}
 .fref-note{font-size:13px;line-height:1.75;color:var(--sub);margin:12px 2px 0;text-align:left}
 .fref-note b{font-family:var(--font-d);color:var(--ink)}
 .fref-note b.hl{color:var(--accent)}
