@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>곽충무 콘텐츠 대시보드 (샘플)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --bg:#f4f5f6; --card:#fff; --ink:#1a1d1f; --sub:#6f767e; --soft:#9aa0a6;
+  --line:#ececec; --line2:#f3f4f5; --accent:#1f6b53; --accent-soft:#e8f1ec;
+  --up:#1a8a5a; --down:#d14343; --hi:#23282d;
+  --font-d:'SUIT Variable',sans-serif; --font-b:'Pretendard Variable',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+.app{display:flex;min-height:100vh}
+/* ── sidebar ── */
+.side{width:236px;flex-shrink:0;background:var(--card);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:20px 16px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--font-d);font-weight:900;font-size:17px;padding:4px 6px 18px}
+.logo .mk{width:26px;height:26px;border-radius:7px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+.search{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:12.5px;color:var(--soft);margin-bottom:18px}
+.search kbd{margin-left:auto;font-family:var(--font-d);font-size:10px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--soft)}
+.nav-lab{font-family:var(--font-d);font-size:10px;font-weight:800;letter-spacing:1px;color:var(--soft);text-transform:uppercase;margin:14px 8px 7px}
+.nav-i{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;font-size:13.5px;color:var(--sub);text-decoration:none;cursor:pointer;margin-bottom:1px}
+.nav-i:hover{background:var(--line2);color:var(--ink)}
+.nav-i.on{background:#eef0f1;color:var(--ink);font-weight:700}
+.nav-i .ic{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;color:var(--soft)}
+.nav-i .ic svg{width:18px;height:18px}
+.nav-i.on .ic{color:var(--ink)}
+.kpi .ic svg{width:15px;height:15px;color:var(--soft)}
+.logo .mk svg{width:15px;height:15px}
+.side-user{margin-top:auto;display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+.side-user .av{width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:800;font-size:12px}
+.side-user .nm{font-size:12.5px;font-weight:700;line-height:1.3}
+.side-user .em{font-size:10.5px;color:var(--soft)}
+/* ── main ── */
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:14px;padding:16px 26px;border-bottom:1px solid var(--line);background:var(--card);flex-wrap:wrap}
+.crumb{font-size:12.5px;color:var(--soft)}.crumb b{color:var(--ink);font-weight:600}
+.topbar .right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 12px;font-size:12.5px;font-weight:600;color:var(--sub);cursor:pointer}
+.badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-d);font-size:11px;font-weight:800;color:#fff;background:#c2603a;padding:6px 11px;border-radius:7px}
+.icbtn{width:34px;height:34px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--sub);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.content{padding:24px 26px 50px}
+.hello{font-family:var(--font-d);font-size:23px;font-weight:900;letter-spacing:-.6px}
+.hello-sub{font-size:13px;color:var(--sub);margin:5px 0 20px}
+.samplebar{background:#fbf3ee;border:1px dashed #c2603a;border-radius:8px;padding:11px 15px;font-size:12.5px;color:var(--sub);margin-bottom:20px;line-height:1.6}
+.samplebar b{color:#c2603a}
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.card-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.card-h h2{font-family:var(--font-d);font-size:14.5px;font-weight:800;letter-spacing:-.2px;display:flex;align-items:center;gap:7px}
+.card-h .hint{font-size:11px;color:var(--soft)}
+.cols{display:grid;grid-template-columns:1fr 312px;gap:18px;margin-bottom:18px}
+@media(max-width:980px){.cols{grid-template-columns:1fr}}
+.leftcol{display:flex;flex-direction:column;gap:18px;min-width:0}
+/* KPI */
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.kpi .top{display:flex;align-items:center;justify-content:space-between}
+.kpi .lab{font-size:12px;color:var(--sub);font-weight:600}
+.kpi .ic{width:26px;height:26px;border-radius:7px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:13px}
+.kpi .row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:10px}
+.kpi .val{font-family:var(--font-d);font-size:27px;font-weight:800;letter-spacing:-1.2px;line-height:1;font-variant-numeric:tabular-nums}
+.kpi .spark{width:84px;height:30px;flex-shrink:0}
+.kpi .chg{font-size:11.5px;font-weight:700;margin-top:8px}
+.kpi .chg.up{color:var(--up)}.kpi .chg.down{color:var(--down)}
+.kpi .chg span{color:var(--soft);font-weight:500}
+.chartbox{position:relative;height:280px}
+/* right feed */
+.rightcol{display:flex;flex-direction:column}
+.tabs{display:flex;gap:4px;background:var(--bg);border-radius:9px;padding:4px;margin-bottom:12px}
+.tabs button{flex:1;border:none;background:none;font-family:var(--font-d);font-size:11.5px;font-weight:700;color:var(--sub);padding:6px 4px;border-radius:6px;cursor:pointer}
+.tabs button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.feed{display:flex;flex-direction:column;gap:2px;overflow-y:auto}
+.feed-i{display:flex;gap:11px;padding:11px 6px;border-radius:8px;cursor:pointer;border-bottom:1px solid var(--line2)}
+.feed-i:hover{background:var(--line2)}
+.feed-i .fic{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#eef0f1;color:var(--sub)}
+.feed-i .fic svg{width:15px;height:15px}
+.feed-i .ft{flex:1;min-width:0}
+.feed-i .ft .t1{font-size:12.5px;font-weight:600;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.feed-i .ft .t2{font-size:11px;color:var(--soft);margin-top:2px}
+.feed-i .fm{font-family:var(--font-d);font-size:11px;color:var(--soft);white-space:nowrap;text-align:right}
+/* filter / best */
+.filter{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.filter button{border:none;background:var(--card);font-family:var(--font-d);font-size:12px;font-weight:700;color:var(--soft);padding:7px 14px;cursor:pointer}
+.filter button.on{background:var(--ink);color:#fff}
+.bestwrap{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.bestwrap{grid-template-columns:1fr}}
+.bcol-h{font-family:var(--font-d);font-size:12px;font-weight:800;margin:0 0 10px}
+.bestcard{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;margin-bottom:9px;cursor:pointer;background:var(--card)}
+.bestcard:hover{border-color:var(--accent)}
+.bestcard .rk{font-family:var(--font-d);font-weight:900;font-size:15px;color:var(--ink);min-width:16px}
+.bestcard .bt{flex:1;font-size:12.5px;line-height:1.35;min-width:0}
+.bestcard .bt .ty{font-size:10.5px;color:var(--soft);margin-top:1px}
+.bestcard .bv{font-family:var(--font-d);font-weight:800;font-size:13.5px;font-variant-numeric:tabular-nums}
+/* table */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;font-family:var(--font-d);font-weight:700;color:var(--soft);font-size:11px;padding:0 12px 12px 0;border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 12px 13px 0;border-bottom:1px solid var(--line2);vertical-align:middle}
+.tbl tr{cursor:pointer}.tbl tbody tr:hover{background:var(--line2)}
+.tbl td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--font-d);font-weight:700}
+.tbl .ttl{font-weight:600}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;background:#eef0f1;color:#5b6470}
+.tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.tag.b{background:#eef1f4;color:#5b6470}.tag.b::before{background:#7a8c83}
+.tag.c{background:#f5efe7;color:#a07a4f}.tag.c::before{background:#b08968}
+.tag.d{background:#eef0f2;color:#8a8f98}.tag.d::before{background:#8a8f98}
+.grid2{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:18px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
+.foot{margin-top:22px;font-size:12px;color:var(--soft);line-height:1.8}
+.foot b{color:var(--ink)}
+/* modal */
+.modal{display:none;position:fixed;inset:0;background:rgba(20,22,24,.5);z-index:200;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 16px}
+.modal.on{display:flex}
+.modal-box{background:var(--card);border-radius:14px;max-width:820px;width:100%;padding:24px 26px;position:relative}
+.modal-x{position:absolute;top:14px;right:16px;border:none;background:none;font-size:25px;color:var(--soft);cursor:pointer;line-height:1;z-index:2}
+.modal-box h3{font-family:var(--font-d);font-size:16px;font-weight:800;margin:0 30px 16px 0}
+.mgrid{display:grid;grid-template-columns:336px 1fr;gap:24px;align-items:start}
+@media(max-width:680px){.mgrid{grid-template-columns:1fr}}
+.m-embed{max-width:336px;overflow:hidden}
+@media(max-width:680px){.m-embed{max-width:100%;margin:0 auto}}
+.m-embed blockquote,.m-embed iframe{margin:0 auto!important;min-width:0!important;max-width:100%!important;width:100%!important}
+.m-ph{border:1px dashed var(--line);border-radius:10px;background:var(--bg);color:var(--soft);font-size:12px;line-height:1.6;text-align:center;padding:44px 20px}
+.m-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.mcell{border:1px solid var(--line);border-radius:8px;padding:10px 13px}
+.mcell .l{font-size:10px;font-weight:800;color:var(--soft);letter-spacing:.5px;font-family:var(--font-d)}
+.mcell .v{font-family:var(--font-d);font-size:18px;font-weight:800;margin-top:3px;font-variant-numeric:tabular-nums}
+.m-note{grid-column:1/-1;font-size:12.5px;line-height:1.7;color:var(--sub);background:#f4f5f6;border-radius:8px;padding:11px 14px}
+.m-sample{grid-column:1/-1;font-size:11px;color:#c2603a}
+@media(max-width:760px){.side{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="side">
+    <div class="logo"><span class="mk">쌈</span>쌈무</div>
+    <div class="search"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-3.5-3.5"/></svg>검색 <kbd>⌘K</kbd></div>
+    <div class="nav-lab">메인</div>
+    <a class="nav-i on"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>개요</a>
+    <a class="nav-i" href="#tbl"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></span>게시물</a>
+    <a class="nav-i" href="#best"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/></svg></span>성과 베스트</a>
+    <a class="nav-i" href="#types"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>콘텐츠 유형</a>
+    <div class="nav-lab">인사이트</div>
+    <a class="nav-i"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M16 7h5v5"/></svg></span>도달·저장</a>
+    <a class="nav-i"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="8" r="3.5"/><path d="M21 19v-1a4 4 0 0 0-3-3.9"/></svg></span>팔로워</a>
+    <a class="nav-i"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M8 13h8M8 17h6"/></svg></span>리포트</a>
+    <div class="side-user"><div class="av">쌈</div><div><div class="nm">곽충무</div><div class="em">@ssam_movement</div></div></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="crumb">개요 / <b>대시보드</b></div>
+      <div class="right">
+        <span class="badge">● 샘플 데이터</span>
+        <span class="pill">📅 최근 30일 ▾</span>
+        <span class="icbtn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span><span class="icbtn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v2.5M12 19v2.5M5 5l1.8 1.8M17.2 17.2L19 19M2.5 12H5M19 12h2.5M5 19l1.8-1.8M17.2 6.8L19 5"/></svg></span>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="hello">안녕하세요, 충무님 👋</div>
+      <div class="hello-sub">최근 인스타그램 콘텐츠 성과를 한눈에 봅니다.</div>
+
+      <div class="samplebar"><b>지금은 샘플 화면입니다.</b> 메타 장기토큰을 연결하면 이 자리에 충무님 실제 데이터가 자동으로 채워집니다. 토큰 발급과 연결은 낙타가 도와드립니다.</div>
+
+      <div class="cols">
+        <div class="leftcol">
+          <div class="kpis">
+            <div class="kpi"><div class="top"><div class="lab">팔로워</div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="8" r="3.5"/><path d="M21 19v-1a4 4 0 0 0-3-3.9"/></svg></div></div><div class="row"><div class="val">8,412</div><svg class="spark" viewBox="0 0 84 30"><path d="M0,24 14,22 28,23 42,16 56,18 70,11 84,6 L84,30 L0,30 Z" fill="rgba(26,138,90,.13)"/><polyline fill="none" stroke="#1a8a5a" stroke-width="2" points="0,24 14,22 28,23 42,16 56,18 70,11 84,6"/></svg></div><div class="chg up">▲ 3.2% <span>vs 지난달</span></div></div>
+            <div class="kpi"><div class="top"><div class="lab">평균 ER</div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 20s-7-4.6-9.2-9A4.6 4.6 0 0 1 12 6a4.6 4.6 0 0 1 9.2 5c-2.2 4.4-9.2 9-9.2 9z"/></svg></div></div><div class="row"><div class="val">1.1%</div><svg class="spark" viewBox="0 0 84 30"><path d="M0,10 14,12 28,11 42,15 56,16 70,20 84,23 L84,30 L0,30 Z" fill="rgba(209,67,67,.12)"/><polyline fill="none" stroke="#d14343" stroke-width="2" points="0,10 14,12 28,11 42,15 56,16 70,20 84,23"/></svg></div><div class="chg down">▼ 0.3%p <span>vs 지난달</span></div></div>
+            <div class="kpi"><div class="top"><div class="lab">30일 조회</div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg></div></div><div class="row"><div class="val">1.4M</div><svg class="spark" viewBox="0 0 84 30"><path d="M0,25 14,20 28,24 42,14 56,18 70,10 84,4 L84,30 L0,30 Z" fill="rgba(26,138,90,.13)"/><polyline fill="none" stroke="#1a8a5a" stroke-width="2" points="0,25 14,20 28,24 42,14 56,18 70,10 84,4"/></svg></div><div class="chg up">▲ 42% <span>vs 지난달</span></div></div>
+            <div class="kpi"><div class="top"><div class="lab">저장</div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M6 4h12v16l-6-4-6 4z"/></svg></div></div><div class="row"><div class="val">980</div><svg class="spark" viewBox="0 0 84 30"><path d="M0,8 14,12 28,10 42,15 56,14 70,22 84,25 L84,30 L0,30 Z" fill="rgba(209,67,67,.12)"/><polyline fill="none" stroke="#d14343" stroke-width="2" points="0,8 14,12 28,10 42,15 56,14 70,22 84,25"/></svg></div><div class="chg down">▼ 6% <span>vs 지난달</span></div></div>
+          </div>
+          <div class="card">
+            <div class="card-h"><h2>조회수 추이</h2><span class="pill">최근 7일 ▾</span></div>
+            <div class="chartbox"><canvas id="trend"></canvas></div>
+          </div>
+        </div>
+
+        <aside class="rightcol card">
+          <div class="card-h"><h2>최근 게시물</h2></div>
+          <div class="tabs"><button class="on">전체</button><button>발견</button><button>검증</button></div>
+          <div class="feed" id="feed"></div>
+        </aside>
+      </div>
+
+      <div class="card" id="best">
+        <div class="card-h">
+          <div><h2>성과 베스트</h2><div class="hint">조회·ER 상위 게시물 — 카드를 누르면 세부 + 영상</div></div>
+        </div>
+        <div class="bestwrap">
+          <div><div class="bcol-h">조회수 베스트</div><div id="bViews"></div></div>
+          <div><div class="bcol-h">ER 베스트</div><div id="bEr"></div></div>
+        </div>
+      </div>
+
+      <div class="card" id="tbl" style="margin-top:18px">
+        <div class="card-h"><h2>게시물 성과</h2><span class="hint">행을 누르면 세부 + 영상</span></div>
+        <table class="tbl">
+          <thead><tr><th>게시물</th><th>유형</th><th class="num">조회</th><th class="num">좋아요</th><th class="num">저장</th><th class="num">ER</th></tr></thead>
+          <tbody id="prows"></tbody>
+        </table>
+      </div>
+
+      <div class="grid2" id="types">
+        <div class="card"><div class="card-h"><h2>콘텐츠 유형별 평균 반응</h2></div><div class="chartbox" style="height:230px"><canvas id="bytype"></canvas></div></div>
+        <div class="card"><div class="card-h"><h2>도달 vs 연결</h2></div><div class="chartbox" style="height:230px"><canvas id="reach"></canvas></div></div>
+      </div>
+
+      <div class="foot">
+        <b>이 화면은 샘플입니다.</b> 숫자·게시물은 형태 예시입니다. 실제 토큰 연결 시 충무님 데이터로 자동 채워집니다.<br>
+        읽는 법 — <b>도달</b>이 큰데 <b>ER·저장</b>이 낮으면 '구경꾼'(발견·변신·운동 시연), <b>ER·저장·프로필 방문</b>이 높으면 '진짜 고객'(진단·서사·꿀팁). 충무님은 지금 왼쪽이 크고 오른쪽이 비어 있습니다. 이 대시보드로 확인할 목표는 오른쪽(검증·전환)을 채우는 것입니다.<br>
+        © 2026 RE:FEEEL · Content Dashboard
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal()" aria-label="닫기">×</button>
+    <h3 id="mTitle"></h3>
+    <div class="mgrid"><div class="m-embed" id="mEmbed"></div><div class="m-metrics" id="mMetrics"></div></div>
+  </div>
+</div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';document.head.appendChild(s);"></script>
+<!-- 실데이터: 낙타가 data.js 를 만들면 window.LIVE_DATA 로 들어와 아래 화면을 실제 값으로 채운다. 없으면 샘플. -->
+<script src="data.js" onerror="void 0"></script>
+<script>
+const ACC='#1f6b53', SUB='#9aa0a6', LINE='#ececec', HI='#23282d';
+function abbr(s){var n=parseInt(String(s).replace(/[^0-9]/g,''),10);if(isNaN(n))return s;if(n>=1e6)return (n/1e6).toFixed(1).replace(/\.0$/,'')+'M';if(n>=1e3)return Math.round(n/1e3)+'K';return String(n);}
+function num(s){return parseFloat(String(s).replace(/[^0-9.]/g,''))||0;}
+
+// ===== 샘플 데이터 — 같은 폴더에 data.js(window.LIVE_DATA) 가 있으면 자동으로 그걸로 교체됩니다 =====
+const SAMPLE={
+ profile:{followers:'8,412',followersChg:'▲ 3.2% vs 지난달',er:'1.1%',erChg:'▼ 0.3%p vs 지난달',views30:'1.4M',views30Chg:'▲ 42% vs 지난달',saves:'980',savesChg:'▼ 6% vs 지난달'},
+ trend:{labels:['일','월','화','수','목','금','토'],data:[640,820,1180,760,940,1420,700],avg:923},
+ byType:{labels:['발견·케이스','진단','서사','꿀팁','운동 시연'],data:[410,160,330,100,120]},
+ reach:{newPct:71,loyalPct:29},
+ posts:[
+  {id:'case',t:'“앉기만 하면 찌릿” 허리 통증 → 골프 복귀',p:'',type:'발견·케이스',ago:'6주 전',ic:'🎯',er:'0.3%',m:{'도달':'1,210,000','노출':'1,540,000','좋아요':'2,980','댓글':'44','저장':'190','공유':'360','평균시청':'6.8초','프로필 방문':'1,720','문의(DM)':'9'},note:'도달은 폭발(121만)했지만 저장·문의 전환이 약함 — 구경꾼이 많은 발견형. 조회수만 보지 말고 저장·프로필 방문·문의를 같이 본다.'},
+  {id:'faq',t:'“아침에 허리가 뻣뻣한 진짜 이유” FAQ',p:'',type:'진단·정보',ago:'2주 전',ic:'🧠',er:'1.4%',m:{'도달':'48,000','노출':'55,000','좋아요':'312','댓글':'14','저장':'440','공유':'92','평균시청':'9.4초','프로필 방문':'340','문의(DM)':'21'},note:'저장·문의가 높음 = 쓸모로 남는 정보형. 신규 유입보다 신뢰 축적과 전환에 강한 검증 콘텐츠.'},
+  {id:'story',t:'수중재활에서 통증 재활 트레이너가 되기까지',p:'',type:'서사',ago:'4주 전',ic:'❤️',er:'0.9%',m:{'도달':'42,000','노출':'49,000','좋아요':'358','댓글':'19','저장':'96','공유':'38','평균시청':'12.6초','프로필 방문':'560','문의(DM)':'27'},note:'평균시청·프로필 방문·문의가 높음 = 사람에 반응. 도달은 작아도 진짜 고객이 남는 전환형.'},
+  {id:'tip',t:'앉을 때 허리 안 아프게 앉는 법',p:'',type:'꿀팁',ago:'3주 전',ic:'💡',er:'1.3%',m:{'도달':'38,000','노출':'44,000','좋아요':'88','댓글':'3','저장':'306','공유':'128','평균시청':'8.2초','프로필 방문':'150','문의(DM)':'8'},note:'저장·공유가 높음 = 저장각. ER은 낮아도 자산으로 쌓여 검색·추천에 유리.'},
+  {id:'drill',t:'허리 통증에 맥켄지 신전운동',p:'',type:'운동 시연',ago:'1주 전',ic:'🏋️',er:'0.2%',m:{'도달':'61,000','노출':'70,000','좋아요':'110','댓글':'2','저장':'44','공유':'16','평균시청':'5.3초','프로필 방문':'96','문의(DM)':'3'},note:'도달은 나오나 저장·문의가 약함 = 누구의 어떤 문제인지 없이 운동만 보여준 형. 보고 지나가기 쉽다.'}
+ ]
+};
+var D=SAMPLE, POSTS={}, LIVE=false;
+function indexPosts(){POSTS={};(D.posts||[]).forEach(function(p){POSTS[p.id]=p;});}
+function openModal(id){
+  var p=POSTS[id]; if(!p)return;
+  document.getElementById('mTitle').textContent=p.t+'  ·  '+p.type;
+  var em=document.getElementById('mEmbed');
+  if(p.p){
+    em.innerHTML='<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/'+p.p+'/" data-instgrm-version="14" style="width:100%;min-width:0"></blockquote>';
+  }else{
+    em.innerHTML='<div class="m-ph">토큰 연결 시<br>이 자리에 실제 영상이 표시됩니다</div>';
+  }
+  var mh=''; for(var k in p.m){mh+='<div class="mcell"><div class="l">'+k+'</div><div class="v">'+p.m[k]+'</div></div>';}
+  mh+='<div class="m-note">'+(p.note||'')+'</div>'+(LIVE?'':'<div class="m-sample">※ 샘플 지표 — 실제 토큰 연결 시 게시물별로 자동 채워집니다.</div>');
+  document.getElementById('mMetrics').innerHTML=mh;
+  document.getElementById('modal').classList.add('on');
+  if(p.p&&window.instgrm&&window.instgrm.Embeds)window.instgrm.Embeds.process();
+}
+function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('mEmbed').innerHTML='';}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target.id==='modal')closeModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+function renderKPIs(){
+  var pr=D.profile||{}, kp=document.querySelectorAll('.kpi');
+  var vals=[pr.followers,pr.er,pr.views30,pr.saves], chg=[pr.followersChg,pr.erChg,pr.views30Chg,pr.savesChg];
+  kp.forEach(function(k,i){
+    var v=k.querySelector('.val'); if(v&&vals[i]!=null)v.textContent=vals[i];
+    var c=k.querySelector('.chg'); if(c&&chg[i]!=null){c.className='chg '+(/▼/.test(chg[i])?'down':'up');c.innerHTML=String(chg[i]).replace(/(vs.*)$/,'<span>$1</span>');}
+  });
+}
+function renderTable(){
+  document.getElementById('prows').innerHTML=(D.posts||[]).map(function(p){
+    return '<tr data-id="'+p.id+'"><td class="ttl">'+p.t.replace(/[“”]/g,'')+'</td><td><span class="tag">'+p.type+'</span></td><td class="num">'+abbr(p.m['도달'])+'</td><td class="num">'+p.m['좋아요']+'</td><td class="num">'+p.m['저장']+'</td><td class="num">'+(p.er||'')+'</td></tr>';
+  }).join('');
+  document.querySelectorAll('#prows tr').forEach(function(tr){tr.addEventListener('click',function(){openModal(tr.dataset.id);});});
+}
+function renderFeed(){
+  document.getElementById('feed').innerHTML=(D.posts||[]).map(function(p){
+    return '<div class="feed-i" data-id="'+p.id+'"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></div><div class="ft"><div class="t1">'+p.t.replace(/[“”]/g,'')+'</div><div class="t2">'+p.type+' · 조회 '+abbr(p.m['도달'])+'</div></div><div class="fm">'+(p.ago||'')+'</div></div>';
+  }).join('');
+  document.querySelectorAll('#feed .feed-i').forEach(function(f){f.addEventListener('click',function(){openModal(f.dataset.id);});});
+}
+function bcards(arr,valf){return arr.map(function(p,i){var t=p.t.replace(/[“”]/g,'');if(t.length>20)t=t.slice(0,20)+'…';return '<div class="bestcard" data-id="'+p.id+'"><div class="rk">'+(i+1)+'</div><div class="bt">'+t+'<div class="ty">'+p.type+'</div></div><div class="bv">'+valf(p)+'</div></div>';}).join('');}
+function renderBest(){
+  var ps=(D.posts||[]).slice();
+  var byV=ps.slice().sort(function(a,b){return num(b.m['도달'])-num(a.m['도달']);}).slice(0,3);
+  var byE=ps.slice().sort(function(a,b){return num(b.er)-num(a.er);}).slice(0,3);
+  document.getElementById('bViews').innerHTML=bcards(byV,function(p){return abbr(p.m['도달']);});
+  document.getElementById('bEr').innerHTML=bcards(byE,function(p){return p.er;});
+  document.querySelectorAll('.bestcard').forEach(function(c){c.addEventListener('click',function(){openModal(c.dataset.id);});});
+}
+
+// charts
+var charts={};
+function renderCharts(){
+  if(typeof Chart==='undefined'){return setTimeout(renderCharts,150);}
+  Chart.defaults.font.family="'Pretendard Variable',sans-serif";Chart.defaults.color=SUB;
+  Object.keys(charts).forEach(function(k){if(charts[k])charts[k].destroy();});
+  var t=D.trend||{labels:[],data:[],avg:0}; var peak=t.data&&t.data.length?t.data.indexOf(Math.max.apply(null,t.data)):-1;
+  charts.trend=new Chart(document.getElementById('trend'),{type:'bar',
+    data:{labels:t.labels,datasets:[
+      {data:t.data,backgroundColor:(t.data||[]).map(function(_,i){return i===peak?HI:'#e7eaec';}),borderRadius:6,maxBarThickness:34},
+      {type:'line',data:(t.data||[]).map(function(){return t.avg;}),borderColor:'#c9ccce',borderDash:[5,5],borderWidth:1.5,pointRadius:0}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+      scales:{y:{grid:{color:LINE},ticks:{font:{size:10}},border:{display:false}},x:{grid:{display:false},ticks:{font:{size:11}},border:{display:false}}}}});
+  var bt=D.byType||{labels:[],data:[]};
+  charts.bytype=new Chart(document.getElementById('bytype'),{type:'bar',
+    data:{labels:bt.labels,datasets:[{data:bt.data,backgroundColor:(bt.data||[]).map(function(_,i){return i===0?'#23282d':'#d3d7da';}),borderRadius:5}]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:LINE},ticks:{font:{size:10}},border:{display:false}},y:{grid:{display:false},ticks:{font:{size:11,weight:'700'}},border:{display:false}}}}});
+  var rc=D.reach||{newPct:0,loyalPct:0};
+  charts.reach=new Chart(document.getElementById('reach'),{type:'bar',
+    data:{labels:['도달(새 사람)','연결(단골·신뢰)'],datasets:[{data:[rc.newPct,rc.loyalPct],backgroundColor:['#23282d','#c7ccd0'],borderRadius:5,barThickness:42}]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.x+'%';}}}},scales:{x:{max:100,grid:{color:LINE},ticks:{callback:function(v){return v+'%';},font:{size:10}},border:{display:false}},y:{grid:{display:false},ticks:{font:{size:11,weight:'700'}},border:{display:false}}}}});
+}
+function setLiveUI(){
+  var b=document.querySelector('.badge'); if(b)b.textContent=LIVE?'● 실데이터':'● 샘플 데이터';
+  var sb=document.querySelector('.samplebar'); if(sb)sb.style.display=LIVE?'none':'';
+  var fb=document.querySelector('.foot b'); if(fb&&LIVE)fb.textContent='충무님 실제 데이터입니다.';
+}
+function renderAll(){indexPosts();renderKPIs();renderTable();renderFeed();renderBest();renderCharts();setLiveUI();}
+// data.js 가 있으면(낙타가 만든 실데이터) window.LIVE_DATA 로 들어온다. 없으면 샘플.
+if(window.LIVE_DATA&&window.LIVE_DATA.posts&&window.LIVE_DATA.posts.length){D=window.LIVE_DATA;LIVE=true;}
+renderAll();
+</script>
+</body>
+</html>
