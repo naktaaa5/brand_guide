@@ -523,5 +523,18 @@ body{font-family:var(--font-b);background:var(--white);color:var(--black);line-h
   el.forEach(function(e){o.observe(e)});
 })();
 </script>
+<!-- refeeel-doc-view-beacon --><script>(function(){try{
+var K='rf_v',v=localStorage.getItem(K);
+if(!v){v=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem(K,v);}
+var d=location.pathname.replace(/index\.html$/,'').replace(/^\/+|\/+$/g,'');
+if(!d)return;
+var kind=d.indexOf('brand_guide')===0?(/guideline/.test(d)?'guideline':'proposal'):'report';
+var t0=Date.now(),sent=false;
+function send(ms){var b=JSON.stringify({doc:d,v:v,kind:kind,ms:ms});
+if(navigator.sendBeacon){navigator.sendBeacon('https://refeeel-ig.naktaaa00.workers.dev/doc-view',new Blob([b],{type:'application/json'}));}
+else{fetch('https://refeeel-ig.naktaaa00.workers.dev/doc-view',{method:'POST',headers:{'Content-Type':'application/json'},body:b,keepalive:true}).catch(function(){});}}
+send(null);
+addEventListener('pagehide',function(){if(sent)return;sent=true;send(Date.now()-t0);});
+}catch(e){}})();</script>
 </body>
 </html>
