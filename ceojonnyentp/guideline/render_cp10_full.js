@@ -193,7 +193,7 @@ function graphic(id,q){
  const original=sourceData(q); let body='';
  const items=(arr,cls='flow-items')=>`<div class="${cls}">${arr.map((x,i)=>`<div><small>0${i+1}</small><b>${x[0]}</b><span>${x[1]||''}</span></div>`).join('')}</div>`;
  if(id==='1-1') body=`<div class="axis-legend">${[['A','효과','유입 · 호감·공감 · 권위 · 문제 인식 · 제품 이해 · 행동'],['B','기억이 남은 곳','조니 개인 J · 브랜드 자격 X · 피부 문제 C · 제품 P'],['C','전이','비전이 · 조건부 전이 · 직접 전이'],['D','역할','발견 · 검증 · 선택 · 정착 · 퍼널 외'],['E','위험','평판 파급 없음 · 인물 평판 파급 · 브랜드 인접 파급']].map(x=>`<div><i>${x[0]}</i><b>${x[1]}</b><span>${x[2]}</span></div>`).join('')}</div>`;
- else if(id==='2-1') body=`<div class="layer-table"><div class="layer-rows">${[['대중','센 언니·엄마·관계 훈령자','도달과 캐릭터 기억'],['사업','현실적인 대표·워킹맘·실행가','사업가 권위'],['카테고리','36년 당사자·환자 대변자','공감과 자격'],['브랜드','고객을 가려 받는 개발자·판매자','제품 선택 이유']].map(x=>`<div class="has-tip" tabindex="0" data-tip="${esc(x[2])}"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div><div class="layer-brackets"><div class="bracket muted"><i class="tick top"></i><i class="tick bottom"></i><span>현재 노출 집중</span></div><div class="bracket key"><i class="tick top"></i><i class="tick bottom"></i><span>제품 선택에 가까움 · 상대적으로 좁음</span></div></div></div>`;
+ else if(id==='2-1') body=`<div class="layer-table"><div class="layer-rows">${[['대중','센 언니·엄마·관계 판별자','도달과 캐릭터 기억'],['사업','현실적인 대표·워킹맘·실행가','사업가 권위'],['카테고리','36년 당사자·환자 대변자','공감과 자격'],['브랜드','고객을 가려 받는 개발자·판매자','제품 선택 이유']].map(x=>`<div class="has-tip" tabindex="0" data-tip="${esc(x[2])}"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div><div class="layer-brackets"><div class="bracket muted"><i class="tick top"></i><i class="tick bottom"></i><span>현재 노출 집중</span></div><div class="bracket key"><i class="tick top"></i><i class="tick bottom"></i><span>제품 선택에 가까움 · 상대적으로 좁음</span></div></div></div>`;
  else if(id==='2-2') body=pillarsBlock('신뢰가 완성되는 조건',[['공감','고객의 절박함을 살아본 경험'],['판단','치료·화장품·제품 적합성을 구분하는 능력'],['손해 감수','맞지 않는 고객에게 판매하지 않는 행동']],'AD솔루션의 대표인 조니를 믿을 이유');
  else if(id==='3-1') body=`<div class="concentration"><div class="total"><b>31,348,361</b><span>전체 조회수</span></div>${[['상위 10% · 24편',78.6],['나머지 90% · 220편',21.4],['상위 20% · 49편',88.6],['나머지 80% · 195편',11.4]].map(x=>`<div class="hbar"><b>${x[0]}</b><i><em style="width:${x[1]}%"></em></i><span>${x[1]}%</span></div>`).join('')}</div>`;
  else if(id==='3-2') body=stackedBar([['비전이 · 186편',93.7,'a'],['조건부 전이 · 16편',1.4,'b'],['직접 전이 · 42편',4.9,'c']]);
@@ -304,7 +304,7 @@ function bookmarkBlock(id,q){
 function embedVisual(id,q){
  const data=sourceData(q);
  // 한 지점에 여러 편이 몰릴 때는 격자로 쌓지 않고 가로 필름스트립으로 눕힌다
- if(id==='3-2'){const items=[['DUAXnreCUIj','육아·가족의 실제 장면','관계 동일시 · 비전이'],['DVNq_ItiS3L','관계와 가족 공감','관계 동일시 · 비전이'],['DV-9ZGjCcsa','“둘째들 모여봐”','캐릭터 선명화 · 비전이'],['DUfduyujOGS','관계 훈령자 조니','캐릭터 선명화 · 비전이']];
+ if(id==='3-2'){const items=[['DUAXnreCUIj','육아·가족의 실제 장면','관계 동일시 · 비전이'],['DVNq_ItiS3L','관계와 가족 공감','관계 동일시 · 비전이'],['DV-9ZGjCcsa','“둘째들 모여봐”','캐릭터 선명화 · 비전이'],['DUfduyujOGS','관계 판별자 조니','캐릭터 선명화 · 비전이']];
   return `<div class="visual film film-grid">${data}<div class="film-head"><b>조니 개인에게 큰 도달을 만든 육아·관계 콘텐츠</b></div><div class="visual-body"><div class="film-rail">${items.map(x=>{const dv=dateViewsLabel(x[0]);return `<a class="film-card" id="content-${x[0]}" href="https://www.instagram.com/reel/${x[0]}/" target="_blank" rel="noopener"><span class="film-frame"><img src="${poster(x[0])}" alt="${esc(x[1])} 콘텐츠 프레임"><i>▶</i></span><b>${esc(x[1])}</b><em>${esc(x[2])}${dv?` · ${dv.date} · ${dv.views}`:''}</em></a>`}).join('')}</div>${aside('4편의 공통 판독 — 큰 주목 · 관계 동일시 · 조니 캐릭터 선명화 / 대체로 J3 · X0 · C0 · P0 / 비전이')}</div></div>`;}
  // 앞에서 이미 보여준 콘텐츠의 재언급은 별도 블록을 세우지 않고 본문 문장 안 칩으로 처리한다(아래 CREF)
  if(id==='7-1') return sourceData(q);
@@ -503,7 +503,19 @@ function hide(){t.classList.remove('on');cur=null}
  a.addEventListener('click',function(e){if(matchMedia('(hover:none)').matches&&cur!==a){e.preventDefault();show(a)}})});
 addEventListener('scroll',hide,{passive:true});
 document.addEventListener('click',function(e){var n=e.target&&e.target.closest?e.target.closest('a.xref[data-goto]'):null;if(!n)hide()},true);
-})();</script>${MARK?fs.readFileSync(__dirname+'/mark_tool.html','utf8'):''}</body></html>`;
+})();</script>${MARK?fs.readFileSync(__dirname+'/mark_tool.html','utf8'):''}<!-- refeeel-doc-view-beacon --><script>(function(){try{
+var K='rf_v',v=localStorage.getItem(K);
+if(!v){v=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem(K,v);}
+var d=location.pathname.replace(/index\\.html$/,'').replace(/^\\/+|\\/+$/g,'');
+if(!d)return;
+var kind=d.indexOf('brand_guide')===0?(/guideline/.test(d)?'guideline':'proposal'):'report';
+var t0=Date.now(),sent=false;
+function send(ms){var b=JSON.stringify({doc:d,v:v,kind:kind,ms:ms});
+if(navigator.sendBeacon&&navigator.sendBeacon('https://refeeel-ig.naktaaa00.workers.dev/doc-view',new Blob([b],{type:'text/plain;charset=UTF-8'})))return;
+fetch('https://refeeel-ig.naktaaa00.workers.dev/doc-view',{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:b,keepalive:true}).catch(function(){});}
+send(null);
+addEventListener('pagehide',function(){if(sent)return;sent=true;send(Date.now()-t0);});
+}catch(e){}})();</script></body></html>`;
 fs.writeFileSync(dest,html);console.log(dest);
 // ── marks 존재 검증 (--mark 여부와 무관하게 항상 실행, 콘솔 보고용) ──
 const srcText=lines.join('\n');
