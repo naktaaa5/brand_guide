@@ -1,0 +1,151 @@
+<!-- 형광펜 표시 도구 — cp10_mark.html(표시 전용 사본)에만 주입된다. 납품본에는 들어가지 않는다. -->
+<style>
+.mk-fab{position:absolute;z-index:500;transform:translate(-50%,-125%);padding:9px 14px;border:0;border-radius:5px;background:#0030cf;color:#ffffff;font:700 12px/1 -apple-system,BlinkMacSystemFont,sans-serif;cursor:pointer;box-shadow:0 8px 26px rgba(19,23,27,.25);white-space:nowrap}
+.mk-fab.warn{background:#0030cf;cursor:default}
+mark.usermark{background:#d7e1ec;color:inherit;padding:0 .06em;border-radius:2px;cursor:pointer;box-shadow:0 0 0 1px #0030cf}
+mark.usermark:hover{box-shadow:0 0 0 2px #0030cf}
+.marker{cursor:pointer}
+.marker.mk-del{opacity:.38;text-decoration:line-through;text-decoration-color:#0030cf;text-decoration-thickness:2px}
+.mk-panel{position:fixed;right:16px;bottom:16px;z-index:600;width:272px;max-height:72vh;display:flex;flex-direction:column;background:#ffffff;border:1px solid #d7e1ec;box-shadow:0 14px 44px rgba(19,23,27,.15);font:400 12px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;color:#13171b}
+.mk-panel header{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 13px;border-bottom:1px solid #d7e1ec;cursor:pointer}
+.mk-panel header b{font-size:12px;font-weight:700}
+.mk-panel header i{font-style:normal;color:#6b737e}
+.mk-panel.mini .mk-list,.mk-panel.mini .mk-foot{display:none}
+.mk-list{overflow:auto;padding:5px 0}
+.mk-list>div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:5px 13px}
+.mk-list>div.over{color:#0030cf}
+.mk-list b{font-weight:600;font-size:11.5px}
+.mk-list span{flex:none;color:#6b737e;font-size:10.5px}
+.mk-foot{display:flex;gap:6px;padding:10px 13px;border-top:1px solid #d7e1ec}
+.mk-foot button{flex:1;padding:9px 4px;border:1px solid #d7e1ec;border-radius:4px;background:#ffffff;font:700 11px/1 inherit;color:#13171b;cursor:pointer}
+.mk-foot button.pri{background:#13171b;color:#ffffff;border-color:#13171b}
+.mk-hint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:700;padding:11px 17px;background:#13171b;color:#ffffff;border-radius:5px;font:600 12px/1 -apple-system,sans-serif;opacity:0;transition:.2s;pointer-events:none}
+.mk-hint.on{opacity:1}
+@media print{.mk-panel,.mk-fab,.mk-hint{display:none!important}}
+</style>
+<script>
+(function(){
+var KEY='cp10.marks.v1', main=document.querySelector('main');
+if(!main)return;
+document.title='[표시본] '+document.title;
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{add:[],del:[]}}catch(e){return{add:[],del:[]}}}
+var state=load();
+function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+
+function sectionOf(el){
+  var n=el;
+  while(n&&n!==main){
+    var p=n.previousElementSibling;
+    while(p){
+      if(/^H[34]$/.test(p.tagName)){var i=p.querySelector('i');return (i?i.textContent:'').replace(/\.$/,'')||p.textContent.trim().slice(0,18)}
+      p=p.previousElementSibling}
+    n=n.parentElement}
+  return ''}
+function chapterName(el){
+  var c=el.closest?el.closest('.chapter'):null;
+  if(!c)return '';
+  var t=c.querySelector('.section-no');
+  return t?t.textContent.trim():c.id}
+function blockOf(el){return (el.closest&&el.closest('p,li,td,th,h3,h4,blockquote,figcaption,cite'))||el}
+
+function wrapText(txt){
+  var w=document.createTreeWalker(main,NodeFilter.SHOW_TEXT),n;
+  while(n=w.nextNode()){
+    if(!n.data.trim())continue;
+    if(n.parentElement.closest('mark.usermark,template'))continue;
+    var i=n.data.indexOf(txt);
+    if(i<0)continue;
+    var r=document.createRange();r.setStart(n,i);r.setEnd(n,i+txt.length);
+    var m=document.createElement('mark');m.className='usermark';
+    try{r.surroundContents(m)}catch(e){continue}
+    return m}
+  return null}
+function unwrap(m){var p=m.parentNode;while(m.firstChild)p.insertBefore(m.firstChild,m);p.removeChild(m);p.normalize()}
+
+/* 저장된 표시 복원 */
+state.add=state.add.filter(function(o){return !!wrapText(o.text)});
+state.del.forEach(function(o){
+  [].forEach.call(document.querySelectorAll('.marker'),function(m){if(m.textContent.trim()===o.text)m.classList.add('mk-del')})});
+save();
+
+var panel=document.createElement('div');panel.className='mk-panel';document.body.appendChild(panel);
+var hint=document.createElement('div');hint.className='mk-hint';document.body.appendChild(hint);
+var hintT;function say(t){hint.textContent=t;hint.classList.add('on');clearTimeout(hintT);hintT=setTimeout(function(){hint.classList.remove('on')},2000)}
+
+function counts(){
+  var out=[];
+  [].forEach.call(document.querySelectorAll('.chapter'),function(c){
+    var t=c.querySelector('.section-no'),name=t?t.textContent.trim():c.id;
+    var cur=c.querySelectorAll('.marker:not(.mk-del)').length, neu=c.querySelectorAll('mark.usermark').length;
+    if(cur+neu)out.push({name:name,cur:cur,neu:neu})});
+  return out}
+
+function render(){
+  var rows='';
+  counts().forEach(function(v){
+    var tot=v.cur+v.neu;
+    rows+='<div class="'+(tot>2?'over':'')+'"><b>'+v.name.replace(/^\d+ — /,'')+'</b><span>'+(v.cur?'기존 '+v.cur:'')+(v.neu?(v.cur?' · ':'')+'신규 '+v.neu:'')+' = '+tot+'</span></div>'});
+  panel.innerHTML='<header><b>형광펜 표시 · 표시본</b><i>'+(panel.classList.contains('mini')?'▲':'▼')+'</i></header>'
+    +'<div class="mk-list">'+(rows||'<div><span>문장을 드래그하면 표시할 수 있습니다</span></div>')+'</div>'
+    +'<div class="mk-foot"><button class="pri" data-a="copy">복사</button><button data-a="reset">초기화</button></div>'}
+
+var fab=null;
+function killFab(){if(fab){fab.remove();fab=null}}
+document.addEventListener('mousedown',function(e){if(!e.target.closest('.mk-fab'))killFab()});
+document.addEventListener('mouseup',function(e){
+  if(e.target.closest('.mk-panel'))return;
+  setTimeout(function(){
+    var sel=getSelection(),t=(sel.toString()||'').trim();
+    killFab();
+    if(!t||t.length<4)return;
+    var ok=sel.rangeCount&&sel.anchorNode===sel.focusNode&&sel.anchorNode.nodeType===3&&sel.anchorNode.parentElement.closest('main')&&!sel.anchorNode.parentElement.closest('mark.usermark');
+    fab=document.createElement('button');
+    fab.className='mk-fab'+(ok?'':' warn');
+    fab.textContent=ok?'형광펜 표시':'한 문단 안에서만 선택하세요';
+    fab.style.left=e.pageX+'px';fab.style.top=e.pageY+'px';
+    document.body.appendChild(fab);
+    if(!ok)return;
+    var range=sel.getRangeAt(0).cloneRange();
+    fab.onclick=function(){
+      var m=document.createElement('mark');m.className='usermark';
+      try{range.surroundContents(m)}catch(err){say('표시하지 못했습니다 — 다시 선택해주세요');killFab();return}
+      sel.removeAllRanges();
+      state.add.push({text:t,sec:sectionOf(blockOf(m)),chapter:chapterName(m)});
+      save();render();killFab();say('표시했습니다');
+    };
+  },0)});
+
+main.addEventListener('click',function(e){
+  var um=e.target.closest('mark.usermark');
+  if(um){var t=um.textContent;unwrap(um);
+    state.add=state.add.filter(function(o){return o.text!==t});save();render();say('표시를 지웠습니다');return}
+  var mk=e.target.closest('.marker');
+  if(mk){var tx=mk.textContent.trim();
+    if(mk.classList.toggle('mk-del')){state.del.push({text:tx,sec:sectionOf(blockOf(mk)),chapter:chapterName(mk)});say('삭제 요청으로 표시했습니다')}
+    else{state.del=state.del.filter(function(o){return o.text!==tx});say('삭제 요청을 취소했습니다')}
+    save();render()}});
+
+panel.addEventListener('click',function(e){
+  if(e.target.closest('header')){panel.classList.toggle('mini');render();return}
+  var a=e.target.getAttribute&&e.target.getAttribute('data-a');
+  if(a==='reset'){
+    if(!confirm('표시를 모두 지웁니다. 계속할까요?'))return;
+    [].forEach.call(document.querySelectorAll('mark.usermark'),unwrap);
+    [].forEach.call(document.querySelectorAll('.marker.mk-del'),function(m){m.classList.remove('mk-del')});
+    state={add:[],del:[]};save();render();say('초기화했습니다')}
+  if(a==='copy'){
+    var out='## 형광펜 표시 요청\n\n';
+    if(state.add.length){out+='### 새로 강조할 곳 ('+state.add.length+')\n';
+      state.add.forEach(function(o){out+='- ['+(o.sec||'-')+'] "'+o.text+'"\n'})}
+    if(state.del.length){out+='\n### 강조를 뺄 곳 ('+state.del.length+')\n';
+      state.del.forEach(function(o){out+='- ['+(o.sec||'-')+'] "'+o.text+'"\n'})}
+    if(!state.add.length&&!state.del.length)out+='(표시 없음)\n';
+    var over=[];counts().forEach(function(v){if(v.cur+v.neu>2)over.push(v.name.replace(/^\d+ — /,'')+'('+(v.cur+v.neu)+')')});
+    if(over.length)out+='\n> 장당 1~2개를 넘긴 장: '+over.join(', ')+'\n';
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(out).then(function(){say('복사했습니다 — 페이블에게 붙여넣으세요')},function(){prompt('복사해서 붙여넣으세요',out)})}
+    else prompt('복사해서 붙여넣으세요',out)}});
+
+render();
+})();
+</script>
